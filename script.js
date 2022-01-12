@@ -1,12 +1,11 @@
 
-var gif, gif2, gif3, gif4, gif5, gif6, gif7, gif8;
+var gif, gif2, gif3, gif4, gif5, gif6, gif7;
 var img;
 var gifarray = [];
 var gifarray2 = [];
 var counter = 0;
 
 function preload() {
-  //sasha
   //gif = loadGif('gifs/c4gcha1.gif');
   gif = loadGif('https://media3.giphy.com/media/4gA9Xw4apikFVxAAYa/giphy.gif');
   gif2 = loadGif('https://media3.giphy.com/media/EM5PZ43ILMwVPpc7I0/giphy.gif');
@@ -14,6 +13,7 @@ function preload() {
   gif4 = loadGif('https://media3.giphy.com/media/vmjwSQ7SJ0oEewKTBv/giphy.gif');
   gif5 = loadGif('https://media0.giphy.com/media/xcKS5gwjOfYrJnCjrq/giphy.gif');
   gif6 = loadGif('https://media3.giphy.com/media/0qsgC2HVry1PrRuodF/giphy.gif');
+  gif7 = loadGif('https://media3.giphy.com/media/rnIuObh12x6LqU4FS5/giphy.gif');
 }
 
 function setup() {
@@ -40,10 +40,10 @@ function setup() {
   // gif7.pause();
   // gif8.pause();
 
-  gifarray.push(gif, gif2, gif3, gif4, gif5, gif6);
+  gifarray.push(gif, gif2, gif3, gif4, gif5, gif6, gif7);
   //gifarray[counter].pause();
   //is there a way to randomly pull from an array? 
-  gifarray2.push(gif6, gif5, gif4, gif3, gif2, gif);
+  gifarray2.push(gif6, gif5, gif4, gif3, gif2, gif, gif7);
   // gifarray[counter].pause();
 }
 
@@ -56,6 +56,8 @@ function draw() {
 
   image(gifarray[counter], 150, 50);
   image(gifarray2[counter], 650, 50);
+
+  drawGrid(20, 1);
   //blendMode(DIFFERENCE);
 
   //image(gifarray[counter], 250, 100);
@@ -122,11 +124,27 @@ function mousePressed() {
   //   gif.play();
   // }
   var gifarray = [];
-  if (counter <5){
+  if (counter <6){
   counter++;
   }
   //if (counter >= gifarray.length()){
-  if (counter >= 5) {
+
+  //changing to >= makes the loop of gifs stop repeating in line below
+  if (counter > 6) {
     counter = 0;
   }
+}
+
+function drawGrid(cellSize, alpha) {
+	stroke(0, [alpha]);
+	//Vertical Lines
+	for (var x = 0; x < width; x += cellSize) {
+		line(x, 0, x, height);
+	}
+	
+	//Horizontal Lines
+	for (var y = 0; y < height; y += cellSize) {
+		line(0, y, width, y);
+	}
+
 }
