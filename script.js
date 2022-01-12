@@ -18,28 +18,6 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  //setFrameRate(30);
-  //chaski
-  // gif = loadGif('gifs/c4gcha1.gif');
-  // gif2 = loadGif('gifs/c4gcha2.gif');
-  // gif3 = loadGif('gifs/c4gcha3.gif');
-  // gif4 = loadGif('gifs/c4gcha4.gif');
-  // //sasha
-  // gif5 = loadGif('gifs/c4gsa1.gif');
-  // gif6 = loadGif('gifs/c4gsa2.gif');
-  // gif7 = loadGif('gifs/c4gsa3.gif');
-  // gif8 = loadGif('gifs/c4gsa4.gif');
-
-  // gif.pause();
-  // gif3.pause();
-  // gif4.pause();
-  // gif2.pause();
-  // //cha
-  // gif5.pause();
-  // gif6.pause();
-  // gif7.pause();
-  // gif8.pause();
-
   gifarray.push(gif, gif2, gif3, gif4, gif5, gif6, gif7);
   //gifarray[counter].pause();
   //is there a way to randomly pull from an array? 
@@ -51,8 +29,7 @@ function draw() {
 
   background(255);
   ///if (gif.loaded()) {
-
-    console.log(counter);
+  console.log(counter);
 
   image(gifarray[counter], 150, 50);
   image(gifarray2[counter], 650, 50);
@@ -83,22 +60,6 @@ function draw() {
   // image(gif4, 0, 50);
 }
 
-
-
-function pausegif() {
-  gif.pause();
-  gif3.pause();
-  gif4.pause();
-  gif2.pause();
-  //cha
-  gif5.pause();
-  gif6.pause();
-  gif7.pause();
-  gif8.pause();
-  console.log("iam Paused!");
-
-}
-
 function mouseMoved() {
   // if (gif.loaded() && !gif.playing()){
   //   var totalFrames = gif.totalFrames();
@@ -109,11 +70,9 @@ function mouseMoved() {
   var totalFrames = gifarray[counter].totalFrames();
   var frame = int(map(mouseX, 0, width, 0, totalFrames));
   gifarray[counter].frame(frame);
-
   // var totalFrames2 = gifarray2[counter].totalFrames();
   // var frame = int(map(mouseY, 0, height, 0, totalFrames2));
   // gifarray2[counter].frame(frame);
-
   //}
 }
 
@@ -124,27 +83,25 @@ function mousePressed() {
   //   gif.play();
   // }
   var gifarray = [];
-  if (counter <6){
-  counter++;
+  if (counter < 7) {
+    counter++;
   }
-  //if (counter >= gifarray.length()){
 
-  //changing to >= makes the loop of gifs stop repeating in line below
-  if (counter > 6) {
+  if (counter >= 7) {
     counter = 0;
   }
 }
 
 function drawGrid(cellSize, alpha) {
-	stroke(0, [alpha]);
-	//Vertical Lines
-	for (var x = 0; x < width-210; x += cellSize) {
-		line(x, 0, x, height);
-	}
-	
-	//Horizontal Lines
-	for (var y = 0; y < height; y += cellSize) {
-		line(0, y, width-212, y);
-	}
+  stroke(0, [alpha]);
+  //Vertical Lines
+  for (var x = 0; x < width - 210; x += cellSize) {
+    line(x, 0, x, height);
+  }
+
+  //Horizontal Lines
+  for (var y = 0; y < height; y += cellSize) {
+    line(0, y, width - 212, y);
+  }
 
 }
