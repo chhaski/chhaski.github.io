@@ -138,13 +138,13 @@ function mousePressed() {
 function drawGrid(cellSize, alpha) {
 	stroke(0, [alpha]);
 	//Vertical Lines
-	for (var x = 0; x < width; x += cellSize) {
+	for (var x = 0; x < width-210; x += cellSize) {
 		line(x, 0, x, height);
 	}
 	
 	//Horizontal Lines
 	for (var y = 0; y < height; y += cellSize) {
-		line(0, y, width, y);
+		line(0, y, width-212, y);
 	}
 
 }
