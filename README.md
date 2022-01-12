@@ -1,4 +1,4 @@
-Welcome, this is the name of my project
+study in choreography for the grid; a duet
 ================= 
 
 Your Project
