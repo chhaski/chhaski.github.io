@@ -7,21 +7,23 @@ var counter = 0;
 
 function preload() {
   //gif = loadGif('gifs/c4gcha1.gif');
+
   gif = loadGif('https://media3.giphy.com/media/4gA9Xw4apikFVxAAYa/giphy.gif');
   gif2 = loadGif('https://media3.giphy.com/media/EM5PZ43ILMwVPpc7I0/giphy.gif');
   gif3 = loadGif('https://media4.giphy.com/media/xugE1KFOS0RrPpSjCN/giphy.gif');
   gif4 = loadGif('https://media3.giphy.com/media/vmjwSQ7SJ0oEewKTBv/giphy.gif');
   gif5 = loadGif('https://media0.giphy.com/media/xcKS5gwjOfYrJnCjrq/giphy.gif');
-  gif6 = loadGif('https://media3.giphy.com/media/0qsgC2HVry1PrRuodF/giphy.gif');
+  gif6 = loadGif('https://media4.giphy.com/media/6PRxSk48IIlU97VXv4/giphy.gif');
   gif7 = loadGif('https://media3.giphy.com/media/rnIuObh12x6LqU4FS5/giphy.gif');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  gifarray.push(gif, gif2, gif3, gif4, gif5, gif6, gif7);
-  //gifarray[counter].pause();
-  //is there a way to randomly pull from an array? 
-  gifarray2.push(gif6, gif5, gif4, gif3, gif2, gif, gif7);
+   //left
+  gifarray.push(gif3, gif4,gif, gif2,  gif5, gif6, gif7);
+  //how to randomly pull from an array? 
+  //right
+  gifarray2.push(gif4, gif3, gif6, gif5,  gif2, gif, gif7);
   // gifarray[counter].pause();
 }
 
@@ -30,10 +32,12 @@ function draw() {
   background(255);
   ///if (gif.loaded()) {
   console.log(counter);
+  //left
+  image(gifarray[counter], 100, 50);
+  //right
+  image(gifarray2[counter], 550, 50);
 
-  image(gifarray[counter], 150, 50);
-  image(gifarray2[counter], 650, 50);
-
+  
   drawGrid(20, 1);
   //blendMode(DIFFERENCE);
 
@@ -93,7 +97,8 @@ function mousePressed() {
 }
 
 function drawGrid(cellSize, alpha) {
-  stroke(0, [alpha]);
+ // stroke(0, [alpha]);
+ stroke(128 + sin(frameCount*0.01) * 128);
   //Vertical Lines
   for (var x = 0; x < width - 210; x += cellSize) {
     line(x, 0, x, height);
