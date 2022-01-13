@@ -98,7 +98,8 @@ function mousePressed() {
 
 function drawGrid(cellSize, alpha) {
  // stroke(0, [alpha]);
- stroke(128 + sin(frameCount*0.01) * 128);
+ //stroke(128 + sin(frameCount*0.01) * 128);
+ stroke(mouseY+sin(frameCount*0.03));
   //Vertical Lines
   for (var x = 0; x < width - 210; x += cellSize) {
     line(x, 0, x, height);
