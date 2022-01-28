@@ -32,12 +32,13 @@ function setup() {
 //code adapted from @GoToLoop
 //generates a circular noise with perfect looping
 //https://forum.processing.org/one/topic/how-to-make-perlin-noise-loop.html
+
 function pointForIndex(pct) {
     const NOISE_SCALE = 1.5;
     let angle = pct * TWO_PI;
     let cosAngle = cos(angle);
     let sinAngle = sin(angle);
-    let time = frameCount / 100;
+    let time = frameCount / 50;
     let noiseValue = noise(NOISE_SCALE * cosAngle + NOISE_SCALE, NOISE_SCALE * sinAngle + NOISE_SCALE, time);
     let radius = INNER_RADIUS + RADIUS_VARIATION * noiseValue;
     return {
@@ -47,7 +48,7 @@ function pointForIndex(pct) {
 }
 
 function draw() {
-    background(255,100);
+    background(255,30);
     fill(0);
     noStroke();
 
