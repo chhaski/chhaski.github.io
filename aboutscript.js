@@ -35,7 +35,7 @@ function setup() {
     RADIUS_VARIATION = screenPct * 250;
 
     //textLeading(20);
-    textFont('Helvetica');
+    textFont('Times New Roman');
     textSize(fontSize);
 }
 
