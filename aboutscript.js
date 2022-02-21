@@ -8,7 +8,7 @@ const textToWrite = "sa_cha is the collaboration of chaski and sasha";
 const SEGMENTS = 2;
 let drawCounter = 0
 let width = 1520;
-var words = ["(b. 2015, American)", "or", "(b. 1993, Peruvian)", "or", "(b. 1915, someplace in the Old World)", "or"];
+var words = ["(b. 2015, American)", "or", "(b. 1971, Peruvian)", "or", "(b. 1915, someplace in the Old World)", "or" ];
 var index = 0;
 var imgs = [img1,img2,img3,img4];
 
@@ -41,15 +41,12 @@ function setup() {
 
 
 function draw() {
-    background(255,30);
+    //sbackground(255);
 
 
-    fill(0);
-    noStroke();
-    fill(0);
-    textSize(32);
-    text("sa_cha", 100, 200);
-    text(words[index], 100, 250);
+    //fill(0);
+    //noStroke();
+  
     
     //image(img1, 100, 50);
    //image(imgs[imgindex], 100, 200);
@@ -63,6 +60,14 @@ function draw() {
       stroke(strokeColor)
       point(horizontalCounter, 0)
     }
+
+    push();
+    textSize(32);
+    fill(0);
+   // textWrap(WORD);
+    //text("sa_cha", 100, 200);
+    //text(words[index], 100, 250);
+    pop();
 
 
 }
