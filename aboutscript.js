@@ -17,7 +17,7 @@ let y = 100;
 
 
 function preload() {
-    img1 = loadImage('cha.png');
+    img1 = loadImage('sacha.png');
     img2 = loadImage('sash.png');
     img3 = loadImage('lake.png');
     img4 = loadImage('tree.png');
@@ -47,9 +47,11 @@ function draw() {
     //fill(0);
     //noStroke();
   
-    
-    //image(img1, 100, 50);
-   //image(imgs[imgindex], 100, 200);
+  //   push();
+  //   scale(0.2)
+  //   image(img1, 50, 50);
+  //  //image(imgs[imgindex], 100, 200);
+  //  pop();
 
     drawCounter++
 
