@@ -1,5 +1,7 @@
 /* CSS files add styling rules to your content */
 
+/* .crosshair {cursor: crosshair;} */
+
 body {
   font-family: helvetica, arial, sans-serif;
   margin: 2em;
@@ -11,6 +13,8 @@ font-style: normal;
 text-transform: lowercase;
 word-wrap: break-word;
 overflow-wrap: break-word;
+cursor: crosshair;
+
 }
 
 h1 {
@@ -24,6 +28,7 @@ font-style: normal;
 text-transform: lowercase;
 word-wrap: break-word;
 overflow-wrap: break-word;
+cursor: crosshair;
 }
 
 
@@ -103,4 +108,9 @@ overflow-wrap: break-word;
 
 .toggle_collapse:checked + * + label:after {
 	content:"\25B2";
+}
+
+::selection {
+  background: #e74c3c;
+  text-shadow: 1px 1px 0 #27ae60;
 }
