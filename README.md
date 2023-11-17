@@ -1,11 +1,9 @@
 
 ╔═.✵.════════════════════════════════════════════════════╗
 
-study in choreography for the grid; a duet
+chaski's portfolio
 
 ================= 
-
-to revere and overcome the sharp edges of mine and yours
 
 \ ゜o゜)ノ
 
