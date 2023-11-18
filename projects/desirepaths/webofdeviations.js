@@ -2,7 +2,7 @@
 let img;
 
 function preload() {
-	img = createImg("desirepaths/desirepathsscroll.gif"); //
+	img = createImg("desirepathsscroll.gif"); //
 }
 
 function setup() {
