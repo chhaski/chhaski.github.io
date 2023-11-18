@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/style.css">
     
     <!-- import the webpage's javascript file -->
-    <script src="/index.js" defer></script>
+    <script src="projects/index/index.js" defer></script> 
   </head>  
   <body>
     <strong>
@@ -26,10 +26,50 @@
       <sub>
       as knowledge infrastructure, cross-reference mechanism, way of containing knowledge
       <br />
-      an index can operate like a hyperlink, creating associative relations among things
+
+
+      an index can operate like a hyperlink, creating associative relations between things
       
-      
+      <br />
+      <br />
     </sub>
+    <IMG SRC="projects/index/ezgif.com-gif-maker (14).gif" width="400" height="300" />
+
+    <ol>
+      <br /><br />
+      Methodology<br />
+      <br />
+      <sup>
+        <b>
+      pre-processing corpus.
+    </b>
+      <br />
+      make each index structure uniform
+      parse, reassemble
+      <br />
+    </b>
+  
+  <b>
+      processing corpus.
+    </b>
+      <br />
+      create vectors for each sequence of text (subentry) in the corpus
+      reduce dimensionality of each vector with t-SNE 
+      save the x-values of t-SNE visualization of vectors in 2-d space as an array, map it to a better range
+      create dictionary of each subentry and its corresponding vector
+      <br />
+    </b>
+  <b>
+      generating.
+    </b>
+      <br />
+      with tracery grammar
+      the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE
+      <br />
+    </ol>
+    </sup>
+      </p>
+
       <br /><br />
       Corpus<br />
       <br />
@@ -39,32 +79,8 @@
       Sara Ahmed - 'Queer Phenomenology',
       some phrases from my notebook.
     </sup>
-      <br /><br />
-      Methodology<br />
-      <br />
-      <sup>
-      pre-processing corpus
-      <br />
-      make each index structure uniform
-      parse, reassemble
-      <br />
-      processing corpus
-      <br />
-      create vectors for each sequence of text (subentry) in the corpus
-      reduce dimensionality of each vector with t-SNE 
-      save the x-values of t-SNE visualization of vectors in 2-d space as an array, map it to a better range
-      create dictionary of each subentry and its corresponding vector
-      <br />
-      generating
-      <br />
-      with tracery grammar
-      the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE
-      <br />
-    </sup>
-      </p>
-
-    <!-- <div style = "text-align:center;"> ↕ </div>
-    <div style = "text-align:center;"> ↔ </div> -->
+    <div style = "text-align:center;"> ↕ </div>
+    <div style = "text-align:center;"> ↔ </div>
     
     
     <!--     <p> -->

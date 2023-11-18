@@ -24,15 +24,19 @@
     </strong>
       <br />
       <sub>
+        
+
         Explanatory Essay on Proxies for Networks at NYU ITP Site: https://itp.nyu.edu/networks/explanations/proxies/
 
-        A proxy is defined as an entity empowered or authorized to act on behalf, or represent, another. It is commonly used in law and politics to indicate a delegated function. But it is also used in many other contexts to designate a variety of agents that intermediate relations between entities. 
+        <p>A proxy is defined as an entity empowered or authorized to act on behalf, or represent, another. It is commonly used in law and politics to indicate a delegated function. But it is also used in many other contexts to designate a variety of agents that intermediate relations between entities. </p>
 
-        In the context of computer networking, a proxy (or proxy server) acts as an intermediary between a client requesting data and the server providing that data. A proxy has its own IP address, so it can be thought of as a computational entity that acts as a go-between for the client and the internet. Often, a proxy’s goal is to be transparent.
+        <p>In the context of computer networking, a proxy (or proxy server) acts as an intermediary between a client requesting data and the server providing that data. A proxy has its own IP address, so it can be thought of as a computational entity that acts as a go-between for the client and the internet. Often, a proxy’s goal is to be transparent.</p>
         
-        Most often when people are talking about proxies, they’re most likely referring to forward proxies. 
+        <p>Most often when people are talking about proxies, they’re most likely referring to forward proxies. 
         system diagram of a proxy for distributed service. "client program" with 3 arrows connecting it to "service proxy" within one box. this box is overlapped by a box with a dotted line border containing "service proxy" which has three diverging arrows pointing to "server 1", "server 2" and "server 3". Below both boxes, "distributed service = group".
-        Figure 2. A proxy for a distributed Service
+        
+      </p>
+        <p>Figure 2. A proxy for a distributed Service
         
         When a forward proxy server is set up, your computer knows the IP address of the proxy, and whenever you send a request to access a certain site on the internet, your request is routed to the proxy, instead of connecting you directly to the site you requested. Once the proxy has intercepted your request, it forwards it to the remote server/site from its own IP address, which can completely remove your IP address and other identifying information from your request to the remote server. 
         
@@ -48,37 +52,38 @@
         
         Reverse proxies are intermediaries whose intermediary nature is not known to the client, while forward proxies are intermediaries whose intermediary nature is known to the client. Forward proxies can obscure the identities of clients whereas reverse proxies can obscure that of servers.
         
-        A proxy sits between two entities and performs a service. Roy Fielding designates them as intermediary components that “act as both a client and server in order to forward, with possible translation, requests and responses”. Translating, mapping or otherwise acting upon a request or response as it travels between the client and server, a proxy is well suited for representing services or requests on behalf of one entity in terms the second entity can understand. A proxy can use a different protocol to transfer the request or response being made through it. They excel at IP masking and misdirection, anonymous web browsing, and managing or circumventing content restrictions based on location or other blocks. For example, TOR (onion router) routes internet traffic through multiple layers of proxies for anonymity. Read more about TOR here. 
-        Brief and incomplete history of proxy
+        <p>A proxy sits between two entities and performs a service. Roy Fielding designates them as intermediary components that “act as both a client and server in order to forward, with possible translation, requests and responses”. Translating, mapping or otherwise acting upon a request or response as it travels between the client and server, a proxy is well suited for representing services or requests on behalf of one entity in terms the second entity can understand. A proxy can use a different protocol to transfer the request or response being made through it. They excel at IP masking and misdirection, anonymous web browsing, and managing or circumventing content restrictions based on location or other blocks. For example, TOR (onion router) routes internet traffic through multiple layers of proxies for anonymity. Read more about TOR here. </p>
+        <strong>
+        <p> Brief and incomplete history of proxy</p>
+      </strong>
+        <p>The term proxy was first used in the network context by Shapiro in 1986 to designate one object as a local representative of a remote object. These researchers described a ‘proxy principle’ in a section entitled ‘Using Proxies for Structure and Encapsulation’. 
         
-        The term proxy was first used in the network context by Shapiro in 1986 to designate one object as a local representative of a remote object. These researchers described a ‘proxy principle’ in a section entitled ‘Using Proxies for Structure and Encapsulation’. 
+        <p>The term received its fullest treatment by the Internet Engineering Task Force (IETF) in 1989 in RFC 1095:</p>
         
-        The term received its fullest treatment by the Internet Engineering Task Force (IETF) in 1989 in RFC 1095:
+        <p> “In our context, a proxy is a manager empowered to perform actions on behalf of another manager. This may be necessary because the manager cannot communicate directly with the managed devices either for security or other administrative reasons or because of incompatible communication mechanisms or protocols. In either case, the proxy assumes the agent role with respect to the requesting manager and the manager role with respect to the managed device. [RFC1090]”</p>
         
-        “In our context, a proxy is a manager empowered to perform actions on behalf of another manager. This may be necessary because the manager cannot communicate directly with the managed devices either for security or other administrative reasons or because of incompatible communication mechanisms or protocols. In either case, the proxy assumes the agent role with respect to the requesting manager and the manager role with respect to the managed device. [RFC1090]”
+        <p>In this explanation, it’s interesting to note that a proxy is defined as an agent – occupying an agentive role in its relation to and ability to act on behalf of any entity for which it is empowered to do so. Almost as if acting as a translator, proxies are able to represent requests or services on behalf of one entity in terms the second entity can understand. Almost any transfer protocol can potentially have a proxy. </p>
+        <strong>
+        Proxy Politics, considering forms of intermediary action</p>
+      </strong>
+        <p>The term proxy appears in many different contexts. It is often used in legal discourse to indicate an entity empowered to perform actions on behalf of another. Etymologically, proxy denotes the “agency of one who acts instead of another; a substitute”. Its lineage can be traced from the Latin procuratio meaning “a caring for, management”. The term proxy war refers to conflict between two entities that is started or stoked by, but not directly involving, a major power. In this case, either of the two entities that are engaged in conflict have acted upon the instigation of another entity that is not present in the hostilities. This use of the term emerged around 1955. </p>
         
-        In this explanation, it’s interesting to note that a proxy is defined as an agent – occupying an agentive role in its relation to and ability to act on behalf of any entity for which it is empowered to do so. Almost as if acting as a translator, proxies are able to represent requests or services on behalf of one entity in terms the second entity can understand. Almost any transfer protocol can potentially have a proxy. 
-        Proxy Politics, considering forms of intermediary action
+        <p> In 2017, there was a conference organized by the Research Center for Proxy Politics, around the concept of proxy politics as both “a diagnosis of the contemporary political ground and a potential set of tools for resistance”. In a writeup of the event, Elvia Wilk reflects on how “a proxy server may provide anonymity and security, but can also block access. Proxy politics is in this sense a struggle for who controls the ratio of information passed back and forth”. </p>
         
-        The term proxy appears in many different contexts. It is often used in legal discourse to indicate an entity empowered to perform actions on behalf of another. Etymologically, proxy denotes the “agency of one who acts instead of another; a substitute”. Its lineage can be traced from the Latin procuratio meaning “a caring for, management”. The term proxy war refers to conflict between two entities that is started or stoked by, but not directly involving, a major power. In this case, either of the two entities that are engaged in conflict have acted upon the instigation of another entity that is not present in the hostilities. This use of the term emerged around 1955. 
+        <p> The go-to example of proxy politics is the use of proxy servers to bypass local communications restrictions or imposed internet censorship. Thinking of agency as the ability to evade automatisms (lorusso,the user condition), the use of VPNs and other proxies as networked objects of evasion, makes them a potent point of reference to theorize agency in relation to state policies surrounding network use and access. Use of proxies can be resistant, but it isn’t always.</p>
         
-        In 2017, there was a conference organized by the Research Center for Proxy Politics, around the concept of proxy politics as both “a diagnosis of the contemporary political ground and a potential set of tools for resistance”. In a writeup of the event, Elvia Wilk reflects on how “a proxy server may provide anonymity and security, but can also block access. Proxy politics is in this sense a struggle for who controls the ratio of information passed back and forth”. 
+        <p>Amidst this slipperiness, what liability does a proxy have itself? As proxies are intermediaries for other entities, they are used by others, taken up as means to serve a variety of ends. In that way they are passive, but they are also not innocent. However, they cannot be guilty themselves either – it is only in their relation to other entities that their character could be judged. In their fundamental ambivalence, proxies complicate culpability.</p>
         
-        The go-to example of proxy politics is the use of proxy servers to bypass local communications restrictions or imposed internet censorship. Thinking of agency as the ability to evade automatisms (lorusso,the user condition), the use of VPNs and other proxies as networked objects of evasion, makes them a potent point of reference to theorize agency in relation to state policies surrounding network use and access. Use of proxies can be resistant, but it isn’t always.
+        <p> Proxies estrange us from our actions and their effects, complicating a simple, two-way dynamic of relation by embodying a continuum between one entity and another that often involves obfuscation. Proxies are connected to obscured or hidden variables to which they are attached. They create dependencies – coming in contact with the unknown, they extend the knowable by capturing what is not visible. Embodying a relation to absence, they shroud identification and maintain the opacity of the entities who put them in use. </p>
         
-        Amidst this slipperiness, what liability does a proxy have itself? As proxies are intermediaries for other entities, they are used by others, taken up as means to serve a variety of ends. In that way they are passive, but they are also not innocent. However, they cannot be guilty themselves either – it is only in their relation to other entities that their character could be judged. In their fundamental ambivalence, proxies complicate culpability.
+        <p>Following Glissant’s theory of the right to opacity in ‘Poetics of Relation,’ proxies as a conceptual framework can be taken up as objects that facilitate an allowance of opacity. In a networked age such as this, the ubiquitous act of being public on a network like the internet means to surrender your privacy, and make yourself traceable, vulnerable, and surveilled. Everyone should have the right to not be entirely transparent, especially those of non-dominant cultures or with markers of difference.</p>
         
-        Proxies estrange us from our actions and their effects, complicating a simple, two-way dynamic of relation by embodying a continuum between one entity and another that often involves obfuscation. Proxies are connected to obscured or hidden variables to which they are attached. They create dependencies – coming in contact with the unknown, they extend the knowable by capturing what is not visible. Embodying a relation to absence, they shroud identification and maintain the opacity of the entities who put them in use. 
-        
-        Following Glissant’s theory of the right to opacity in ‘Poetics of Relation,’ proxies as a conceptual framework can be taken up as objects that facilitate an allowance of opacity. In a networked age such as this, the ubiquitous act of being public on a network like the internet means to surrender your privacy, and make yourself traceable, vulnerable, and surveilled. Everyone should have the right to not be entirely transparent, especially those of non-dominant cultures or with markers of difference.
-        
-        By accepting unintelligibility and resisting translation, the right to opacity accounts for the risk of difference being reduced or appropriated by the singular comprehension of something being brought into knowing. Proxies touch the unknown, facilitate indirect relations of exchange, and resist a singular definition, therefore allowing us to consider how representation can be surveillance and obscuring one’s visibility can be a way of reclaiming autonomy over one’s self. The consequences of visibility – both embodied and in virtual space – are not evenly distributed.  
+        <p>By accepting unintelligibility and resisting translation, the right to opacity accounts for the risk of difference being reduced or appropriated by the singular comprehension of something being brought into knowing. Proxies touch the unknown, facilitate indirect relations of exchange, and resist a singular definition, therefore allowing us to consider how representation can be surveillance and obscuring one’s visibility can be a way of reclaiming autonomy over one’s self. The consequences of visibility – both embodied and in virtual space – are not evenly distributed.  
         Some questions to leave you with
         
-        What are things that we feel, or experience by proxy? What are you a proxy for? What do you intermediate, and hold, that is coming from somewhere and going somewhere else? What are the effects of these embodied transmissions? How can this unpredictable position of intermediary, in its irreducible in-between-ness, constitute or allow us to imagine other modes of communication? 
+        <p>What are things that we feel, or experience by proxy? What are you a proxy for? What do you intermediate, and hold, that is coming from somewhere and going somewhere else? What are the effects of these embodied transmissions? How can this unpredictable position of intermediary, in its irreducible in-between-ness, constitute or allow us to imagine other modes of communication? 
       <br />
-      an index can operate like a hyperlink, creating associative relations among things
-      
+      <br />
       
     </sub>
       <br /><br />
