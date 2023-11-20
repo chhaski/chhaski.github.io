@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
     <script src="p5.gif.js" type="text/javascript"></script>
@@ -8,52 +8,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>⌇</title>
-    <style>
-        /* Style for columns */
-        .column {
-            height: 33.33%;
-            float: left;
-            box-sizing: border-box;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-        .row img {
-  display: block; /* Ensures images don't have space below */
-  margin: 0 auto; /* Centers the images horizontally */
-  max-width: 100%; /* Ensures images don't exceed their container width */
-  height: auto; /* Maintains image aspect ratio */
-  /* Add any additional styling here */
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  /* width: 250px; */
-  float: center;
-  filter: grayscale(10%);
-  opacity: 0.75;
-
-  
-
+<style>
+* {
+  box-sizing: border-box;
+  padding: 5px;
 }
-.row img:hover{
-  filter: grayscale(0%);
-  filter: gray;
+
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8; 
+  cursor: pointer; 
+}
+
+.column img:hover {
   opacity: 1;
-  -webkit-filter: grayscale(0%);
-  filter: none;
-  transition: 1s ease;
-  } */
+}
 
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
+/* The expanding image container */
+.container {
+  position: relative;
+  display: none;
+}
 
+/* Expanding image text */
+#imgtext {
+  position: top;
+  bottom: 15px;
+  left: 15px;
+  color: black;
+  font-size: 20px;
+}
 
-    </style>
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: black;
+  font-size: 35px;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
+<div></div>
+<div class="desc">
     <strong>
         <p> Index <br /></strong>
     <br />
@@ -61,57 +81,98 @@
         Project description:
         a python generator that produces speculative indexes to non-existent texts through spatial representation of textual data with NLP
         <br /><br />
-        Combining text processing, generation and NLP techniques in Python to uncover structural and semantic features of a text, the project explores the genre of the index as an infrastructure for containing information and a mechanism that maps cross references (much like a hyperlink), creating associative relations between things. 
+        Combining text processing, generation and NLP techniques in Python to uncover structural and semantic features of a text, the project explores the genre of the index as an infrastructure for containing information and a mechanism that maps cross references (much like a hyperlink), creating associative relations between things. indexes composed of subentries, where subentries can be viewed textual nodes which are joined by referential links  
         <br /><br />
         My corpus was comprised of the indexes of 3 books ( Michel Foucault - History of Sexuality Volume 1, Jose Muñoz - Cruising Utopia, and Sara Ahmed - Queer Phenomenology) as well as some phrases from my notebook.
-        <br /><br />
+      
         <b>
           <p> Method: <br />
           </b>
       <br />
-    <!-- Three Columns Layout -->
-    <div class="row">
-        <!-- First Column: Preprocessing Corpus -->
-        <div class="column">
-            <b>1. pre-processing corpus.</b>
-            <br />parse .txt files to make their structures uniform, then reassemble 
-            <br />
-           
-       
-        <figure>
-        <img src="indexcombined.png" alt="Combined Image"  width="auto" height="auto" style="width:85%">
-        <!-- <figcaption>Combined Index</figcaption> -->
-       </figure>
-        <!-- Second Column: Processing Corpus -->
-      </div>
-        <div class="column">
-            <b>2. processing corpus.</b>
-            <br />create a vector for each textual sequence in the corpus
-            <br />use t-SNE  (t-distributed stochastic neighbor embedding) to reduce the dimensionality of each vector
-            <br />save the x-values of t-SNE visualization of vectors in 2-d space as an array, map it to a better range
-           
-        
-        <img src="index22.png" alt="text sequence (subentry) and their corresponding vectors visualized by t-SNE" width=auto  height=auto style="width:45%">
-        <img src="vectordic.png" alt="Processing Image" class='right' width=75% height=auto>
-      </div>
-        <!-- Third Column: Generating -->
-        <div class="column">
-            <b>3. generating.</b>
-            <br />with tracery grammar
-            <br />the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE
-        </div>
+
+<div class="row">
+    <!-- First Column: Preprocessing Corpus -->
+    <div class="column">
+        <b>1. pre-processing corpus.</b>
+        <br />parse .txt files to make their structures uniform, then reassemble
+        <br />
+   
+    <figure>
+    <!-- <img src="indexcombined.png" alt="Combined Image"  width="auto" height="auto" style="width:35%"> -->
+    <!-- <figcaption>Combined Index</figcaption> -->
+   </figure>
+    <!-- Second Column: Processing Corpus -->
+  </div>
+    <div class="column">
+        <b>2. processing corpus.</b>
+        <br />create a vector for each textual sequence (subentry) in the corpus
+        <br />use t-SNE  (t-distributed stochastic neighbor embedding) to reduce the dimensionality of each vector
+        <br />save the x-values of t-SNE visualization of vectors in 2-d space as an array, map it to a better range
+       <br> <br> <br>
+    
+    <!-- <img src="vectordic.png" alt="Processing Image" class='responsive' width=75% height=auto style="width:15%">
+    <img src="index22.png" alt="text sequence (subentry) and their corresponding vectors visualized by t-SNE" width=auto  height=auto style="width:15%"> -->
+
+  </div>
+    <!-- Third Column: Generating -->
+    <div class="column">
+        <b>3. generating.</b>
+        <br />with tracery grammar
+        <br />the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE
     </div>
-    <!-- Content Continues -->
-    <sup>
-        <p>
-            <br /><br />
-            cc<br /><br />
-            Allison Parrish - Reading and Writing Electronic Text, Tracery, 
-        </p>
-    </sup>
-    <div style="text-align:center;"> ↕ </div>
-    <div style="text-align:center;"> ↔ </div>
-    <p style="text-align:right; font-size: 20px; color:#347fbd;">
+</div>
+
+</div>
+<div style="text-align:center">
+  <p>Click on the images below:</p>
+</div>
+
+<!-- The four columns -->
+<div class="row">
+  <div class="column">
+    <img src="indexcombined.png" alt="all subentries from the corpus' combined indexes" style="width:70%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="vectordic.png" alt="text sequences (subentries) and their corresponding vectors" style="width:70%" onclick="myFunction(this);">
+    <img src="cluster.png" alt="text sequences (subentries) and their corresponding vectors visualized by t-SNE" style="width:70%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="indexoutput3.png" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+    <img src="indexoutput2.png" alt="Lights" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="indexoutput.png" alt="Lights" style="width:100%" onclick="myFunction(this);">
+    <img src="indexoutput4.png" alt="Lights" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+<!-- Content Continues -->
+<sup>
+    <p>
+        <br /><br />
+        cc<br /><br />
+        Allison Parrish - Reading and Writing Electronic Text, Tracery, 
     </p>
+</sup>
+<div style="text-align:center;"> ↕ </div>
+<div style="text-align:center;"> ↔ </div>
+<p style="text-align:right; font-size: 20px; color:#347fbd;">
+</p>
+
 </body>
 </html>
