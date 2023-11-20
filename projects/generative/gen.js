@@ -30,41 +30,45 @@ function setup() {
 
   background(0);
 
+
+
   //Initializing walkers
   walker = new Walker(0, 0);
   walker2 = new Walker(0, 0.2);
 
 
+  //Below is the control panel
+
   // Rotation Speed Slider
   slider = createSlider(0.0002, 0.02, 0.006, 0);
-  slider.position(10, 35);
+  slider.position(245, 135);
   slider.style('width', '80px');
   
   h1= createP("Rotation Rate:");
-  h1.position(10,5);
-  h1.style('color:white');
+  h1.position(240, 100);
+  h1.style('color:black');
 
   h1= createP("Restart:");
-  h1.position(10,48);
-  h1.style('color:white');
+  h1.position(285,145);
+  h1.style('color:black');
   
   
-    h1= createP("Start/Stop Drawing:");
-  h1.position(10,100);
-  h1.style('color:white');
+  h1= createP("Start/Stop Drawing:");
+  h1.position(206,200);
+  h1.style('color:black');
   
   h2= createP("Click and drag to move around the geometry. Scroll ↑ to zoom in and ↓ to zoom out");
-  h2.position(200,5);
-  h2.style('color:white');
+  h2.position(367,25);
+  h2.style('color:black');
 
   
   button = createButton('⟲');
-  button.position(10, 85);
+  button.position(310, 180);
   button.mousePressed(change);
   button.style('color:black');
   
   pause = createButton('▹');
-  pause.position(10, 135);
+  pause.position(310, 235);
   pause.mousePressed(hold);
   pause.style('color:black');
   
@@ -78,7 +82,7 @@ function draw() {
 
 
   // draw background
-  background(0);
+  background(255);
 
   orbitControl(1, 1, 0.2);
 
@@ -99,6 +103,8 @@ if (playing) {
 }
 theta += 0.02;
 
+
+
   function change() {
     frameCount = 0
   walker = new Walker(0, 0);
@@ -109,10 +115,13 @@ theta += 0.02;
 function hold() {
   if (playing) {
    // noLoop();
-    pause.html('⏐⏐');
+    pause.html(',,');
   } else {
     //loop();
-    pause.html('▹');
+    pause.html(' ▹ ');
   }
   playing = !playing;
 }
+
+
+ 

@@ -48,7 +48,9 @@ class Walker {
       var thickness = map(distance, 0, dist(0, 0, windowWidth / 2, windowHeight / 2), 0.1, 1);
   
       strokeWeight(thickness);
-      stroke(238, 247, 255);
+      
+      //stroke(238, 247, 255);
+      stroke(0);
   
     }
     
