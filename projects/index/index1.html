@@ -69,19 +69,27 @@ body {
   font-size: 35px;
   cursor: pointer;
 }
+
+.scrollgif {
+  filter: blur(0.5px);
+  opacity: 0.75;
+}
+
+
 </style>
 </head>
 <body>
 <div></div>
 <div class="desc">
     <strong>
-        <p> Index <br /></strong>
+        <p> Indexing the Index <br /></strong>
     <br />
   
         Project description:
+        <b>
         a python generator that produces speculative indexes to non-existent texts through spatial representation of textual data with NLP
-        <br /><br />
-        Combining text processing, generation and NLP techniques in Python to uncover structural and semantic features of a text, the project explores the genre of the index as an infrastructure for containing information and a mechanism that maps cross references (much like a hyperlink), creating associative relations between things. indexes composed of subentries, where subentries can be viewed textual nodes which are joined by referential links  
+      </b> <br /><br />
+        Combining text processing, generation and NLP techniques in Python to uncover structural and semantic features of a text, the project explores the genre of the index as an infrastructure for containing information and a mechanism that maps cross references (much like a hyperlink), creating associative relations between things. Rather than the generated output producing correct or logical groupings of items, which it rarely did, I was more interested in the spatial layout of the text on the page being determined by another layer of meaning-making, in this case, a nearest neighbor algorithm, which was used to determine items (subentries) that are closest (or most similar) to any others in your data, classifying closer relation (which is often nonsensical) by proximity.
         <br /><br />
         My corpus was comprised of the indexes of 3 books ( Michel Foucault - History of Sexuality Volume 1, Jose Muñoz - Cruising Utopia, and Sara Ahmed - Queer Phenomenology) as well as some phrases from my notebook.
       
@@ -94,8 +102,9 @@ body {
     <!-- First Column: Preprocessing Corpus -->
     <div class="column">
         <b>1. pre-processing corpus.</b>
-        <br />parse .txt files to make their structures uniform, then reassemble
-        <br />
+        <br />format .txt files of index corpus to make their structures uniform, then reassemble
+        <br />parse text into subentries (can be viewed as textual nodes which are joined by referential links) 
+        <br /><br />
    
     <figure>
     <!-- <img src="indexcombined.png" alt="Combined Image"  width="auto" height="auto" style="width:35%"> -->
@@ -105,9 +114,11 @@ body {
   </div>
     <div class="column">
         <b>2. processing corpus.</b>
-        <br />create a vector for each textual sequence (subentry) in the corpus
+        <br />create a vector for each subentry in the corpus
         <br />use t-SNE  (t-distributed stochastic neighbor embedding) to reduce the dimensionality of each vector
-        <br />save the x-values of t-SNE visualization of vectors in 2-d space as an array, map it to a better range
+        <br />save the x-values of t-SNE visualization of each vectors as an array
+        <br />map the vectors to a more workable range and append each of the re-mapped values to their corresponding subentry in a vector dictionary (associative array)
+        <br />
        <br> <br> <br>
     
     <!-- <img src="vectordic.png" alt="Processing Image" class='responsive' width=75% height=auto style="width:15%">
@@ -117,10 +128,15 @@ body {
     <!-- Third Column: Generating -->
     <div class="column">
         <b>3. generating.</b>
-        <br />with tracery grammar
+        <br />a tracery grammar generates indexes by combining subentries together under a heading
         <br />the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE
+        <br />
+        <br />
     </div>
-</div>
+    <div class="scrollgif">
+    <img src="wordvector.gif" alt="text sequences (subentries) and their corresponding vectors visualized by t-SNE" style="width:20%">
+    </div>
+  </div>
 
 </div>
 <div style="text-align:center">
@@ -165,8 +181,9 @@ function myFunction(imgs) {
 <sup>
     <p>
         <br /><br />
-        cc<br /><br />
-        Allison Parrish - Reading and Writing Electronic Text, Tracery, 
+        thank you <br>
+        <a href="https://rwet.decontextualize.com/">Allison Parrish - Reading and Writing Electronic Text,</a> <a href="https://tracery.io/">Tracery</a> 
+       
     </p>
 </sup>
 <div style="text-align:center;"> ↕ </div>
