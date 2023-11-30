@@ -5,7 +5,7 @@
   }
   
   /* node style */
-  .process_diagram li > div { background-color:#eef; color:#666; border-style:solid; border-color:#900; text-align:left; }
+  .process_diagram li > div { background-color:white; color:#666; border-style:dotted; border-color:#900; text-align:left; }
   
   /* connecting lines between nodes */
   .process_diagram li:before,
@@ -43,11 +43,7 @@
   .process_diagram ul > li {padding:.5em 0}
   
   /* a dash before and behind all uls */
-  .process_diagram ul {position:relative; padding:0 var(--linewidth);}
-  .process_diagram ul:before,
-  .process_diagram ul:after {position:absolute; content:""; top:50%; width: var(--linewidth); display:block; border-width:var(--linethick) 0 0; }
-  .process_diagram ul:before {left:0;}
-  .process_diagram ul:after {right:0;}
+
   
   /* put connecting vertical lines */
   .process_diagram ul > li:after,
