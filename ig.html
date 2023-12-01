@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+  <meta charset="UTF-8" lang="en" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>projects | chaski no</title>
+
+  <link rel="icon" href="/public/favicon.ico" />
+
+  
+  <link
+    rel="preload"
+    as="image"
+    href="/public/uploads/bags.jpg"
+  >
+
+  <link
+    rel="preload"
+    as="image"
+    href="/public/favicon.png"
+  >
+
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="altstyle.css"  
+/>
+
+
+
+
+</head>  <body>
+  
+
+<header>
+<a
+  id="skip"
+  href="#main"
+  title="Skip to main content"
+>
+  Skip to main content
+</a>
+<a
+  id="logo"
+  href="/"
+  title="Home"
+>
+  
+
+<figure id="">
+<img
+  src="visualizer.gif"
+  filter: grayscale(100%);
+  alt="A mutation of the globe emoji, showing Africa, Europe and West Asia, discoloured."
+/>
+
+</figure>  </a>
+
+
+<article>
+
+<header>
+  
+    <a
+      href="/motd"
+      title="Media of the Day"
+    >
+      Media of the Day
+    </a>
+  
+  <time
+    datetime="Mon Sep 25 2023 08:09:59 GMT+0000 (Coordinated Universal Time)"
+  >
+    25/09/2023
+  </time>
+</header>
+
+
+
+<!-- <figure id="">
+<img
+  src="projects/indeterminatemultitudes/ezgif.com-gif-maker (16).gif"
+  filter: grayscale(100%);
+  alt="own image"
+/> -->
+
+  <!-- <figcaption>
+    Wifi zine throwies shielded in self-made cases and charging in the sun. Photo from Solarpunk Workshop at FHNW in Basel last fall.
+  </figcaption> -->
+
+</figure>
+<!-- <footer>
+  <a> source </a>
+</footer> -->
+  
+</figure>
+  <!-- <footer>
+    <a> source </a>
+  </footer> -->
+
+</article>  </article>  <nav id="nav">
+    <ul>
+      
+        <li>
+          
+            <!-- <a
+              title="network"
+              href="/network"
+            >
+              network
+            </a>
+          
+        </li>
+       -->
+        <li>
+          
+            <a
+              title="projects" 
+              href="proj.html"
+            >
+              projects
+            </a>
+          
+        </li>
+      
+        <!-- <li>
+          
+            <a
+              title="info"
+              href="/motd"
+            >
+              motd
+            </a>
+          
+        </li> -->
+      
+        <li>
+          
+            <a
+              title="info"
+              href="info.html"
+            >
+              info
+            </a>
+          
+        </li>
+      
+
+      
+    </ul>
+  </nav>
+</header>    
+    <main
+      id="main"
+      class="projects"
+    >
+      
+        <h1> Indexing the Index </h1>
+        <h4>a python generator that produces speculative indexes to non-existent texts through spatial representation of textual data with NLP </h4>
+        <p>Combining text processing, generation and NLP techniques in Python to uncover structural and semantic features of a text, the project explores the genre of the index as an infrastructure for containing information and a mechanism that maps cross references (much like a hyperlink), creating associative relations between things. 
+        </p><p>Rather than the generated output producing correct or logical groupings of items, which it rarely did, I was more interested in the spatial layout of the text on the page being determined by another layer of meaning-making, in this case, a nearest neighbor algorithm, which was used to determine items (subentries) that are closest (or most similar) to any others in your data, classifying closer relation (which is often nonsensical) by proximity.
+        </p><p>
+            My corpus was comprised of the indexes of 3 books (<a href="https://drive.google.com/file/d/1Wsxug60VUcx1cjoNM6SceYIr1tZbSmCK/view?usp=drive_link">Michel Foucault - History of Sexuality Volume 1,</a>, <a href="https://drive.google.com/file/d/1cZcwEpHJIzkQeiGg-baDLIElvu6d54S3/view?usp=drive_link">Jose Muñoz - Cruising Utopia,</a>, and <a href="https://drive.google.com/file/d/14vClVrZSyG5EdYUJfoKZUHx4c7aqhwpg/view?usp=drive_link">Sara Ahmed - Queer Phenomenology</a>) as well as some phrases from my notebook.
+        </p>
+
+
+ <h4>Process</h4>
+
+
+<section>
+<b>1. pre-processing corpus.</b>
+<p> </p>
+<br />format .txt files of index corpus to make their structures uniform, then reassemble into a combined index made up of entries and subentries from all 3 books in the corpus
+<br />parse text into subentries (can be viewed as textual nodes which are joined by referential links) 
+<br /><br />
+
+<figure id="">
+    <img
+      src="projects/index/combinedindex.png"
+      alt="all subentries from the corpus' combined indexes"
+    />
+    
+      <figcaption>
+        all subentries from the corpus' combined indexes
+      </figcaption>
+    
+  </figure>    
+
+</section> 
+
+<section>
+    <b>2. processing corpus.</b>
+    <p> </p>
+    <br />create a vector for each subentry in the corpus
+    <br />use t-SNE  (t-distributed stochastic neighbor embedding) to reduce the dimensionality of each vector
+    <br />save the x-values of t-SNE visualization of each vectors as an array
+    <br />map the vectors to a more workable range and append each of the re-mapped values to their corresponding subentry in a vector dictionary (associative array)
+    <br />
+
+    <figure id="">
+        <img
+          src="projects/index/vectordic.png"
+          alt="text sequences (subentries) and their corresponding vectors"
+        />
+        
+          <figcaption>
+            text sequences (subentries) and their corresponding vectors
+          </figcaption>
+        
+      </figure>    
+
+      <figure id="">
+        <img
+          src="projects/index/cluster.png"
+          alt="all subentries from the corpus' combined indexes"
+        />
+        
+          <figcaption>
+            text sequences (subentries) and their corresponding vectors visualized by t-SNE
+          </figcaption>
+        
+      </figure>    
+    
+</section> 
+
+<section>
+    <b>3. generating.</b>
+    <br />a tracery grammar generates indexes by combining subentries together under a heading
+    <br />the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE
+    <br />
+
+    <figure id="">
+        <img
+          src="projects/index/indexoutput3.png"
+          alt="text sequences (subentries) and their corresponding vectors"
+        />
+        
+          <figcaption>
+            generator output
+          </figcaption>
+        
+      </figure>    
+
+      <figure id="">
+        <img
+          src="projects/index/indexoutput2.png"
+          alt="all subentries from the corpus' combined indexes"
+        />
+        
+          <figcaption>
+            generator output
+          </figcaption>
+        
+      </figure>    
+
+      <figure id="">
+        <img
+          src="projects/index/indexoutput.png"
+          alt="all subentries from the corpus' combined indexes"
+        />
+        
+          <figcaption>
+            generator output
+          </figcaption>
+        
+      </figure> 
+
+      <figure id="">
+        <img
+          src="projects/index/indexoutput4.png"
+          alt="all subentries from the corpus' combined indexes"
+        
+          
+        />
+        
+          <figcaption>
+            generator output
+          </figcaption>
+        
+      </figure> 
+
+</section> 
+
+
+
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+<!-- Content Continues -->
+<sup>
+    <p>
+        <br /><br />
+        thank you <br>
+        <a href="https://rwet.decontextualize.com/">Allison Parrish - Reading and Writing Electronic Text,</a> <a href="https://tracery.io/">Tracery</a> 
+       
+    </p>
+</sup>
+
+</main>
+    
+<footer>
+  <section>
+    <address>
+        <p>contact</p>
+        <p>⌇</p>
+  <p>email: <a href="mailto:chaski@nyu.edu">chaski@nyu.edu</a></p>
+  <p><a href="https://www.are.na/chaski-_">are.na</a> </p>
+  <p><a href="https://www.instagram.com/piscosweets/">instagram</a></p>
+  <p>⌇</p>
+</address>
+  </section>
+  
+
+</footer>  </body>
+</html>
