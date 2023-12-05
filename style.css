@@ -577,3 +577,11 @@ section#patrick iframe #infolayer.fixed {
     /* font-size: 1em; */
   }
 }
+
+#mynetwork {
+  width: 600px;
+  height: 200px;
+  /* //border: 1px solid lightgray; */
+  background-color: var(--brown);
+
+}

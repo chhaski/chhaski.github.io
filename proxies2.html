@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>projects | chaski no</title>
-
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.css" rel="stylesheet" type="text/css" />
   <link rel="icon" href="/public/favicon.ico" />
 
   
@@ -153,24 +155,22 @@
     >
       
         <h1> Proxies: Considering Forms of Intermediary Action  </h1>
-      
+        <div id="mynetwork"></div>
       <section>
         <b>in networks</b>
 
         <p>    "In the context of computer networking, a proxy (or proxy server) acts as an intermediary between a client requesting data and the server providing that data."
           "When a forward proxy server is set up, your computer knows the IP address of the proxy, and whenever you send a request to access a certain site on the internet, your request is routed to the proxy, instead of connecting you directly to the site you requested."
-          "The next most common kind of proxy is the reverse proxy. A reverse proxy obscures the IP address of a server you’re trying to send a request to."
         <br /><br />
- 
+        
 </section>   
-
 <section>
   <b>as intermediaries</b>
   <p> </p>
 </strong>
 <p>    "A proxy sits between two entities and performs a service. Roy Fielding designates them as intermediary components that 'act as both a client and server in order to forward, with possible translation, requests and responses'."
   "Proxies excel at IP masking and misdirection, anonymous web browsing, and managing or circumventing content restrictions based on location or other blocks."
-  "In our context, a proxy is a manager empowered to perform actions on behalf of another manager." </p>
+ </p>
 <strong>
 
 </section> 
@@ -201,8 +201,111 @@
   <p><a href="https://www.instagram.com/piscosweets/">instagram</a></p>
   <p>⌇</p>
 </address>
-  </section>
+</section>
   
 
-</footer>  </body>
+</footer> 
+<script>
+  var nodes = [
+    { 
+      id: 1,
+      label: "Client",
+      originalLabel: "Client",
+      x: 100,
+      y: 150,
+      font: { face: "Times New Roman", align: "left" },
+    },
+    {
+      id: 2,
+      label: "Proxy",
+      x: 300,
+      y: 120,
+      font: { face: "Times New Roman", align: "middle" },
+    },
+    {
+      id: 3,
+      label: "Internet",
+      originalLabel: "Internet",
+      x: 500,
+      y: 150,
+      font: { face: "Times New Roman", align: "right" },
+    }
+  ];
+  
+  var edges = [
+    { from: 1, to: 2, label: "1→", font: { face: "Times New Roman", align: "middle", background: "hsl(0, 9%, 62%)"}, smooth: { type: "curvedCW", forceDirection: "vertical", roundness: 0.3, fromOffset: 10, toOffset: -10 } },
+    { from: 2, to: 3, label: "2→", font: { face: "Times New Roman", align: "middle" }, smooth: { type: "curvedCW", forceDirection: "vertical", roundness: 0.3, fromOffset: 10, toOffset: -10 } },
+    { from: 3, to: 2, label: "←3", font: { face: "Times New Roman", align: "middle" }, smooth: { type: "curvedCW", forceDirection: "vertical", roundness: 0.3, fromOffset: 10, toOffset: -10 } },
+    { from: 2, to: 1, label: "←4", font: { face: "Times New Roman", align: "middle" }, smooth: { type: "curvedCW", forceDirection: "vertical", roundness: 0.3, fromOffset: 10, toOffset: -10 } },
+   
+  ];
+  
+  var container = document.getElementById("mynetwork");
+  var data = {
+    nodes: nodes,
+    edges: [],
+  };
+  
+  var options = {  
+    physics: false,
+    nodes: {
+      opacity: 2,
+      borderWidth: 3,
+      color: "black",
+      shape: 'text',
+      font: { face: "Times New Roman", align: "left", background: "hsl(0, 9%, 62%)" },
+    },
+    edges: {
+      endPointOffset: {
+        from: 40,
+        to: 40
+      },
+      font: {
+      face: "Times New Roman",
+      align: "middle", // Adjust alignment if needed
+      background: "hsl(0, 9%, 62%)", // Remove background color
+      strokeWidth: 0, // Remove stroke (border) around text
+      },
+  }
+}
+  
+  var network = new vis.Network(container, data, options);
+
+  function toggleLabelFlash() {
+    nodes.forEach(function(node) {
+      if (node.originalLabel) {
+        node.label = node.label === node.originalLabel ? 'Entity' : node.originalLabel;
+      }
+    });
+    network.setData(data);
+  }
+
+  setInterval(toggleLabelFlash, 1000); // Flashing interval in milliseconds
+
+  function drawEdgesSequentially() {
+    var edgesToAdd = edges.slice(0); // Create a copy of the edges array
+    var interval = setInterval(function() {
+      if (edgesToAdd.length === 0) {
+        clearInterval(interval);
+        return;
+      }
+      var edge = edgesToAdd.shift(); // Get the first edge from the array
+      data.edges.push(edge); // Add edge to the data
+      network.setData(data); // Update the network
+    }, 1000); // Time interval between adding edges in milliseconds
+  }
+
+  drawEdgesSequentially(); // Start drawing edges
+
+  network.on("click", function (params) {
+    params.event = "[original event]";
+    document.getElementById("eventSpanHeading").innerText = "Click event:";
+    document.getElementById("eventSpanContent").innerText = JSON.stringify(
+      params,
+      null,
+      4
+    );
+  });
+</script>
+</body>
 </html>
