@@ -100,6 +100,7 @@ section {
   max-width        : max-content;
   overflow         : scroll;
   padding          : 0.75rem;
+
 }
 
 hr {
@@ -226,10 +227,6 @@ address p {
 }
 
 
-header {
-  /* z-index          : 1; */
-}
-
 /* skip button */
 
 header a#skip {
@@ -326,36 +323,6 @@ figure#karl img {
 }
 
 
-/* articles ( motd posts ) */
-
-article:focus-within {
-  outline          : var(--focus);
-}
-
-article header {
-  width            : 100%;
-  display          : flex;
-  padding-bottom   : 0.75rem;
-}
-
-article header a {
-  white-space      : nowrap;
-  text-overflow    : ellipsis;
-  overflow         : hidden;
-  padding-right    : 0.75rem;
-}
-
-article header time {
-  margin-left      : auto;
-  flex-shrink      : 0;
-}
-
-article figure {
-  margin           : 0;
-}
-
-
-
 /* index */
 
 main.index section {
@@ -425,133 +392,6 @@ main.cv section p {
 }
 
 
-
-/* motd */
-
-main.motd > p:first-of-type,
-main.motd_all > p:first-of-type,
-main.motd_current > p:first-of-type,
-main.motd_upload caption {
-  font-style       : italic;
-  text-align       : center;
-}
-
-main.motd_upload section {
-  padding: 2px;
-}
-main.motd_upload section caption {
-  margin-block: 0.75rem;
-}
-
-main.motd_upload section table tr td {
-  padding: 2px;
-}
-main.motd_upload section table tr td input {
-  width: 100%;
-}
-
-/* bio */
-
-main.bio section {
-  text-align: center;
-  max-width        : 24rem;
-  border: none;
-  background-color: unset;
-}
-
-main.bio section figure + p,
-main.bio section > p:first-of-type {
-  /* margin-bottom: 0; */
-}
-main.bio section ul + p {
-  /* margin-top: 0; */
-}
-main.bio ul {
-  background-color: unset;
-  border: none;
-  margin: auto;
-}
-main.bio ul li {
-  list-style: none;
-  /* padding: 0; */
-}
-
-main.network section {
-  background-color: unset;
-  border: unset;
-  /* border-radius: 100%; */
-}
-main.network ul {
-  /* padding: 0.5rem; */
-  text-align: center;
-  background-color: unset;
-  border: unset;
-  /* border-radius: inherit; */
-}
-main.network ul li {
-  list-style: none;
-  /* width: fit-content; */
-}
-
-main.network ul li a {
-  display: inline-block;
-  padding: 0.25rem;
-}
-
-main.fruitfly  {
-  text-align: center;
-  cursor           : url( "/public/cursors/fruitfly/idle.gif" ), auto;
-}
-
-main.fruitfly  a:hover,
-main.fruitfly  input:hover {
-  cursor           : url( "/public/cursors/fruitfly/wings.gif" ), auto;
-}
-
-main.fruitfly p {
-  margin-inline: auto;
-  max-width : 25rem;
-}
-
-main.fruitfly  div.horizontal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-main.fruitfly  div.horizontal figure {
-  margin: 3rem;
-}
-
-main.fruitfly  div.horizontal figure img {
-  padding: 1rem;
-  min-width: 64px;
-  border-radius: 100%;
-}
-
-main.fruitfly div.horizontal input {
-  margin: 2rem;
-}
-
-section#away {
-  max-width: 300px;
-  text-align: center;
-}
-section#away p {
-  margin: 0;
-}
-section#patrick {
-  padding: 0;
-  min-height: 200px;
-}
-section#patrick iframe {
-  display: flex;
-}
-section#patrick iframe #infolayer.fixed {
-  border: unset;
-}
-
 .gallery {
   text-align: center;
 }
@@ -584,4 +424,75 @@ section#patrick iframe #infolayer.fixed {
   /* //border: 1px solid lightgray; */
   background-color: var(--brown);
 
+}
+
+.section-caption {
+  font-style       : italic;
+  text-align       : center;
+  max-width        : min(100%, 24rem);
+  margin           : auto;
+}
+
+.image-overlay {
+  display: none;
+  position: fixed;
+  top: 50px; /* Adjust top position as needed */
+  left: 20px; /* Adjust left position as needed */
+  z-index: 9999;
+}
+
+/* New styles for IG.html */
+
+/* Main content layout */
+.ig-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.text-content {
+  flex: 1;
+  /* Your styles for the text content */
+}
+
+.image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjust the gap between images */
+  /* Additional styles for the image column */
+  width: 200px; /* Adjust the width of the image column */
+  margin-left: 20px; /* Add margin as needed */
+}
+
+/* Your existing styles for image items */
+.image-item {
+  width: 100%;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Include opacity in the transition */
+  cursor: pointer;
+  opacity: 0.8; /* Set initial opacity */
+  padding: 0.75rem;
+  position: relative;
+  
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+}
+
+/* Hover effect */
+.image-item:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+
+/* Style for the canvas */
+#projectCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Ensures the canvas doesn't block mouse events */
+  z-index: -1; /* Places the canvas behind other elements */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity changes */
 }
