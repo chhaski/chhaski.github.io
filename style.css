@@ -496,3 +496,14 @@ main.cv section p {
   z-index: -1; /* Places the canvas behind other elements */
   transition: opacity 0.3s ease; /* Smooth transition for opacity changes */
 }
+
+.chart-text {
+  fill: var(--lot-darkwr);
+}
+
+.chart-line {
+  stroke: var(--lot-darkwr);
+}
+
+
+
