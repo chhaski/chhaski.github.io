@@ -201,9 +201,6 @@ input[type="submit"],
 }
 
 
-
-
-
 /* custom box style */
 
 section,
@@ -241,7 +238,6 @@ header a#skip {
 header a#skip:focus {
   transform        : translateY(0);
 }
-
 
 
 /* logo */
@@ -380,6 +376,7 @@ main.projects_all section,
 main.cv section {
   padding          : 2px;
 }
+
 main.projects section p,
 main.projects_all section p,
 main.cv section p {
@@ -390,7 +387,6 @@ main.cv section p {
   text-align       : center;
   margin-block     : 0.75rem;
 }
-
 
 .gallery {
   text-align: center;
