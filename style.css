@@ -79,7 +79,7 @@ footer {
 }
 
 main {
-  max-width        : min(100%, 42rem);
+  max-width        : min(100%, 52rem);
   padding-block    : 0.67em;
 }
 
@@ -501,5 +501,21 @@ main.cv section p {
   stroke: var(--lot-darkwr);
 }
 
+/* CSS for image section */
+.image-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* Optional: Add padding, margin, or other styles as needed */
+}
 
+.image-section figure {
+  flex: 1; /* Allow figures to expand within the container */
+
+  text-align: center; /* Center-align the figures */
+}
+
+.grayscale {
+  filter: grayscale(50%);
+}
 
