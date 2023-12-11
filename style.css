@@ -2,8 +2,8 @@
 
 
   /* Default The Hmm colors */
-
-  --brown          : hsl(0, 9%, 62%);
+  --brown          : hsl(0, 0%, 100%);
+  /* --brown          : hsl(0, 9%, 62%); */
   --lighter        : rgb(255,255,255,0.25);
   --little-lighter : rgba(255, 255, 255, 0.05);
   --little-darker  : rgb(0,0,0,0.05);
@@ -331,7 +331,7 @@ main.index section {
 
 main.projects section ul,
 main.projects_all section ul {
-  max-width        : 24rem;
+  max-width        : 34rem;
   list-style       : none;
   margin           : 0;
   padding          : 0.75rem;
@@ -364,7 +364,7 @@ main.projects_all section ul li details table {
 
 main.projects section ul li details table tbody tr th,
 main.projects_all section ul li details table tbody tr th {
-  width: 3rem;
+  width: 4rem;
 }
 
 
@@ -443,20 +443,23 @@ main.cv section p {
 .ig-content {
   display: flex;
   align-items: flex-start;
+  
 }
 
 .text-content {
   flex: 1;
+  
   /* Your styles for the text content */
 }
 
 .image-column {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Adjust the gap between images */
+  gap: 10px; /* Adjust the gap between images */
   /* Additional styles for the image column */
-  width: 200px; /* Adjust the width of the image column */
+  width: 350px; /* Adjust the width of the image column */
   margin-left: 20px; /* Add margin as needed */
+  
 }
 
 /* Your existing styles for image items */
@@ -467,6 +470,7 @@ main.cv section p {
   opacity: 0.8; /* Set initial opacity */
   padding: 0.75rem;
   position: relative;
+
   
 }
 
@@ -515,7 +519,12 @@ main.cv section p {
   text-align: center; /* Center-align the figures */
 }
 
-.grayscale {
-  filter: grayscale(50%);
+.image-container figure {
+  margin: 0; /* Reset default margin */
+}
+
+.image-container img {
+  max-width: 100%; /* Ensure images don't exceed their container */
+  height: auto; /* Maintain image aspect ratio */
 }
 

@@ -234,7 +234,7 @@
   ];
   
   var edges = [
-    { from: 1, to: 2, label: "1→", font: { face: "Times New Roman", align: "middle", background: "hsl(0, 9%, 62%)"}, smooth: { type: "curvedCW", forceDirection: "vertical", roundness: 0.3, fromOffset: 10, toOffset: -10 } },
+    { from: 1, to: 2, label: "1→", font: { face: "Times New Roman", align: "middle"}, smooth: { type: "curvedCW", forceDirection: "vertical", roundness: 0.3, fromOffset: 10, toOffset: -10 } },
     { from: 2, to: 3, label: "2→", font: { face: "Times New Roman", align: "middle" }, smooth: { type: "curvedCW", forceDirection: "vertical", roundness: 0.3, fromOffset: 10, toOffset: -10 } },
     { from: 3, to: 2, label: "←3", font: { face: "Times New Roman", align: "middle" }, smooth: { type: "curvedCW", forceDirection: "vertical", roundness: 0.3, fromOffset: 10, toOffset: -10 } },
     { from: 2, to: 1, label: "←4", font: { face: "Times New Roman", align: "middle" }, smooth: { type: "curvedCW", forceDirection: "vertical", roundness: 0.3, fromOffset: 10, toOffset: -10 } },
@@ -254,7 +254,7 @@
       borderWidth: 3,
       color: "black",
       shape: 'text',
-      font: { face: "Times New Roman", align: "left", background: "hsl(0, 9%, 62%)" },
+      font: { face: "Times New Roman", align: "left", background: " hsl(0, 0%, 100%)" },
     },
     edges: {
       endPointOffset: {
@@ -264,7 +264,7 @@
       font: {
       face: "Times New Roman",
       align: "middle", // Adjust alignment if needed
-      background: "hsl(0, 9%, 62%)", // Remove background color
+      background: "hsl(0, 0%, 100%)", // Remove background color
       strokeWidth: 0, // Remove stroke (border) around text
       },
   }
