@@ -349,7 +349,7 @@ main.projects_all section ul li:hover details summary {
 
 main.projects section ul li:hover details[open] summary,
 main.projects_all section ul li:hover details[open] summary {
-  list-style-type: disclosure-closed;
+  list-style-type: disclosure-open;
 }
 main.projects section ul li details[open],
 main.projects_all section ul li details[open] {
@@ -415,9 +415,9 @@ main.cv section p {
 }
 
 #mynetwork {
-  width: 600px;
-  height: 200px;
-  /* //border: 1px solid lightgray; */
+  width: 800;
+  height: 300;
+  /* border: 1px solid lightgray; */ 
   background-color: var(--brown);
 
 }
@@ -457,7 +457,7 @@ main.cv section p {
   flex-direction: column;
   gap: 10px; /* Adjust the gap between images */
   /* Additional styles for the image column */
-  width: 350px; /* Adjust the width of the image column */
+  width: 300px; /* Adjust the width of the image column */
   margin-left: 20px; /* Add margin as needed */
   
 }
@@ -513,11 +513,10 @@ main.cv section p {
   /* Optional: Add padding, margin, or other styles as needed */
 }
 
-.image-section figure {
+/* .image-section figure {
   flex: 1; /* Allow figures to expand within the container */
 
-  text-align: center; /* Center-align the figures */
-}
+  /* text-align: center; /* Center-align the figures */
 
 .image-container figure {
   margin: 0; /* Reset default margin */
