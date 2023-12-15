@@ -349,7 +349,7 @@ main.projects_all section ul li:hover details summary {
 
 main.projects section ul li:hover details[open] summary,
 main.projects_all section ul li:hover details[open] summary {
-  list-style-type: disclosure-open;
+  list-style-type: disclosure-closed;
 }
 main.projects section ul li details[open],
 main.projects_all section ul li details[open] {
@@ -526,4 +526,3 @@ main.cv section p {
   max-width: 100%; /* Ensure images don't exceed their container */
   height: auto; /* Maintain image aspect ratio */
 }
-
