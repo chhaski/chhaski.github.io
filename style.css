@@ -299,6 +299,9 @@ header nav ul li a {
 
 figure img {
   max-width        : 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 figure audio,
@@ -513,10 +516,10 @@ main.cv section p {
   /* Optional: Add padding, margin, or other styles as needed */
 }
 
-/* .image-section figure {
+.image-section figure {
   flex: 1; /* Allow figures to expand within the container */
 
-  /* text-align: center; /* Center-align the figures */
+  /* text-align: center; /* Center-align the figures
 
 .image-container figure {
   margin: 0; /* Reset default margin */
