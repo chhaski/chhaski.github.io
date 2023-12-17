@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
+    <script type="text/javascript" src="Event.js"></script>
+    <script type="text/javascript" src="Magnifier.js"></script>
+    <script type="text/javascript">
+    var evt = new Event(),
+        m = new Magnifier(evt);
+    </script>
   <meta charset="UTF-8" lang="en" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -52,7 +57,6 @@
 <figure id="">
 <img
   src="visualizer.gif"
-  filter: grayscale(100%);
   alt="A mutation of the globe emoji, showing Africa, Europe and West Asia, discoloured."
 />
 
@@ -74,17 +78,6 @@
 
 
 
-<!-- <figure id="">
-<img
-  src="projects/indeterminatemultitudes/ezgif.com-gif-maker (16).gif"
-  filter: grayscale(100%);
-  alt="own image"
-/> -->
-
-  <!-- <figcaption>
-    Wifi zine throwies shielded in self-made cases and charging in the sun. Photo from Solarpunk Workshop at FHNW in Basel last fall.
-  </figcaption> -->
-
 </figure>
 <!-- <footer>
   <a> source </a>
@@ -95,7 +88,7 @@
     <a> source </a>
   </footer> -->
 
-</article>  </article>  <nav id="nav">
+</article>  <nav id="nav">
     <ul>
       
         <li>
@@ -170,7 +163,7 @@
 <div class="image-item">
 
   <figure>
-    <img src="dp.png" alt="" class="center" filter="grayscale" width="200" class="center"> 
+    <img src="dp.png" alt="" width="200" class="center"> 
     <figcaption>Dithered desire paths I generated</figcaption>
   </figure>
   </div>
@@ -180,7 +173,7 @@
     <div class="image-item">
 
       <figure>
-        <img src="dp2.png" alt="" class="center" filter="grayscale" width="100" class="center"> 
+        <img src="dp2.png" alt="" width="100" class="center"> 
         <figcaption>In the words of one journal, desire paths 'record collective disobedience'(2).</figcaption>
       </figure>
       </div>
@@ -189,18 +182,38 @@
     <div class="image-item">
 
       <figure>
-        <img src="pathscollage.png" alt="" class="center" filter="grayscale" width="100" class="center"> 
+        <img src="pathscollage.png" alt="" width="100" class="center"> 
         <figcaption>In the words of one journal, desire paths 'record collective disobedience'(2).</figcaption>
       </figure>
       </div>
 
-      <div class="image-item">
-
+      <!-- <div class="image-item">
         <figure>
-          <img src="Group 1.png" alt="" class="center" filter="grayscale" width="100" class="center"> 
+          <img id="thumb-inside" src="Group 1.png" data-mode="inside"> 
           <figcaption>On the internet, documentation of desire paths has become somewhat of a viral phenomenon. There's a 235k-member-strong subreddit about them with new posts appearing daily with impassioned titles like ‘Desire never ends’ and ‘Don’t tell me where to go.' In my research, I came upon a desire paths flickr group that is an ongoing record of community-contributed photos and documentation of desire paths, in many different geographic contexts.  </figcaption>
         </figure>
-        </div>
+        </div> -->
+
+        <div class = "image-item">
+        
+        
+          <a class="magnifier-thumb-wrapper" href="Group 1.png">
+              <img id="thumb-inside" src="Group 1.png">
+          </a>
+          </div>
+          <a>
+          <div class="magnifier-preview" id="preview" style="width: 300px; height: 133px">Starry Night Over The Rhone<br>by Vincent van Gogh</div>
+        </div></a>
+     
+
+
+<!-- 
+        <div style="width: 200px; margin: 0 auto">
+          <a class="magnifier-thumb-wrapper demo" href="http://en.wikipedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg">
+              <img id="thumb-inside" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/200px-Starry_Night_Over_the_Rhone.jpg"
+              data-mode="inside" data-zoomable="true">
+          </a>
+      </div> -->
 
     <figure>
     <img
@@ -267,7 +280,7 @@
   <!-- <section>
 
     <figure>
-        <img src="files.png" alt="" class="center" filter="grayscale"> 
+
       </figure>
   </section> -->
 
@@ -306,9 +319,57 @@
 
 </main>
     
-<footer>
+<script type="text/javascript" src="Event.js"></script>
+  <script type="text/javascript" src="Magnifier.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var evt = new Event(),
+          m = new Magnifier(evt);
+      m.attach({
+        thumb: '#thumb-inside',
+        large: 'Group 1.png',
+        zoom: 1500,
+        zoomable: true,
+        largeWrapper: 'preview',
+        
+      });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+  var evt = new Event(),
+      m = new Magnifier(evt);
+  m.attach({
+    thumb: '#thumb-inside',
+    large: 'Group 1.png',
+    mode: 'inside',
+    zoomable: false,
+    zoomMin: zoomMin,
+    zoomMax: zoomMax,
+    
+  });
 
-  
+  var magnifierPreview = document.querySelector('.magnifier-preview');
 
-</footer>  </body>
+  // Attach event listeners to the image to track mouse movement
+  document.querySelector('#thumb-inside').addEventListener('mousemove', function (e) {
+    // Show the magnifier preview
+    magnifierPreview.style.display = 'block';
+
+    // Set the position of the preview to the mouse position
+    magnifierPreview.style.left = e.pageX + 'px';
+    magnifierPreview.style.top = e.pageY + 'px';
+
+    // Optionally adjust the offset to position it correctly relative to the mouse
+    // magnifierPreview.style.left = (e.pageX - 50) + 'px'; // Adjust X position
+    // magnifierPreview.style.top = (e.pageY - 50) + 'px'; // Adjust Y position
+  });
+
+  // Hide the magnifier preview when the mouse leaves the image
+  document.querySelector('#thumb-inside').addEventListener('mouseleave', function () {
+    magnifierPreview.style.display = 'none';
+  });
+});
+
+
+  </script>
+</body>
 </html>

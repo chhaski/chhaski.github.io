@@ -108,13 +108,6 @@ hr {
  border-top      : var(--single) var(--darker);
 }
 
-section p:first-of-type {
-  /* margin-top       : 0; */
-}
-section p:last-of-type {
-  /* margin-bottom    : 0; */
-}
-
 
 
 /* anchors */
@@ -528,4 +521,71 @@ main.cv section p {
 .image-container img {
   max-width: 100%; /* Ensure images don't exceed their container */
   height: auto; /* Maintain image aspect ratio */
+}
+
+.magnifier-thumb-wrapper {
+  position: relative;
+  display: block;
+  top: 0;
+  left: 0
+}
+
+.magnifier-lens {
+  position: absolute;
+  border: solid 1px #ccc;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  overflow: hidden
+}
+
+.magnifier-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: solid 1px #ccc;
+  color: #fff;
+  text-align: center;
+  background: transparent;
+  background: rgba(50, 50, 50, 0.5);
+  z-index: 1000;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232,endColorstr=#7F323232)";
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232,endColorstr=#7F323232)
+}
+
+.magnifier-loader-text {
+  font: 13px Arial;
+  margin-top: 10px
+}
+
+.magnifier-large {
+  position: absolute;
+  z-index: 1000
+}
+
+.magnifier-preview {
+  padding: 10;
+  width: 100%;
+  height: auto;
+  position: absolute; /* Set to absolute for positioning */
+  pointer-events: none; /* Ensure it doesn't interfere with mouse events */
+  display: none; /* Initially hide the preview */
+  background:hsl(0, 0%, 100%);
+  overflow: hidden
+}
+
+.magnifier-preview img {
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.opaque {
+  opacity: .5;
+  filter: alpha(opacity=50);
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50)
+}
+
+.hidden {
+  display: none
 }
