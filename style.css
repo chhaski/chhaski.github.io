@@ -536,7 +536,8 @@ main.cv section p {
   z-index: 1000;
   top: 0;
   left: 0;
-  overflow: hidden
+  overflow: hidden;
+  background:hsl(0, 0%, 100%);
 }
 
 .magnifier-loader {
@@ -572,6 +573,7 @@ main.cv section p {
   display: none; /* Initially hide the preview */
   background:hsl(0, 0%, 100%);
   overflow: hidden
+  
 }
 
 .magnifier-preview img {

@@ -322,18 +322,23 @@
 <script type="text/javascript" src="Event.js"></script>
   <script type="text/javascript" src="Magnifier.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var evt = new Event(),
-          m = new Magnifier(evt);
-      m.attach({
-        thumb: '#thumb-inside',
-        large: 'Group 1.png',
-        zoom: 1500,
-        zoomable: true,
-        largeWrapper: 'preview',
+
+
+    // document.addEventListener("DOMContentLoaded", function () {
+    //   var evt = new Event(),
+    //       m = new Magnifier(evt);
+    //   m.attach({
+    //     thumb: '#thumb-inside',
+    //     large: 'Group 1.png',
+    //     zoom: 1500,
+    //     zoomable: true,
+    //     largeWrapper: 'preview',
+
         
-      });
-    });
+    //   });
+    // });
+
+
     document.addEventListener("DOMContentLoaded", function () {
   var evt = new Event(),
       m = new Magnifier(evt);
@@ -342,9 +347,7 @@
     large: 'Group 1.png',
     mode: 'inside',
     zoomable: false,
-    zoomMin: zoomMin,
-    zoomMax: zoomMax,
-    
+
   });
 
   var magnifierPreview = document.querySelector('.magnifier-preview');
@@ -355,12 +358,12 @@
     magnifierPreview.style.display = 'block';
 
     // Set the position of the preview to the mouse position
-    magnifierPreview.style.left = e.pageX + 'px';
-    magnifierPreview.style.top = e.pageY + 'px';
+    // magnifierPreview.style.left = e.pageX + 'px';
+    // magnifierPreview.style.top = e.pageY + 'px';
 
     // Optionally adjust the offset to position it correctly relative to the mouse
-    // magnifierPreview.style.left = (e.pageX - 50) + 'px'; // Adjust X position
-    // magnifierPreview.style.top = (e.pageY - 50) + 'px'; // Adjust Y position
+    magnifierPreview.style.left = (e.pageX - 50) + 'px'; // Adjust X position
+    magnifierPreview.style.top = (e.pageY - 50) + 'px'; // Adjust Y position
   });
 
   // Hide the magnifier preview when the mouse leaves the image
