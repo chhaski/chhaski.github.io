@@ -254,7 +254,7 @@
     nodes: {
       opacity: 2,
       borderWidth: 3,
-      color: "black",
+      color: "gray",
       shape: 'text',
       font: { face: "Times New Roman", align: "left", background: " hsl(0, 0%, 100%)" },
     },
@@ -283,7 +283,7 @@
     network.setData(data);
   }
 
-  setInterval(toggleLabelFlash, 1000); // Flashing interval in milliseconds
+  setInterval(toggleLabelFlash, 5000); // Flashing interval in milliseconds
 
   function drawEdgesSequentially() {
     var edgesToAdd = edges.slice(0); // Create a copy of the edges array

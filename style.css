@@ -636,4 +636,25 @@ main.cv section p {
   transition: max-height 0.5s ease-in; /* Smooth transition when details open */
 }
 
+.button:hover {background-color: #e7e7e7;}
+
+.button {
+  background-color:rgb(0,0,0,0.05); /* Green */
+  border: none;
+  color: white;
+  padding: 1px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+::selection {
+  background: #ffe947;
+}
+
 /* Web of Deviations specific styles */
