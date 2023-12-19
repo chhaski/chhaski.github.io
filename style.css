@@ -19,12 +19,12 @@
 
   /* Radiuses */
 
-  --radius         : 0.25rem;
+  --radius         : 0.15rem;
 
   /* Borders and outlines */
 
-  --single         : 2px solid;
-  --double         : 6px double;
+  --single         : 1px solid;
+  --double         : 4px double;
   --focus          : var(--single) rgb(133, 50, 50);
 
 
@@ -144,28 +144,39 @@ ul {
   width: fit-content;
 }
 
-/* times */
-
-time {
-  font-style       : italic;
-}
-
-
-
 /* tables */
 
-table tbody th {
+table tbody {
   text-align       : left;
+  width             : 100%;
+
+}
+
+table {
+  margin: 0;
+  padding: 0;
+}
+
+th {
+  text-align       : center;
+  width: 100%;
+  text-transform: lowercase;
+
 }
 
 th,
 td {
-  white-space      : nowrap;
   min-width        : max-content;
-  padding          : 0.2rem 0.3rem;
+  padding          : 0.2rem 0.2rem;
   vertical-align   : middle;
 }
 
+td.linked_cell:hover {
+  text-decoration: none;
+  background: #ffe947;
+  cursor: pointer;
+  /* text-transform: capitalize; */
+}
 
 
 /* input */
@@ -210,6 +221,7 @@ td,
   border-bottom    : var(--single) var(--lighter);
   border-right     : var(--single) var(--lighter);
   border-radius    : var(--radius);
+
 }
 
 address p {
@@ -336,6 +348,7 @@ main.projects_all section ul {
 main.projects section ul li details summary,
 main.projects_all section ul li details summary {
   margin-inline: 4px;
+
 }
 
 main.projects section ul li:hover details summary,
@@ -450,12 +463,19 @@ main.cv section p {
 
 .image-column {
   display: flex;
-  flex-direction: column;
   gap: 10px; /* Adjust the gap between images */
   /* Additional styles for the image column */
-  width: 300px; /* Adjust the width of the image column */
+  width: 400px; /* Adjust the width of the image column */
   margin-left: 20px; /* Add margin as needed */
-  
+  flex-wrap: wrap; /* Items wrap onto multiple lines */
+}
+
+.image-column img {
+  transition: width 0.3s ease-in-out; /* Add transition effect for width changes */
+}
+
+.image-column img:hover {
+  width: 200%; /* Double the width on hover */
 }
 
 /* Your existing styles for image items */
@@ -466,8 +486,6 @@ main.cv section p {
   opacity: 0.8; /* Set initial opacity */
   padding: 0.75rem;
   position: relative;
-
-  
 }
 
 .image-item img {
@@ -537,6 +555,7 @@ main.cv section p {
   top: 0;
   left: 0;
   overflow: hidden;
+  background: transparent;
   background:hsl(0, 0%, 100%);
 }
 
@@ -573,7 +592,6 @@ main.cv section p {
   display: none; /* Initially hide the preview */
   background:hsl(0, 0%, 100%);
   overflow: hidden
-  
 }
 
 .magnifier-preview img {
@@ -591,3 +609,31 @@ main.cv section p {
 .hidden {
   display: none
 }
+
+/* Hide the summary by default */
+.project-details summary {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+/* Style summary hover */
+.project-details summary:hover {
+  background-color: lightgray; /* Change background color on hover */
+}
+
+/* Hide the details content by default */
+.details-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out; /* Transition for smooth opening/closing */
+}
+
+/* Show the details content when details are open */
+.project-details[open] .details-content {
+  max-height: 1000px; /* Adjust to a large value or 'auto' for dynamic content */
+  transition: max-height 0.5s ease-in; /* Smooth transition when details open */
+}
+
+/* Web of Deviations specific styles */

@@ -1,582 +1,626 @@
 :root {
 
 
-    /* Default The Hmm colors */
-  
-    --brown          : hsl(0, 9%, 62%);
-    --lighter        : rgb(255,255,255,0.25);
-    --little-lighter : rgba(255, 255, 255, 0.05);
-    --little-darker  : rgb(0,0,0,0.05);
-    --darker         : rgb(0,0,0,0.25);
-    --lot-darkwr     : rgb(0,0,0,0.5);
-  
-  
-    /* The default accent color used in the entire website */
-    /* This value is overidden in the Event page. */
-  
-    --accent         : var(--brown);
-  
-  
-    /* Radiuses */
-  
-    --radius         : 0.25rem;
-  
-    /* Borders and outlines */
-  
-    --single         : 2px solid;
-    --double         : 6px double;
-    --focus          : var(--single) blue;
-  
-  
-    /* Transition and animation speeds */
-  
-    --fast           : 0.25s;
-  
-  }
-  
-  
-  
-  /* preveting headaches */
-  
-  *,
-  *::before,
-  *::after {
-    box-sizing       : border-box;
-    position         : relative;
-  }
-  
-  *:focus {
-    outline          : var(--focus);
-  }
-  
-  
-  
-  
-  
-  /* main structural set-up */
-  
-  html,
-  body {
-    padding          : 0;
-    margin           : 0;
-    height           : 100%;
-    width            : 100%;
-    scroll-behavior  : smooth;
-    background-color : var(--accent);
-    color            : var(--lot-darkwr);
-    font-family      : Times New Roman, serif;
-  }
-  
-  body {
-    padding          : 0.75rem;
-  }
-  
-  main,
-  header,
-  footer {
-    margin-inline    : auto;
-    min-width        : min(100%, 24rem);
-  }
-  
-  main {
-    max-width        : min(100%, 42rem);
-    padding-block    : 0.67em;
-  }
-  
-  header,
-  footer {
-    max-width        : min(100%, 24rem);
-  }
-  
-  footer {
-    padding-bottom   : 2rem;
-    text-align       : center;
-  }
-  
-  article,
-  section {
-    margin-block     : 0.75rem;
-    margin-inline    : auto;
-    max-width        : max-content;
-    overflow         : scroll;
-    padding          : 0.75rem;
-  }
-  
-  hr {
-    border: none;
-   border-top      : var(--single) var(--darker);
-  }
-  
-  section p:first-of-type {
-    /* margin-top       : 0; */
-  }
-  section p:last-of-type {
-    /* margin-bottom    : 0; */
-  }
-  
-  
-  
-  /* anchors */
-  
-  a,
-  a:active,
-  a:visited {
-    text-decoration  : underline;
-    color            : var(--lot-darkwr);
-  }
-  
-  a:hover,
-  a:focus {
-    text-decoration  : none;
-    font-style       : italic;
-  }
-  
-  s a {
-    text-decoration  : none;
-  }
-  
-  
-  
-  /* headers */
-  
-  h1 {
-    margin-top       : 0;
-    text-align       : center;
-  }
-  
-  ul {
-    margin-block: 0;
-    padding-inline: 1.5rem;
-    width: fit-content;
-  }
-  
-  /* times */
-  
-  time {
-    font-style       : italic;
-  }
-  
-  
-  
-  /* tables */
-  
-  table tbody th {
-    text-align       : left;
-  }
-  
-  th,
-  td {
-    white-space      : nowrap;
-    min-width        : max-content;
-    padding          : 0.2rem 0.3rem;
-    vertical-align   : middle;
-  }
-  
-  
-  
-  /* input */
-  
-  input {
-    background-color: unset;
-    border: unset;
-    margin: 0;
-    background-color : var(--little-darker);
-    border-top       : var(--single) var(--darker);
-    border-left      : var(--single) var(--darker);
-    border-bottom    : var(--single) var(--lighter);
-    border-right     : var(--single) var(--lighter);
-    border-radius    : var(--radius);
-  }
-  
-  input[type="button"],
-  input[type="submit"],
-  .carve-out {
-    background-color: var(--little-lighter);
-    border-top       : var(--single) var(--lighter);
-    border-left      : var(--single) var(--lighter);
-    border-bottom    : var(--single) var(--darker);
-    border-right     : var(--single) var(--darker);
-    border-radius    : var(--radius);
-  }
-  
-  
-  
-  
-  
-  /* custom box style */
-  
-  section,
-  article,
-  img,
-  nav,
-  /* ul, */
-  th,
-  td,
-  .carve-in {
-    background-color : var(--little-darker);
-    border-top       : var(--single) var(--darker);
-    border-left      : var(--single) var(--darker);
-    border-bottom    : var(--single) var(--lighter);
-    border-right     : var(--single) var(--lighter);
-    border-radius    : var(--radius);
-  }
-  
-  address p {
-    margin-block    : 0;
-  }
-  
-  
-  header {
-    /* z-index          : 1; */
-  }
-  
-  /* skip button */
-  
-  header a#skip {
-    position         : absolute;
-    padding          : 0.2rem 0.3rem;
-    background-color : var(--brown);
-    transform        : translateY(-200%);
-    transition       : transform var(--fast) linear;
-    z-index          : 1;
-  }
-  
-  header a#skip:focus {
-    transform        : translateY(0);
-  }
-  
-  
-  
-  /* logo */
-  
-   a#logo {
-    width            : max-content;
-    height           : 8rem;
-    margin           : auto;
-    display          : flex;
-    align-items      : center;
-    z-index          : 100;
-    border-radius    : 100%;
-  }
-  
-   a#logo img {
-    transition: all var(--fast) linear;
-  }
-  
-   a#logo:focus img,
-   a#logo:focus-within img {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 1rem var(--darker));
-  }
-  
-  
-   a#logo figure img {
-    width            : 3rem;
-    background-color : unset;
-    border           : none;
-  }
-  
-  
-  
-  /* nav */
-  
-  header nav {
-    max-width        : max-content;
-    margin           : auto;
-    padding          : 2px;
-    margin-block     : 0.75rem;
-  }
-  
-  header nav ul {
-    list-style       : none;
-    width            : max-content;
-    margin           : 0 auto;
-    padding          : 0;
-    padding          : 0.75rem;
-    display          : flex;
-  }
-  
-  header nav ul li a {
-    padding          : 0.2rem 0.3rem;
-  }
-  
-  
-  
-  /* figures, images, audio, video */
-  
-  figure img {
-    max-width        : 100%;
-  }
-  
-  figure audio,
-  figure video {
-    width            : 100%;
-  }
-  
-  figure figcaption {
-    font-style       : italic;
-    text-align       : center;
-    max-width        : min(100%, 24rem);
-    margin           : auto;
-  }
-  
-  
-  figure#karl img {
-    border-radius: 100%;
-  }
-  
-  
-  /* articles ( motd posts ) */
-  
-  article:focus-within {
-    outline          : var(--focus);
-  }
-  
-  article header {
-    width            : 100%;
-    display          : flex;
-    padding-bottom   : 0.75rem;
-  }
-  
-  article header a {
-    white-space      : nowrap;
-    text-overflow    : ellipsis;
-    overflow         : hidden;
-    padding-right    : 0.75rem;
-  }
-  
-  article header time {
-    margin-left      : auto;
-    flex-shrink      : 0;
-  }
-  
-  article figure {
-    margin           : 0;
-  }
-  
-  
-  
-  /* index */
-  
-  main.index section {
-    border-radius: 100%;
-  }
-  
-  
-  
-  /* projects */
-  
-  main.projects section ul,
-  main.projects_all section ul {
-    max-width        : 24rem;
-    list-style       : none;
-    margin           : 0;
-    padding          : 0.75rem;
-  }
-  
-  main.projects section ul li details summary,
-  main.projects_all section ul li details summary {
-    margin-inline: 4px;
-  }
-  
-  main.projects section ul li:hover details summary,
-  main.projects_all section ul li:hover details summary {
-    list-style-type: disclosure-open;
-  }
-  
-  main.projects section ul li:hover details[open] summary,
-  main.projects_all section ul li:hover details[open] summary {
-    list-style-type: disclosure-closed;
-  }
-  main.projects section ul li details[open],
-  main.projects_all section ul li details[open] {
-    margin-block: 0.75rem;
-  }
-  
-  
-  main.projects section ul li details table,
-  main.projects_all section ul li details table {
-    width: 100%;
-  }
-  
-  main.projects section ul li details table tbody tr th,
-  main.projects_all section ul li details table tbody tr th {
-    width: 3rem;
-  }
-  
-  
-  
-  /* cv */
-  
-  main.projects section,
-  main.projects_all section,
-  main.cv section {
-    padding          : 2px;
-  }
-  main.projects section p,
-  main.projects_all section p,
-  main.cv section p {
-    position         : sticky;
-    left             : 0;
-    font-style       : italic;
-    width            : 100%;
-    text-align       : center;
-    margin-block     : 0.75rem;
-  }
-  
-  
-  
-  /* motd */
-  
-  main.motd > p:first-of-type,
-  main.motd_all > p:first-of-type,
-  main.motd_current > p:first-of-type,
-  main.motd_upload caption {
-    font-style       : italic;
-    text-align       : center;
-  }
-  
-  main.motd_upload section {
-    padding: 2px;
-  }
-  main.motd_upload section caption {
-    margin-block: 0.75rem;
-  }
-  
-  main.motd_upload section table tr td {
-    padding: 2px;
-  }
-  main.motd_upload section table tr td input {
-    width: 100%;
-  }
-  
-  /* bio */
-  
-  main.bio section {
-    text-align: center;
-    max-width        : 24rem;
-    border: none;
-    background-color: unset;
-  }
-  
-  main.bio section figure + p,
-  main.bio section > p:first-of-type {
-    /* margin-bottom: 0; */
-  }
-  main.bio section ul + p {
-    /* margin-top: 0; */
-  }
-  main.bio ul {
-    background-color: unset;
-    border: none;
-    margin: auto;
-  }
-  main.bio ul li {
-    list-style: none;
-    /* padding: 0; */
-  }
-  
-  main.network section {
-    background-color: unset;
-    border: unset;
-    /* border-radius: 100%; */
-  }
-  main.network ul {
-    /* padding: 0.5rem; */
-    text-align: center;
-    background-color: unset;
-    border: unset;
-    /* border-radius: inherit; */
-  }
-  main.network ul li {
-    list-style: none;
-    /* width: fit-content; */
-  }
-  
-  main.network ul li a {
-    display: inline-block;
-    padding: 0.25rem;
-  }
-  
-  main.fruitfly  {
-    text-align: center;
-    cursor           : url( "/public/cursors/fruitfly/idle.gif" ), auto;
-  }
-  
-  main.fruitfly  a:hover,
-  main.fruitfly  input:hover {
-    cursor           : url( "/public/cursors/fruitfly/wings.gif" ), auto;
-  }
-  
-  main.fruitfly p {
-    margin-inline: auto;
-    max-width : 25rem;
-  }
-  
-  main.fruitfly  div.horizontal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  main.fruitfly  div.horizontal figure {
-    margin: 3rem;
-  }
-  
-  main.fruitfly  div.horizontal figure img {
-    padding: 1rem;
-    min-width: 64px;
-    border-radius: 100%;
-  }
-  
-  main.fruitfly div.horizontal input {
-    margin: 2rem;
-  }
-  
-  section#away {
-    max-width: 300px;
-    text-align: center;
-  }
-  section#away p {
-    margin: 0;
-  }
-  section#patrick {
-    padding: 0;
-    min-height: 200px;
-  }
-  section#patrick iframe {
-    display: flex;
-  }
-  section#patrick iframe #infolayer.fixed {
-    border: unset;
-  }
-  
-  .gallery {
-    text-align: center;
-  }
-  .print_only {
-    display: none;
-  }
-  
-  @media print {
-    header,
-    footer { display: none; }
-    /* header { max-width: 100%; }
-    header a#logo { height: 3rem; margin: unset;}
-    header a#logo figure { margin: 0 !important; }
-    header a#logo figure img { width: 3rem; } */
-    .print_only { display: unset; }
-    main.cv > h1 { display: none !important; }
-    main.cv h1 { text-align: left; display: flex; align-items: center; }
-    main.cv h1 figure { display: inline-block; border: none; margin: 0; margin-right: 1.5rem; margin-bottom: -0.5rem;}
-    main.cv h1 figure img { display: inline-block; border: none; height: 1em; }
-    main.cv h1,
-    main.cv h2 {
-      font-family: 'PicNic';
-      /* font-size: 1em; */
-    }
-  }
+  /* Default The Hmm colors */
+  --brown          : hsl(0, 0%, 100%);
+  /* --brown          : hsl(0, 9%, 62%); */
+  --lighter        : rgb(255,255,255,0.25);
+  --little-lighter : rgba(255, 255, 255, 0.05);
+  --little-darker  : rgb(0,0,0,0.05);
+  --darker         : rgb(0,0,0,0.25);
+  --lot-darkwr     : rgb(0,0,0,0.5);
 
+
+  /* The default accent color used in the entire website */
+  /* This value is overidden in the Event page. */
+
+  --accent         : var(--brown);
+
+
+  /* Radiuses */
+
+  --radius         : 0.25rem;
+
+  /* Borders and outlines */
+
+  --single         : 2px solid;
+  --double         : 6px double;
+  --focus          : var(--single) rgb(133, 50, 50);
+
+
+  /* Transition and animation speeds */
+
+  --fast           : 0.25s;
+
+}
+
+
+
+/* preveting headaches */
+
+*,
+*::before,
+*::after {
+  box-sizing       : border-box;
+  position         : relative;
+}
+
+*:focus {
+  outline          : var(--focus);
+}
+
+
+
+
+
+/* main structural set-up */
+
+html,
+body {
+  padding          : 0;
+  margin           : 0;
+  height           : 100%;
+  width            : 100%;
+  scroll-behavior  : smooth;
+  background-color : var(--accent);
+  color            : var(--lot-darkwr);
+  font-family      : Times New Roman, serif;
+}
+
+body {
+  padding          : 0.75rem;
+}
+
+main,
+header,
+footer {
+  margin-inline    : auto;
+  min-width        : min(100%, 24rem);
+}
+
+main {
+  max-width        : min(100%, 52rem);
+  padding-block    : 0.67em;
+}
+
+header,
+footer {
+  max-width        : min(100%, 24rem);
+}
+
+footer {
+  padding-bottom   : 2rem;
+  text-align       : center;
+}
+
+article,
+section {
+  margin-block     : 0.75rem;
+  margin-inline    : auto;
+  max-width        : max-content;
+  overflow         : scroll;
+  padding          : 0.75rem;
+
+}
+
+hr {
+  border: none;
+ border-top      : var(--single) var(--darker);
+}
+
+
+
+/* anchors */
+
+a,
+a:active,
+a:visited {
+  text-decoration  : underline;
+  color            : var(--lot-darkwr);
+}
+
+a:hover,
+a:focus {
+  text-decoration  : none;
+  font-style       : italic;
+}
+
+s a {
+  text-decoration  : none;
+}
+
+
+
+/* headers */
+
+h1 {
+  margin-top       : 0;
+  text-align       : center;
+}
+
+ul {
+  margin-block: 0;
+  padding-inline: 1.5rem;
+  width: fit-content;
+}
+
+/* Tables */
+table tbody  {
+  text-align: left;
+}
+
+table th {
+  text-align: center;
+}
+
+table, 
+th,
+td {
+  white-space: nowrap;
+  min-width: max-content;
+  padding: 0.2rem 0.3rem;
+  vertical-align: middle;
+  width: 100%;
+  /* border-collapse: collapse; */
+}
+
+/* input */
+
+input {
+  background-color: unset;
+  border: unset;
+  margin: 0;
+  background-color : var(--little-darker);
+  border-top       : var(--single) var(--darker);
+  border-left      : var(--single) var(--darker);
+  border-bottom    : var(--single) var(--lighter);
+  border-right     : var(--single) var(--lighter);
+  border-radius    : var(--radius);
+}
+
+input[type="button"],
+input[type="submit"],
+.carve-out {
+  background-color: var(--little-lighter);
+  border-top       : var(--single) var(--lighter);
+  border-left      : var(--single) var(--lighter);
+  border-bottom    : var(--single) var(--darker);
+  border-right     : var(--single) var(--darker);
+  border-radius    : var(--radius);
+}
+
+
+/* custom box style */
+
+section,
+article,
+img,
+nav,
+th,
+td,
+.carve-in {
+  background-color : var(--little-darker);
+  border-top       : var(--single) var(--darker);
+  border-left      : var(--single) var(--darker);
+  border-bottom    : var(--single) var(--lighter);
+  border-right     : var(--single) var(--lighter);
+  border-radius    : var(--radius);
+
+  /* border: 1px solid black;
+  border-collapse: collapse; */
+}
+
+address p {
+  margin-block    : 0;
+}
+
+
+/* skip button */
+
+header a#skip {
+  position         : absolute;
+  padding          : 0.2rem 0.3rem;
+  background-color : var(--brown);
+  transform        : translateY(-200%);
+  transition       : transform var(--fast) linear;
+  z-index          : 1;
+}
+
+header a#skip:focus {
+  transform        : translateY(0);
+}
+
+
+/* logo */
+
+ a#logo {
+  width            : max-content;
+  height           : 8rem;
+  margin           : auto;
+  display          : flex;
+  align-items      : center;
+  z-index          : 100;
+  border-radius    : 100%;
+}
+
+ a#logo img {
+  transition: all var(--fast) linear;
+}
+
+ a#logo:focus img,
+ a#logo:focus-within img {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 1rem var(--darker));
+}
+
+
+ a#logo figure img {
+  width            : 3rem;
+  background-color : unset;
+  border           : none;
+}
+
+
+
+/* nav */
+
+header nav {
+  max-width        : max-content;
+  margin           : auto;
+  padding          : 2px;
+  margin-block     : 0.75rem;
+}
+
+header nav ul {
+  list-style       : none;
+  width            : max-content;
+  margin           : 0 auto;
+  padding          : 0;
+  padding          : 0.75rem;
+  display          : flex;
+}
+
+header nav ul li a {
+  padding          : 0.2rem 0.3rem;
+}
+
+
+
+/* figures, images, audio, video */
+
+figure img {
+  max-width        : 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure audio,
+figure video {
+  width            : 100%;
+}
+
+figure figcaption {
+  font-style       : italic;
+  text-align       : center;
+  max-width        : min(100%, 24rem);
+  margin           : auto;
+}
+
+
+figure#karl img {
+  border-radius: 100%;
+}
+
+
+/* index */
+
+main.index section {
+  border-radius: 100%;
+}
+
+
+
+/* projects */
+
+main.projects section ul,
+main.projects_all section ul {
+  max-width        : 34rem;
+  list-style       : none;
+  margin           : 0;
+  padding          : 0.75rem;
+}
+
+main.projects section ul li details summary,
+main.projects_all section ul li details summary {
+  margin-inline: 4px;
+
+}
+
+main.projects section ul li:hover details summary,
+main.projects_all section ul li:hover details summary {
+  list-style-type: disclosure-open;
+}
+
+main.projects section ul li:hover details[open] summary,
+main.projects_all section ul li:hover details[open] summary {
+  list-style-type: disclosure-closed;
+}
+main.projects section ul li details[open],
+main.projects_all section ul li details[open] {
+  margin-block: 0.75rem;
+}
+
+
+main.projects section ul li details table,
+main.projects_all section ul li details table {
+  width: 100%;
+}
+
+main.projects section ul li details table tbody tr th,
+main.projects_all section ul li details table tbody tr th {
+  width: 4rem;
+}
+
+
+
+/* cv */
+
+main.projects section,
+main.projects_all section,
+main.cv section {
+  padding          : 2px;
+}
+
+main.projects section p,
+main.projects_all section p,
+main.cv section p {
+  position         : sticky;
+  left             : 0;
+  font-style       : italic;
+  width            : 100%;
+  text-align       : center;
+  margin-block     : 0.75rem;
+}
+
+.gallery {
+  text-align: center;
+}
+.print_only {
+  display: none;
+}
+
+@media print {
+  header,
+  footer { display: none; }
+  /* header { max-width: 100%; }
+  header a#logo { height: 3rem; margin: unset;}
+  header a#logo figure { margin: 0 !important; }
+  header a#logo figure img { width: 3rem; } */
+  .print_only { display: unset; }
+  main.cv > h1 { display: none !important; }
+  main.cv h1 { text-align: left; display: flex; align-items: center; }
+  main.cv h1 figure { display: inline-block; border: none; margin: 0; margin-right: 1.5rem; margin-bottom: -0.5rem;}
+  main.cv h1 figure img { display: inline-block; border: none; height: 1em; }
+  main.cv h1,
+  main.cv h2 {
+    font-family: 'PicNic';
+    /* font-size: 1em; */
+  }
+}
+
+#mynetwork {
+  width: 800;
+  height: 300;
+  /* border: 1px solid lightgray; */ 
+  background-color: var(--brown);
+
+}
+
+.section-caption {
+  font-style       : italic;
+  text-align       : center;
+  max-width        : min(100%, 24rem);
+  margin           : auto;
+}
+
+.image-overlay {
+  display: none;
+  position: fixed;
+  top: 50px; /* Adjust top position as needed */
+  left: 20px; /* Adjust left position as needed */
+  z-index: 9999;
+}
+
+/* New styles for IG.html */
+
+/* Main content layout */
+.ig-content {
+  display: flex;
+  align-items: flex-start;
   
+}
+
+.text-content {
+  flex: 1;
   
+  /* Your styles for the text content */
+}
+
+.image-column {
+  display: flex;
+  flex-direction: ;
+  gap: 10px; /* Adjust the gap between images */
+  /* Additional styles for the image column */
+  width: 400px; /* Adjust the width of the image column */
+  margin-left: 20px; /* Add margin as needed */
+  flex-wrap: wrap; /* Items wrap onto multiple lines */
+}
+
+.image-column img {
+  transition: width 0.3s ease-in-out; /* Add transition effect for width changes */
+}
+
+.image-column img:hover {
+  width: 200%; /* Double the width on hover */
+}
+
+/* Your existing styles for image items */
+.image-item {
+  width: 100%;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Include opacity in the transition */
+  cursor: pointer;
+  opacity: 0.8; /* Set initial opacity */
+  padding: 0.75rem;
+  position: relative;
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+}
+
+/* Hover effect */
+.image-item:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+
+/* Style for the canvas */
+#projectCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Ensures the canvas doesn't block mouse events */
+  z-index: -1; /* Places the canvas behind other elements */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity changes */
+}
+
+.chart-text {
+  fill: var(--lot-darkwr);
+}
+
+.chart-line {
+  stroke: var(--lot-darkwr);
+}
+
+/* CSS for image section */
+.image-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* Optional: Add padding, margin, or other styles as needed */
+}
+
+.image-section figure {
+  flex: 1; /* Allow figures to expand within the container */
+
+  /* text-align: center; /* Center-align the figures
+
+.image-container figure {
+  margin: 0; /* Reset default margin */
+}
+
+.image-container img {
+  max-width: 100%; /* Ensure images don't exceed their container */
+  height: auto; /* Maintain image aspect ratio */
+}
+
+.magnifier-thumb-wrapper {
+  position: relative;
+  display: block;
+  top: 0;
+  left: 0
+}
+
+.magnifier-lens {
+  position: absolute;
+  border: solid 1px #ccc;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background: transparent;
+  background:hsl(0, 0%, 100%);
+}
+
+.magnifier-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: solid 1px #ccc;
+  color: #fff;
+  text-align: center;
+  background: transparent;
+  background: rgba(50, 50, 50, 0.5);
+  z-index: 1000;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232,endColorstr=#7F323232)";
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232,endColorstr=#7F323232)
+}
+
+.magnifier-loader-text {
+  font: 13px Arial;
+  margin-top: 10px
+}
+
+.magnifier-large {
+  position: absolute;
+  z-index: 1000
+}
+
+.magnifier-preview {
+  padding: 10;
+  width: 100%;
+  height: auto;
+  position: absolute; /* Set to absolute for positioning */
+  pointer-events: none; /* Ensure it doesn't interfere with mouse events */
+  display: none; /* Initially hide the preview */
+  background:hsl(0, 0%, 100%);
+  overflow: hidden
+}
+
+.magnifier-preview img {
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.opaque {
+  opacity: .5;
+  filter: alpha(opacity=50);
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50)
+}
+
+.hidden {
+  display: none
+}
+
+/* Hide the summary by default */
+.project-details summary {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+/* Style summary hover */
+.project-details summary:hover {
+  background-color: lightgray; /* Change background color on hover */
+}
+
+/* Hide the details content by default */
+.details-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out; /* Transition for smooth opening/closing */
+}
+
+/* Show the details content when details are open */
+.project-details[open] .details-content {
+  max-height: 1000px; /* Adjust to a large value or 'auto' for dynamic content */
+  transition: max-height 0.5s ease-in; /* Smooth transition when details open */
+}
+
+

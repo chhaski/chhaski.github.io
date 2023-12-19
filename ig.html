@@ -170,8 +170,8 @@
         <div class="text-content">
           <b>1. pre-processing corpus.</b>
           <p></p>
-          <br />format .txt files of index corpus to make their structures uniform, then reassemble into a combined index made up of entries and subentries from all 3 books in the corpus
-          <br />parse text into subentries (can be viewed as textual nodes which are joined by referential links)
+          <br />✦format .txt files of index corpus to make their structures uniform, then reassemble into a combined index made up of entries and subentries from all 3 books in the corpus
+          <br />✦parse text into subentries (can be viewed as textual nodes which are joined by referential links)
           <br /><br />
           <small>
             <ul id="randomEntries">
@@ -197,10 +197,10 @@
         <div class="text-content">
           <b>2. processing corpus.</b>
           <p></p>
-          <br />create a vector for each subentry in the corpus
-          <br />use t-SNE (t-distributed stochastic neighbor embedding) to reduce the dimensionality of each vector
-          <br />save the x-values of t-SNE visualization of each vector as an array
-          <br />map the vectors to a more workable range and append each of the re-mapped values to their corresponding subentry in a vector dictionary (associative array)
+          <br />✦create a vector for each subentry in the corpus
+          <br />✦use t-SNE (t-distributed stochastic neighbor embedding) to reduce the dimensionality of each vector
+          <br />✦save the x-values of t-SNE visualization of each vector as an array
+          <br />✦map the vectors to a more workable range and append each of the re-mapped values to their corresponding subentry in a vector dictionary (associative array)
           <br />
             <small>
           <ul id="chart">
@@ -235,8 +235,8 @@
       <div class="ig-content">
         <div class="text-content">
           <b>3. generating.</b>
-          <br />a tracery grammar generates indexes by combining subentries together under a heading
-          <br />the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE
+          <br />✦a tracery grammar generates indexes by combining subentries together under a heading
+          <br />✦the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE
           <br />
         </div>
         <div class="image-column">

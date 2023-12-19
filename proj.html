@@ -52,7 +52,6 @@
 <figure id="">
 <img
   src="visualizer.gif"
-  filter: grayscale(100%);
   alt="A mutation of the globe emoji, showing Africa, Europe and West Asia, discoloured."
 />
 
@@ -154,6 +153,11 @@
       
         <h1> projects </h1>
 
+        <figure>
+          <img src="https://media.giphy.com/media/bnKhL66hriGWFQbBYL/giphy.gif" width="200" height="135"alt="">
+          <figcaption> </figcaption>
+        </figure>
+
       <section>
   <ul>
     
@@ -162,7 +166,8 @@
           <summary><a
             title="speculative indexes to non-existent texts"
             rel="noreferrer noopener nofollow"
-            target="_blank" href="ig.html">Index Generator</a></summary>
+            target="_self" href="ig.html">Index Generator</a></summary>
+            <div class="project-details"></div>
           <table>
             <tbody>
               <tr>
@@ -175,6 +180,7 @@
               </tr>
             </tbody>
           </table>
+        </div>
         </details>
       </li>
     
@@ -183,7 +189,7 @@
           <summary><a
             title="considering forms of intermediary action"
             rel="noreferrer noopener nofollow"
-            target="_blank" href="proxies2.html">Proxies: Considering Forms of Intermediary Action </a></summary>
+            target="_self" href="proxies2.html">Proxies: Considering Forms of Intermediary Action </a></summary>
           <table>
             <tbody>
               <tr>
@@ -204,7 +210,7 @@
           <summary><a
       title="selected sketches made with code"
       rel="noreferrer noopener nofollow"
-      target="_blank"
+      target="_self"
     href="sketches.html">code sketches</a></summary>
           <table>
             <tbody>
@@ -226,7 +232,7 @@
           <summary><a
       title="wanderings in latent space"
       rel="noreferrer noopener nofollow"
-      target="_blank"
+      target="_self"
     href="webofdeviation.html">web of deviations</a></summary>
           <table>
             <tbody>
@@ -248,7 +254,7 @@
           <summary><a
       title="working with a disintegrating archive"
       rel="noreferrer noopener nofollow"
-      target="_blank"
+      target="_self"
     href="doubleslash.html">// "double slash"</a></summary>
           <table>
             <tbody>
@@ -270,7 +276,7 @@
           <summary><a
       title="avatar for the collaboration of chaski and sasha"
       rel="noreferrer noopener nofollow"
-      target="_blank"
+      target="_self"
     href="projects/sacha/about.html">sa_cha</a></summary>
           <table>
             <tbody>
@@ -279,7 +285,7 @@
                 <td><a
       title=""
       rel="noreferrer noopener nofollow"
-      target="_blank"
+      target="_self"
     href="https://www.instagram.com/t_cko/">sasha tycko</a></td>
               </tr>
               <tr>
@@ -426,6 +432,25 @@
     
 
 </footer>  <script>
+
+// Get all details elements
+const details = document.querySelectorAll('details');
+
+// Loop through each details element
+details.forEach((detail) => {
+  // Add mouseenter event listener
+  detail.addEventListener('mouseenter', () => {
+    // Open details on hover
+    detail.open = true;
+  });
+
+  // Add mouseleave event listener
+  detail.addEventListener('mouseleave', () => {
+    // Close details when mouse leaves
+    detail.open = false;
+  });
+});
+
 // const canvas = document.getElementById('projectCanvas');
 //     const projects = document.querySelectorAll('.projects section ul li');
     
