@@ -66,7 +66,7 @@ body {
 }
 
 body {
-  padding: 0.75rem;
+  //padding: 0.75rem;
 }
 
 main,
@@ -147,12 +147,13 @@ ul {
 table tbody {
   text-align: left;
   width: 100%;
-
 }
 
 table {
-  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0;
+  
 }
 
 th
@@ -161,12 +162,13 @@ th
   text-transform: lowercase;
   /* width: max-content; */
   width: 100%;
+  
+  
 }
 
 th,
 td {
   min-width: max-content;
-  
   padding: 0.2rem 0.2rem;
   vertical-align: middle;
 }
@@ -308,6 +310,29 @@ figure img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+figureBigger {
+  overflow: visible; /* Hides parts of the image that overflow the container */
+  text-align: center; /* Centers the image */
+}
+
+figureBigger img {
+  height: auto; /* Maintains aspect ratio */
+  display: inline-block; /* Aligns the image properly for centering */
+  position: relative;
+  background: transparent;
+  border: none;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.8; /* Adjust this value as needed */
+}
+
+figureBigger figcaption {
+  font-style: italic;
+  text-align: center;
+  max-width: min(100%, 24rem);
+  margin: auto;
 }
 
 figure audio,
@@ -715,3 +740,22 @@ main.cv section p {
 }
 
 /* Web of Deviations specific styles */
+
+.bg {
+  height: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-blend-mode: lighten;
+  background-size: 100%;   
+  background-attachment: fixed;}
+
+/* Adding image to each div */
+.image1 {
+background-image: url("dp.png") !important;;
+}
+.image2 {
+background-image: url("pathscollage.png");	}
+.image3 {
+background-image: url("Group 1.png");	}
+.image4 {
+background-image: url("Group 1.png");	}
