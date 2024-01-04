@@ -1,88 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
+    
   <meta charset="UTF-8" lang="en" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>projects | chaski no</title>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.css" rel="stylesheet" type="text/css" />
+  <title>home | chaski/saskia</title>
+
   <link rel="icon" href="/public/favicon.ico" />
 
+  
+    <link
+      rel="preload"
+      as="image"
+      href="/public/uploads/bags.jpg"
+    >
+  
+    <link
+      rel="preload"
+      as="image"
+      href="/public/favicon.png"
+    >
+  
 
-  <link rel="preload" as="image" href="/public/uploads/bags.jpg">
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="style.css" 
+  />
 
-  <link rel="preload" as="image" href="/public/favicon.png">
+  
 
+</head>  <body>
+    
 
-  <link rel="stylesheet" type="text/css" href="style.css" />
+<header>
 
+  <a
+    id="logo"
+    href="/index.html"
+    title="Home"
+  >
+    
 
+<figure id="">
+  <img
+    src="visualizer.gif"
 
-</head>
+  />
+  <h4>saskia 'chaski' knowles</h4>
+</figure> 
+ </a>
+  
 
-<body>
 
 
   <header>
-    <a id="skip" href="#main" title="Skip to main content">
-      Skip to main content
-    </a>
-    <a id="logo" href="/" title="Home">
+    
+      <!-- <a
+        href="/index.html"
+        title="chaski / saskia">
+      saskia "chaski" knowles
+      </a> -->
+    
+  </header>
 
-
-      <figure id="">
-        <img src="visualizer.gif" filter: grayscale(100%);
-          alt="A mutation of the globe emoji, showing Africa, Europe and West Asia, discoloured." />
-
-      </figure>
-    </a>
-
-
-    <article>
-
-      <header>
-
-        <a href="/index.html" title="chaski / saskia">
-          chaski / saskia
-        </a>
-
-      </header>
+  
 
 
 
-      <!-- <figure id="">
-<img
-  src="projects/indeterminatemultitudes/ezgif.com-gif-maker (16).gif"
-  filter: grayscale(100%);
-  alt="own image"
-/> -->
-
-      <!-- <figcaption>
-    Wifi zine throwies shielded in self-made cases and charging in the sun. Photo from Solarpunk Workshop at FHNW in Basel last fall.
-  </figcaption> -->
-
-      </figure>
-      <!-- <footer>
-  <a> source </a>
-</footer> -->
-
-      </figure>
-      <!-- <footer>
-    <a> source </a>
-  </footer> -->
-
-    </article>
-    </article>
-    <nav id="nav">
-      <ul>
-
+</article>  <nav id="nav">
+    <ul>
+      
         <li>
-
-          <!-- <a
+          
+            <!-- <a
               title="network"
               href="/network"
             >
@@ -92,13 +86,16 @@
         </li>
        -->
         <li>
-
-          <a title="projects" href="proj.html">
-            projects
-          </a>
-
+          
+            <a
+              title="projects" 
+              href="proj.html"
+            >
+              projects
+            </a>
+          
         </li>
-
+      
         <!-- <li>
           
             <a
@@ -109,69 +106,87 @@
             </a>
           
         </li> -->
-
+      
         <li>
-
-          <a title="info" href="info.html">
-            info
-          </a>
-
+          
+            <a
+              title="info"
+              href="info.html" 
+            >
+              info
+            </a>
+          
         </li>
-
-
-
-      </ul>
-    </nav>
-  </header>
+      
+        <!-- <li>
+          
+            <a
+              title="cv"
+              href="/cv"
+            >
+              cv
+            </a>
+          
+        </li> -->
+      
+    </ul>
+  </nav>
+</header>    
   <main id="main" class="projects">
 
     <h1> Proxies: Considering Forms of Intermediary Action </h1>
+    
+    <h4>          <a title="info" href="https://itp.nyu.edu/networks/explanations/proxies/">
+      explanatory essay on Proxies for Networks at ITP site about telecommunications networks
+    </a></h4>
+    <br>
     <figure>
       <div id="mynetwork"></div>
     </figure>
-    <section>
-      <b>in networks</b>
-
-      <p> "In the context of computer networking, a proxy (or proxy server) acts as an intermediary between a client
-        requesting data and the server providing that data."
-        "When a forward proxy server is set up, your computer knows the IP address of the proxy, and whenever you send a
-        request to access a certain site on the internet, your request is routed to the proxy, instead of connecting you
-        directly to the site you requested."
-        <br /><br />
-
-    </section>
-    <section>
-      <b>as intermediaries</b>
-      <p> </p>
-      </strong>
-      <p> "A proxy sits between two entities and performs a service. Roy Fielding designates them as intermediary
-        components that 'act as both a client and server in order to forward, with possible translation, requests and
-        responses'."
-        "Proxies excel at IP masking and misdirection, anonymous web browsing, and managing or circumventing content
-        restrictions based on location or other blocks."
-      </p>
-      <strong>
-
-    </section>
-
-    <section>
-      <b>as decoy/stand-in/surrogate</b>
-      <p> </p>
-      </strong>
-
-      <p> "Proxies estrange us from our actions and their effects, complicating a simple, two-way dynamic of relation by
-        embodying a continuum between one entity and another that often involves obfuscation."
-        "Proxies create dependencies – coming in contact with the unknown, they extend the knowable by capturing what is
-        not visible."
-        "Proxies touch the unknown, facilitate indirect relations of exchange, and resist a singular definition,
-        therefore allowing us to consider how representation can be surveillance and obscuring one’s visibility can be a
-        way of reclaiming autonomy over one’s self."</p>
-      <br />
-
-    </section>
+    <br>
+    <p><b>In networks. As intermediaries. As decoy / stand-in / surrogate.</b> The term proxy appears in many different contexts. It is often used in legal discourse to indicate an entity empowered to perform actions on behalf of another. Etymologically, proxy denotes the “<a title="info" href="https://rcpp.lensbased.net/">agency of one who acts instead of another; a substitute
+    </a>". Its lineage can be traced from the Latin procuratio meaning “a caring for, management”. The term proxy war refers to conflict between two entities that is started or stoked by, but not directly involving, a major power. In this case, either of the two entities that are engaged in conflict have acted upon the instigation of another entity that is not present in the hostilities. This use of the term emerged around 1955. 
+      <br> <br>
+      In 2017, there was a conference organized by the <a title="info" href="https://www.etymonline.com/word/proxy">
+        Research Center for Proxy Politics</a>, around the concept of proxy politics as both “a diagnosis of the contemporary political ground and a potential set of tools for resistance”. <a title="info" href="https://rhizome.org/editorial/2017/jul/25/the-proxy-and-its-politics/">In an elucidating writeup of the event, Elvia Wilk</a> reflects on how “a proxy server may provide anonymity and security, but can also block access. Proxy politics is in this sense a struggle for who controls the ratio of information passed back and forth”. 
+      <br> <br>
+      The go-to example of proxy politics is the use of proxy servers to bypass local communications restrictions or imposed internet censorship. Thinking of agency as the ability to evade automatisms <a title="info" href="https://theusercondition.computer/">
+        (Lorusso, The User Condition)</a>, the use of VPNs and other proxies as networked objects of evasion, makes them a potent point of reference to theorize agency in relation to state policies surrounding network use and access. Use of proxies can be resistant, but it isn’t always.
+      <br> <br>
+      Amidst this slipperiness, what liability does a proxy have itself? As proxies are intermediaries for other entities, they are used by others, taken up as means to serve a variety of ends. In that way they are passive, but they are also not innocent. However, they cannot be guilty themselves either – it is only in their relation to other entities that their character could be judged. In their fundamental ambivalence, proxies complicate culpability.
+      <br> <br>
+      Proxies estrange us from our actions and their effects, complicating a simple, two-way dynamic of relation by embodying a continuum between one entity and another that often involves obfuscation. Proxies are connected to obscured or hidden variables to which they are attached. They create dependencies – coming in contact with the unknown, they extend the knowable by capturing what is not visible. Embodying a relation to absence, they shroud identification and maintain the opacity of the entities who put them in use. 
+      <br> <br>
+      Following Glissant’s theory of the right to opacity in <a title="info" href="https://www.etymonline.com/word/proxy">
+       ‘Poetics of Relation</a>,’ proxies as a conceptual framework can be taken up as objects that facilitate an allowance of opacity. In a networked age such as this, the ubiquitous act of being public on a network like the internet means to surrender your privacy, and make yourself traceable, vulnerable, and surveilled. Everyone should have the right to not be entirely transparent, especially those of non-dominant cultures or with markers of difference.
+      <br> <br>
+      By accepting unintelligibility and resisting translation, the right to opacity accounts for the risk of difference being reduced or appropriated by the singular comprehension of something being brought into knowing. Proxies touch the unknown, facilitate indirect relations of exchange, and resist a singular definition, therefore allowing us to consider how representation can be surveillance and obscuring one’s visibility can be a way of reclaiming autonomy over one’s self. The consequences of visibility – both embodied and in virtual space – are not evenly distributed.  
+      Some questions to leave you with
+      <br> <br>
+      What are things that we feel, or experience by proxy? What are you a proxy for? What do you intermediate, and hold, that is coming from somewhere and going somewhere else? What are the effects of these embodied transmissions? How can this unpredictable position of intermediary, in its irreducible in-between-ness, constitute or allow us to imagine other modes of communication? </p>
 
 
-
+        <section>
+          <h4>References/Works Cited</h4>
+          <ul>
+              <li><a href="https://courses.cs.vt.edu/~cs4244/spring.09/documents/Proxies.pdf" data-type="URL" data-id="https://courses.cs.vt.edu/~cs4244/spring.09/documents/Proxies.pdf">World-Wide Web Proxies</a></li>
+              <li><a href="http://The Etymology of &quot;Agent&quot; and &quot;Proxy&quot; in Computer Networking Discourse">The Etymology of “Agent” and “Proxy” in Computer Networking Discourse</a></li>
+              <li><a href="https://hal.inria.fr/inria-00444651/document" data-type="URL" data-id="https://hal.inria.fr/inria-00444651/document">Structure and Encapsulation in Distributed Systems: the Proxy Principle</a></li>
+              <li><a href="https://www.e-flux.com/architecture/accumulation/212275/on-patterns-and-proxies/">On Patterns and Proxies</a></li>
+              <li><a href="https://rcpp.lensbased.net/" data-type="URL" data-id="https://rcpp.lensbased.net/">The Research Center for Proxy Politics</a></li>
+              <li><a href="https://dl.acm.org/doi/10.1145/2838739.2838789" data-type="URL" data-id="https://dl.acm.org/doi/10.1145/2838739.2838789">Proxy Users, Use By Proxy: Mapping Forms of Intermediary Interaction</a></li>
+              <li><a href="https://www.fortinet.com/resources/cyberglossary/proxy-server" data-type="URL" data-id="https://www.fortinet.com/resources/cyberglossary/proxy-server">Cyber Glossary: Proxy Server</a></li>
+              <li><a href="https://serverfault.com/questions/127021/what-is-the-difference-between-load-balancer-and-reverse-proxy">What is the difference between Load Balancer and Reverse Proxy?</a></li>
+              <li><a href="https://www.etymonline.com/word/proxy#etymonline_v_2767" data-type="URL" data-id="https://www.etymonline.com/word/proxy#etymonline_v_2767">Etymology of the word proxy</a></li>
+              <li><a href="https://rhizome.org/editorial/2017/jul/25/the-proxy-and-its-politics/" data-type="URL" data-id="https://rhizome.org/editorial/2017/jul/25/the-proxy-and-its-politics/">The Proxy and its Politics</a></li>
+              <li><a href="tps://theusercondition.computer/" data-type="URL" data-id="tps://theusercondition.computer/">The User Condition: Computer Agency and Behavior</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Proxy" data-type="URL" data-id="https://en.wikipedia.org/wiki/Proxy">Proxy Wikipedia</a></li>
+              <li><a href="http://www.transcultural-english-studies.de/opacite-opacity-edouard-glissant/" data-type="URL" data-id="http://www.transcultural-english-studies.de/opacite-opacity-edouard-glissant/">Keywords in Transcultural English Studies: Opacité / Opacity (Édouard Glissant)</a></li>
+              <li><a href="https://shifter-magazine.com/wp-content/uploads/2015/10/Glissant_For_Opacity.pdf" data-type="URL" data-id="https://shifter-magazine.com/wp-content/uploads/2015/10/Glissant_For_Opacity.pdf">Poetics of Relation</a></li>
+              <li><a href="https://datatracker.ietf.org/doc/html/rfc1090" data-type="URL" data-id="https://datatracker.ietf.org/doc/html/rfc1090">RFC1090</a></li>
+          </ul>
+      </section>
+    
   </main>
 
   <footer>

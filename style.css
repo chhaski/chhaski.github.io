@@ -81,14 +81,16 @@ main {
   padding-block: 0.67em;
 }
 
-header,
-footer {
-  max-width: min(100%, 24rem);
+
+
+header {
+  max-width: min(100%, 54rem);
 }
 
 footer {
   padding-bottom: 2rem;
   text-align: center;
+  max-width: min(100%, 24rem);
 }
 
 article,
@@ -132,6 +134,11 @@ s a {
 /* headers */
 
 h1 {
+  margin-top: 0;
+  text-align: center;
+}
+
+h4 {
   margin-top: 0;
   text-align: center;
 }
@@ -272,7 +279,7 @@ a#logo:focus-within img {
 
 
 a#logo figure img {
-  width: 3rem;
+  width: 8rem;
   background-color: unset;
   border: none;
 }
@@ -508,37 +515,30 @@ main.cv section p {
 /* Main content layout */
 .ig-content {
   display: flex;
+  flex-direction: column; /* Changed to column layout */
   align-items: flex-start;
-
 }
 
 .text-content {
-  flex: 1;
-
-  /* Your styles for the text content */
+  max-width: 34rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem;
 }
 
-.image-column {
-  display: flex;
-  gap: 10px;
-  /* Adjust the gap between images */
-  /* Additional styles for the image column */
-  width: 400px;
-  /* Adjust the width of the image column */
-  margin-left: 20px;
-  /* Add margin as needed */
-  flex-wrap: wrap;
-  /* Items wrap onto multiple lines */
+.image-item {
+  margin-top: 10px; /* Space between text and image */
+  width: 100%; /* Adjust width as needed */
 }
 
-.image-column img {
-  transition: width 0.3s ease-in-out;
-  /* Add transition effect for width changes */
+.image-item img {
+  max-width: 100%; /* Ensure image does not exceed container width */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Transition for hover effect */
 }
 
-.image-column img:hover {
-  width: 200%;
-  /* Double the width on hover */
+.image-item img:hover {
+  transform: scale(1.001); /* Slightly enlarge image on hover */
 }
 
 /* Your existing styles for image items */
@@ -740,4 +740,53 @@ main.cv section p {
 }
 
 /* Web of Deviations specific styles */
+.arena-column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
 
+#input-grid, #output-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: 150px;
+  grid-gap: 10px;
+}
+
+.arena-image-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.arena-image-item:hover {
+  transform: scale(1.1);
+}
+
+#enlarged-image-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.08);
+  align-items: center;
+  justify-content: center;
+}
+
+#enlarged-image {
+  max-width: 80%;
+  max-height: 80%;
+  transition: transform 0.4s ease;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

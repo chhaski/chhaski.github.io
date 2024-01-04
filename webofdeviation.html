@@ -1,77 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <script type="text/javascript" src="Event.js"></script>
-  <script type="text/javascript" src="Magnifier.js"></script>
-  <script type="text/javascript">
-    var evt = new Event(),
-      m = new Magnifier(evt);
-  </script>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
+    
   <meta charset="UTF-8" lang="en" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>projects | chaski no</title>
+  <title>home | chaski/saskia</title>
 
   <link rel="icon" href="/public/favicon.ico" />
 
+  
+    <link
+      rel="preload"
+      as="image"
+      href="/public/uploads/bags.jpg"
+    >
+  
+    <link
+      rel="preload"
+      as="image"
+      href="/public/favicon.png"
+    >
+  
 
-  <link rel="preload" as="image" href="/public/uploads/bags.jpg">
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="style.css" 
+  />
 
-  <link rel="preload" as="image" href="/public/favicon.png">
+  
+
+</head>  <body>
+    
+
+<header>
+
+  <a
+    id="logo"
+    href="/index.html"
+    title="Home"
+  >
+    
+
+<figure id="">
+  <img
+    src="visualizer.gif"
+
+  />
+  <h4>saskia 'chaski' knowles</h4>
+</figure> 
+ </a>
+  
 
 
-  <link rel="stylesheet" type="text/css" href="style.css" />
 
-
-
-</head>
-
-<body>
   <header>
-    <a id="skip" href="#main" title="Skip to main content">
-      Skip to main content
-    </a>
-    <a id="logo" href="/" title="Home">
+    
+      <!-- <a
+        href="/index.html"
+        title="chaski / saskia">
+      saskia "chaski" knowles
+      </a> -->
+    
+  </header>
 
-
-      <figure id="">
-        <img src="visualizer.gif"
-          alt="A mutation of the globe emoji, showing Africa, Europe and West Asia, discoloured." />
-
-      </figure>
-    </a>
-
-
-    <article>
-
-      <header>
-
-        <a href="/index.html" title="chaski / saskia">
-          chaski / saskia
-        </a>
-
-      </header>
+  
 
 
 
-      </figure>
-      <!-- <footer>
-  <a> source </a>
-</footer> -->
-
-      </figure>
-      <!-- <footer>
-    <a> source </a>
-  </footer> -->
-
-    </article>
-    <nav id="nav">
-      <ul>
-
+</article>  <nav id="nav">
+    <ul>
+      
         <li>
-
-          <!-- <a
+          
+            <!-- <a
               title="network"
               href="/network"
             >
@@ -81,13 +86,16 @@
         </li>
        -->
         <li>
-
-          <a title="projects" href="proj.html">
-            projects
-          </a>
-
+          
+            <a
+              title="projects" 
+              href="proj.html"
+            >
+              projects
+            </a>
+          
         </li>
-
+      
         <!-- <li>
           
             <a
@@ -98,33 +106,45 @@
             </a>
           
         </li> -->
-
+      
         <li>
-
-          <a title="info" href="info.html">
-            info
-          </a>
-
+          
+            <a
+              title="info"
+              href="info.html" 
+            >
+              info
+            </a>
+          
         </li>
-
-
-
-      </ul>
-    </nav>
-  </header>
-  <!-- <main id="main" class="projects"> -->
+      
+        <!-- <li>
+          
+            <a
+              title="cv"
+              href="/cv"
+            >
+              cv
+            </a>
+          
+        </li> -->
+      
+    </ul>
+  </nav>
+</header>    
     <main>
 
     <h1> Web of Deviations </h1>
+    <h4>research and technical experiments around the notion of the desire line as a material, conceptual and emergent phenomenon </h4>
  
-    <figure>
+    <!-- <figure>
       <img src="https://media.giphy.com/media/bnKhL66hriGWFQbBYL/giphy.gif" width="200" height="135"alt="">
       <figcaption> </figcaption>
-    </figure>
+    </figure> -->
     
-    <section>
+ 
       <p>A desire line is an informal path created by erosion caused by repeated use. They “can be found all over the city and all over the world - anywhere people want to walk, where no formal paths have been provided.
-    </section>
+
 
     <div class="bg image1"></div>
     
@@ -149,7 +169,7 @@
       </figure>
     </div>
     <p>      In this sense, the force of desire is productive in its ability to reorient, fuel and generate alternative landscapes. But desire is not a one-way street. We both make places and are made by them through a continuous co-constitutive, relational process. 
-      
+      <br><br>
       How does desire create surfaces and boundaries? How are we shaped by its e/affects? 
       
       How does governed space prescript our movement? 
@@ -173,32 +193,35 @@
 
 <h3>Process</h3>
 
-    <P> Using <a href="https://github.com/antiboredom/flickr-scrape">flickr scrape</a>, I trained a model in runway ML and produced several experiments. Using the
-      desire paths above as input data, the model learns the patterns in the data, and 'teaches' the machine to cause
-      the pattern to emerge. Using these images below from open <a href="https://www.flickr.com/groups/desire_paths/">flickr group 'Desire paths'</a> as input data, I trained a kind of
+    <P> Using <a href="https://github.com/antiboredom/flickr-scrape">flickr scrape</a>, I trained a model in runway ML and produced several experiments.  Using these images below from open <a href="https://www.flickr.com/groups/desire_paths/">flickr group 'Desire paths'</a> as input data, I trained a kind of
       image-generating machine learning model called a GAN, which generates new data that resembles a given dataset -
       learning the patterns in the data, and 'teaching' the machine to cause the pattern to emerge. Here's the entire
       flickr web scrape. </P>
       
       
-
-     
-      <h5> Input data:</h5>
-      <a href="/index.html" title="chaski / saskia"></a>
-
-    <div class="image-item">
-
-
-      <a class="magnifier-thumb-wrapper" href="Group 1.png">
-        <img id="thumb-inside" src="Group 1.png">
-      </a>
+      <div class="row">
+        <div class="arena-column" id="input-column">
+            <h2>INPUT</h2>
+            <h5>a collection of images from the <a href="https://www.flickr.com/groups/desire_paths/">flickr group 'Desire paths' <br></a>
+            </h5>
+            <br>
+            <div id="input-grid">
+                <!-- Images will be loaded here -->
+            </div>
+        </div>
+        <div class="arena-column" id="output-column">
+            <h2>OUTPUT</h2>
+            <h5>a collection of ML-generated images of desire paths using the input data to the left</h5>
+            <div id="output-grid">
+                <!-- Images will be loaded here -->
+            </div>
+        </div>
     </div>
-    <a>
-      <div class="magnifier-preview" style="width: 300px; height: 133px"><br></div>
-      </div>
-    </a>
-
-
+    <div id="enlarged-image-container">
+        <span id="close-button">&#215;</span> <!-- Close button -->
+        <img id="enlarged-image">
+    </div>
+    
 
 
     <!-- 
@@ -209,30 +232,12 @@
           </a>
       </div> -->
 
-    <figure>
+    <!-- <figure>
       <img src="https://media.giphy.com/media/ClQA85nUfc7QebkkCx/giphy.gif"
         alt="all subentries from the corpus' combined indexes" width="auto" height="auto" />
       <figcaption></figcaption>
-    </figure>
+    </figure> -->
 
-    <section class="image-section">
-
-      <figure>
-        <img src="networkmaps.gif" alt="all subentries from the corpus' combined indexes" width="1900" height="300" />
-        <figcaption>a collection of usenet maps from between 1980-1987</figcaption>
-      </figure>
-
-      <!-- // <div class="image-item"> -->
-      <figure>
-        <img src="projects/desirepaths/desirepathsscroll.gif" alt="all subentries from the corpus' combined indexes"
-          width="400" height="300" />
-        <figcaption>a collection of ML-generated images of desire paths using the input data above</figcaption>
-
-      </figure>
-
-      </figure>
-      <!-- </div> -->
-    </section>
 
     <section class="image-section">
 
@@ -260,6 +265,12 @@
     </h5>
 
     <p>tensorflow, python, runway ml, premiere, javascript</p>
+    <br>
+    <h5>
+      REFERENCES
+    </h5>
+
+    <p>Sara Ahmed, Allison Parrish, Andre Lepecki, Jose Munoz</p>
 
 
   </main>
@@ -316,6 +327,85 @@
         magnifierPreview.style.display = 'none';
       });
     });
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    function displayImages(images, containerId) {
+        const container = document.getElementById(containerId);
+        images.forEach(url => {
+            const img = document.createElement('img');
+            img.src = url;
+            img.className = 'arena-image-item';  // Updated class name
+            img.onclick = () => enlargeImage(url);
+            container.appendChild(img);
+        });
+    }
+
+    function enlargeImage(url) {
+        const enlargedContainer = document.getElementById('enlarged-image-container');
+        const enlargedImg = document.getElementById('enlarged-image');
+        enlargedImg.src = url;
+        enlargedContainer.style.display = 'flex';
+    }
+
+    function closeEnlargedImage() {
+        document.getElementById('enlarged-image-container').style.display = 'none';
+    }
+
+    document.getElementById('enlarged-image-container').onclick = function(event) {
+        if (event.target.id === 'enlarged-image-container') {
+            closeEnlargedImage();
+        }
+    };
+
+    document.getElementById('enlarged-image').onclick = function(event) {
+        event.stopPropagation();
+    };
+
+    function fetchImages(channelId, page) {
+        return fetch(`http://api.are.na/v2/channels/${channelId}/contents?page=${page}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.contents) {
+                    return data.contents.map(content => {
+                        if (content.image && content.image.original) {
+                            return content.image.original.url;
+                        }
+                        return null;
+                    }).filter(url => url != null);
+                } else {
+                    return [];
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    async function loadImages() {
+        console.log("Fetching data from Are.na");
+        try {
+            let inputUrls = await fetchImages('desirepathsflickr', 1);
+            inputUrls = inputUrls.concat(await fetchImages('desirepathsflickr', 2));
+            inputUrls = shuffleArray(inputUrls);
+            displayImages(inputUrls, 'input-grid');
+
+            let outputUrls = await fetchImages('runway-ml-desire-paths', 1);
+            outputUrls = outputUrls.concat(await fetchImages('runway-ml-desire-paths', 2));
+            outputUrls = shuffleArray(outputUrls);
+            displayImages(outputUrls, 'output-grid');
+        } catch (error) {
+            console.error('Error loading images:', error);
+        }
+    }
+
+    loadImages();
+</script>
+
 
 
   </script>

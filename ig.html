@@ -1,87 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
+    
   <meta charset="UTF-8" lang="en" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>projects | chaski no</title>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <title>home | chaski/saskia</title>
+
   <link rel="icon" href="/public/favicon.ico" />
 
+  
+    <link
+      rel="preload"
+      as="image"
+      href="/public/uploads/bags.jpg"
+    >
+  
+    <link
+      rel="preload"
+      as="image"
+      href="/public/favicon.png"
+    >
+  
 
-  <link rel="preload" as="image" href="/public/uploads/bags.jpg">
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="style.css" 
+  />
 
-  <link rel="preload" as="image" href="/public/favicon.png">
+  
 
+</head>  <body>
+    
 
-  <link rel="stylesheet" type="text/css" href="style.css" />
+<header>
 
+  <a
+    id="logo"
+    href="/index.html"
+    title="Home"
+  >
+    
 
+<figure id="">
+  <img
+    src="visualizer.gif"
 
+  />
+  <h4>saskia 'chaski' knowles</h4>
+</figure> 
+ </a>
+  
 
-</head>
-
-<body>
 
 
   <header>
-    <a id="skip" href="#main" title="Skip to main content">
-      Skip to main content
-    </a>
-    <a id="logo" href="/" title="Home">
+    
+      <!-- <a
+        href="/index.html"
+        title="chaski / saskia">
+      saskia "chaski" knowles
+      </a> -->
+    
+  </header>
 
-
-      <figure id="">
-        <img src="visualizer.gif" filter: grayscale(100%);
-          alt="A mutation of the globe emoji, showing Africa, Europe and West Asia, discoloured." />
-
-      </figure>
-    </a>
-
-
-    <article>
-
-      <header>
-
-        <a href="/index.html" title="chaski / saskia">
-          chaski / saskia
-        </a>
-
-      </header>
+  
 
 
 
-      <!-- <figure id="">
-<img
-  src="projects/indeterminatemultitudes/ezgif.com-gif-maker (16).gif"
-  filter: grayscale(100%);
-  alt="own image"
-/> -->
-
-      <!-- <figcaption>
-    Wifi zine throwies shielded in self-made cases and charging in the sun. Photo from Solarpunk Workshop at FHNW in Basel last fall.
-  </figcaption> -->
-
-      </figure>
-      <!-- <footer>
-  <a> source </a>
-</footer> -->
-
-      </figure>
-      <!-- <footer>
-    <a> source </a>
-  </footer> -->
-
-    </article>
-    </article>
-    <nav id="nav">
-      <ul>
-
+</article>  <nav id="nav">
+    <ul>
+      
         <li>
-
-          <!-- <a
+          
+            <!-- <a
               title="network"
               href="/network"
             >
@@ -91,13 +86,16 @@
         </li>
        -->
         <li>
-
-          <a title="projects" href="proj.html">
-            projects
-          </a>
-
+          
+            <a
+              title="projects" 
+              href="proj.html"
+            >
+              projects
+            </a>
+          
         </li>
-
+      
         <!-- <li>
           
             <a
@@ -108,20 +106,32 @@
             </a>
           
         </li> -->
-
+      
         <li>
-
-          <a title="info" href="info.html">
-            info
-          </a>
-
+          
+            <a
+              title="info"
+              href="info.html" 
+            >
+              info
+            </a>
+          
         </li>
-
-
-
-      </ul>
-    </nav>
-  </header>
+      
+        <!-- <li>
+          
+            <a
+              title="cv"
+              href="/cv"
+            >
+              cv
+            </a>
+          
+        </li> -->
+      
+    </ul>
+  </nav>
+</header>    
   <main id="main" class="projects">
 
     <h1> Indexing the Index </h1>
@@ -134,7 +144,7 @@
     <p>Rather than the generated output producing correct or logical groupings of items, which it rarely did, I was more
       interested in the spatial layout of the text on the page being determined by another layer of meaning-making, in
       this case, a nearest neighbor algorithm, which was used to determine items (subentries) that are closest (or most
-      similar) to any others in your data, classifying closer relation (which is often nonsensical) by proximity.
+      similar) to any others in the data, classifying closer relation (which is often nonsensical) by proximity.
     </p>
     <p>
       My corpus was comprised of the indexes of 3 books (<a
@@ -155,92 +165,92 @@
           <div class="text-content">
             <b>1. pre-processing corpus.</b>
             <p></p>
-            <br />✦format .txt files of index corpus to make their structures uniform, then reassemble into a combined
-            index made up of entries and subentries from all 3 books in the corpus
-            <br />✦parse text into subentries (can be viewed as textual nodes which are joined by referential links)
+            <br />﹍format .txt files of each index in the corpus to make their structures uniform
+            <br />﹍reassemble into a combined index made up of entries and subentries from all 3 books in the corpus
+            <br />﹍parse text into subentries (can be viewed as textual nodes which are joined by referential links)
             <br /><br />
             <small>
               <ul id="randomEntries">
                 <!-- JavaScript will populate the random entries here -->
               </ul>
-
             </small>
             <div class="section-caption">five random subentries</div>
           </div>
-          <div class="image-column">
-            <div class="image-item">
-              <img id="your_image_id" src="projects/index/indexcombined copy.png"
-                alt="all subentries from the corpus' combined indexes" />
-              <figcaption>
-                all subentries from the corpus' combined indexes
-              </figcaption>
-            </div>
+          <div class="image-item">
+            <img id="combined_index_image" src="projects/index/indexcombined copy.png" alt="all subentries from the corpus' combined indexes" />
+            <figcaption>
+              all subentries from the corpus' combined indexes
+            </figcaption>
           </div>
         </div>
       </section>
-
-      <section class="image-section">
+    
+      <section class="image-section" id="section2">
         <div class="ig-content">
           <div class="text-content">
             <b>2. processing corpus.</b>
             <p></p>
-            <br />✦create a vector for each subentry in the corpus
-            <br />✦use t-SNE (t-distributed stochastic neighbor embedding) to reduce the dimensionality of each vector
-            <br />✦save the x-values of t-SNE visualization of each vector as an array
-            <br />✦map the vectors to a more workable range and append each of the re-mapped values to their
-            corresponding subentry in a vector dictionary (associative array)
+            <br />﹍create a vector for each subentry in the corpus
+            <br />﹍use t-SNE (t-distributed stochastic neighbor embedding) to reduce the dimensionality of each vector
+            <br />﹍save the x-values of t-SNE visualization of each vector as an array
+            <br />﹍map the vectors to a more workable range and append each of the re-mapped values to their corresponding subentry in a vector dictionary (associative array)
             <br /><br />
-            <small>
-              <ul id="chart">
-                <!-- List items will be dynamically generated here -->
-              </ul>
-            </small>
+
           </div>
-          <div class="image-column">
-            <div class="image-item">
-              <img src="projects/index/vectordic.png"
-                alt="text sequences (subentries) and their corresponding vectors" />
-              <figcaption>
-                text sequences (subentries) and their corresponding vectors
-              </figcaption>
-            </div>
-            <div class="image-item">
-              <img src="projects/index/cluster.png"
-                alt="text sequences (subentries) and their corresponding vectors visualized by t-SNE" />
-              <figcaption>
-                text sequences (subentries) and their corresponding vectors visualized by t-SNE
-              </figcaption>
-            </div>
+          <div class="image-item">
+            <img id="vector_dictionary_image" src="projects/index/vectordic.png" alt="text sequences and corresponding vectors" />
+            <figcaption>
+              text sequences (subentries) and their corresponding vectors
+            </figcaption>
+          </div>
+          <div class="image-item">
+            <img id="tsne_visualization_image" src="projects/index/cluster.png" alt="t-SNE visualization of text sequences and vectors" />
+            <figcaption>
+              text sequences (subentries) and their corresponding vectors visualized by t-SNE
+            </figcaption>
           </div>
         </div>
+        
+          <div id="vectorChart">
+            <!-- List items will be dynamically generated here -->
+          </div>
+   
       </section>
-
-      <section class="image-section">
+    
+      <section class="image-section" id="section3">
         <div class="ig-content">
           <div class="text-content">
             <b>3. generating.</b>
-            <br />✦a tracery grammar generates indexes by combining subentries together under a heading
-            <br />✦the position of each subentry on the page is determined by the x-position of the vectors in 2-d space
-            as determined by t-SNE
+            <br />﹍a tracery grammar generates indexes by combining subentries together under a heading
+            <br />﹍the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE
             <br />
           </div>
-          <div class="image-column">
-            <div class="image-item">
-              <img src="projects/index/indexoutput3.png" alt="generator output" />
-              <figcaption>
-                generator output
-              </figcaption>
-            </div>
-            <!-- Add other images here -->
+          <div class="image-item">
+            <img id="generator_output_image" src="projects/index/indexoutput3.png" alt="generator output" />
+            <figcaption>
+              generator output
+            </figcaption>
           </div>
+          <!-- Additional images can be added here with similar structure -->
         </div>
       </section>
     </div>
-
-
+    
 
 
     <script>
+        // Ensure that this script runs after the DOM is fully loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    // ... [rest of your JavaScript code for random entries] ...
+
+    // Make sure the URL to the JSON file is correct
+    const jsonFile = 'path/to/your/dictionary.json';
+
+    d3.json(jsonFile).then(function (data) {
+      // ... [your D3.js code for generating the vector chart] ...
+    }).catch(function(error) {
+      console.error("Error loading the JSON file:", error);
+    });
       function myFunction(imgs) {
         var expandImg = document.getElementById("expandedImg");
         var imgText = document.getElementById("imgtext");

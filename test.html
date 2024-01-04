@@ -1,23 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8">
-<title>HTML</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
-
+    <title>Are.na Image Grid</title>
+    <style>
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        #input-grid, #output-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-auto-rows: 150px;
+            grid-gap: 10px;
+        }
+        .image-item {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .image-item:hover {
+            transform: scale(1.1);
+        }
+        #enlarged-image-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        #enlarged-image {
+            max-width: 80%;
+            max-height: 80%;
+            transition: transform 0.4s ease;
+        }
+        /* #close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        } */
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
 </head>
-<body>    
+<body>
+    <div class="row">
+        <div class="column" id="input-column">
+            <h2>INPUT</h2>
+			<h4>a collection of images from the <a href="https://www.flickr.com/groups/desire_paths/">flickr group 'Desire paths'</a></h4>
+            <div id="input-grid">
+                <!-- Images will be loaded here -->
+            </div>
+        </div>
+        <div class="column" id="output-column">
+            <h2>OUTPUT</h2>
+			<h4>a collection of ML-generated images of desire paths using the input data to the left</h4>
 
-    <div class="bg image1"></div>
-    <div class="bg image1"></div>
-    <p> hi texts</p>
-	<div class="bg image2"></div>
-	<div class="bg image3"></div>
-	<div class="bg image4"></div>
-	<div class="text">
-	   <h3>Scroll the page </h3>
-	   <p> Image changes on scroll </p>
-	</div>
+            <div id="output-grid">
+                <!-- Images will be loaded here -->
+            </div>
+        </div>
+    </div>
+    <div id="enlarged-image-container">
+        <span id="close-button">&#215;</span> <!-- Close button -->
+        <img id="enlarged-image">
+    </div>
 
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function displayImages(images, containerId) {
+            const container = document.getElementById(containerId);
+            images.forEach(url => {
+                const img = document.createElement('img');
+                img.src = url;
+                img.className = 'image-item';
+                img.onclick = () => enlargeImage(url);
+                container.appendChild(img);
+            });
+        }
+
+        function enlargeImage(url) {
+            const enlargedContainer = document.getElementById('enlarged-image-container');
+            const enlargedImg = document.getElementById('enlarged-image');
+            enlargedImg.src = url;
+            enlargedContainer.style.display = 'flex';
+        }
+
+        function closeEnlargedImage() {
+            document.getElementById('enlarged-image-container').style.display = 'none';
+        }
+
+        document.getElementById('close-button').onclick = closeEnlargedImage;
+
+        function fetchImages(channelId, page) {
+            return fetch(`http://api.are.na/v2/channels/${channelId}/contents?page=${page}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.contents) {
+                        return data.contents.map(content => {
+                            if (content.image && content.image.original) {
+                                return content.image.original.url;
+                            }
+                            return null;
+                        }).filter(url => url != null);
+                    } else {
+                        return [];
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        async function loadImages() {
+            console.log("Fetching data from Are.na");
+            try {
+                // Fetch for INPUT
+                let inputUrls = await fetchImages('desirepathsflickr', 1);
+                inputUrls = inputUrls.concat(await fetchImages('desirepathsflickr', 2));
+                inputUrls = shuffleArray(inputUrls);
+                displayImages(inputUrls, 'input-grid');
+
+                // Fetch for OUTPUT
+                let outputUrls = await fetchImages('runway-ml-desire-paths', 1);
+                outputUrls = outputUrls.concat(await fetchImages('runway-ml-desire-paths', 2));
+                outputUrls = shuffleArray(outputUrls);
+                displayImages(outputUrls, 'output-grid');
+            } catch (error) {
+                console.error('Error loading images:', error);
+            }
+        }
+
+		function enlargeImage(url) {
+        const enlargedContainer = document.getElementById('enlarged-image-container');
+        const enlargedImg = document.getElementById('enlarged-image');
+        enlargedImg.src = url;
+        enlargedContainer.style.display = 'flex';
+    }
+
+    function closeEnlargedImage() {
+        document.getElementById('enlarged-image-container').style.display = 'none';
+    }
+
+    document.getElementById('enlarged-image-container').onclick = function(event) {
+        // Close only if the click is outside the enlarged image
+        if (event.target.id === 'enlarged-image-container') {
+            closeEnlargedImage();
+        }
+    };
+
+    document.getElementById('enlarged-image').onclick = function(event) {
+        // Prevent clicks on the image from closing it
+        event.stopPropagation();
+    };
+
+        loadImages();
+    </script>
 </body>
 </html>
