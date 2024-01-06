@@ -25,7 +25,7 @@
 
   --single: 1px solid;
   --double: 4px double;
-  --focus: var(--single) rgb(133, 50, 50);
+  --focus: var(--dotted) rgb(133, 50, 50);
 
 
   /* Transition and animation speeds */
