@@ -342,6 +342,32 @@ figureBigger figcaption {
   margin: auto;
 }
 
+figureSmaller img {
+  width: 50%; /* Set the initial width to half */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: width 0.5s ease; /* Smooth transition for resizing */
+  /* transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; */
+
+}
+
+figureSmaller:hover img {
+  width: 100%; /* Enlarge image to full width on hover */
+}
+
+figureSmaller figcaption {
+  font-style: italic;
+  text-align: center;
+  max-width: min(100%, 24rem);
+  margin: auto;
+}
+
+
+
+
+
+
 figure audio,
 figure video {
   width: 100%;
@@ -789,4 +815,29 @@ main.cv section p {
   content: "";
   display: table;
   clear: both;
+}
+
+
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 10px;
+}
+.block-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.image-item {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.block-title {
+  font-weight: bold;
+}
+.block-description {
+  margin-top: 5px;
+  font-weight: bold;
 }
