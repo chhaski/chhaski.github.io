@@ -3,11 +3,15 @@
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     
   <meta charset="UTF-8" lang="en" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
 
   <title>home | chaski/saskia</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <link rel="icon" href="/public/favicon.ico" />
 
@@ -132,27 +136,74 @@
     </ul>
   </nav>
 </header>    
-    <main
-      id="main"
-      class="index"
-    >
-      
-        <figureBigger>
-          <img src="huacachina_vectorimg.png" alt="" width="100%" class="center" box-shadow="0 0 80px 8px white inset";>
-          <figcaption>_</figcaption>
-        </figureBigger>
-   </main>
-    
-<footer>
-  <section>
-    <address>
-        <p>contact</p>
-        <p>⌇</p>
-  <p>email: <a href="mailto:chaski@nyu.edu">chaski@nyu.edu</a></p>
-  <p><a href="https://www.are.na/chaski-_">are.na</a> </p>
-  <p><a href="https://www.instagram.com/piscosweets/">instagram</a></p>
-  <p>⌇</p>
-</address>
-  </section>
-</footer>  </body>
+<main>
+ 
+<div id="image-grid2" class="image-grid2">
+  <!-- Blocks will be loaded here -->
+</div>
+
+<br>
+<script>
+  async function fetchBlocks(page) {
+      try {
+          const response = await fetch(`http://api.are.na/v2/channels/chaski_projects/contents?page=${page}`);
+          const data = await response.json();
+          return data.contents.map(content => ({
+              image: content.image,
+              title: content.title,
+              descriptionHtml: content.description_html, // Fetch description_html
+              url: content.source && content.source.url ? content.source.url : null
+          })).filter(block => block.image || block.title || block.descriptionHtml);
+      } catch (error) {
+          console.error('Error:', error);
+          return [];
+      }
+  }
+  
+ 
+  let currentBlockIndex = 0; // Index of the current block being displayed
+    let blocks = []; // Array to store all blocks
+
+    function displayBlock(block) {
+      const container = document.getElementById('image-grid2');
+      container.innerHTML = ''; // Clear existing content
+
+      const blockAnchor = document.createElement('a');
+      blockAnchor.className = 'block-item2';
+      blockAnchor.href = block.url ? block.url : '#';
+
+      if (block.image && block.image.original && block.image.original.url) {
+        const img = document.createElement('img');
+        img.src = block.image.original.url;
+        img.className = 'homeimg';
+        img.onerror = () => img.src = 'Group 1.png'; // Fallback image URL
+        blockAnchor.appendChild(img);
+      }
+
+      container.appendChild(blockAnchor);
+    }
+
+    async function loadBlocks() {
+      const page1 = await fetchBlocks(1);
+      const page2 = await fetchBlocks(2);
+
+      blocks = blocks.concat(page1, page2);
+
+      // Display the first block initially
+      if (blocks.length > 0) {
+        displayBlock(blocks[0]);
+      }
+
+      // Set up a timer to change the block every 30 seconds
+      setInterval(() => {
+        currentBlockIndex = (currentBlockIndex + 1) % blocks.length;
+        displayBlock(blocks[currentBlockIndex]);
+      }, 30000); // 30000 milliseconds = 30 seconds
+    }
+
+    loadBlocks();
+  </script>
+
+</body>
+
 </html>

@@ -3,11 +3,15 @@
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     
   <meta charset="UTF-8" lang="en" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
 
   <title>home | chaski/saskia</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <link rel="icon" href="/public/favicon.ico" />
 
@@ -138,173 +142,89 @@
 
     <!-- <button class = 'button' onclick="goBack()"> ⬅ </button> -->
 
+    <table id="projectTable">
+        <tbody>
+          <tr>
+            <th>selected project</th>
+            <th>desc</th>
+            <th>role</th>
+            <!-- Add more <th> elements here for additional columns -->
+          </tr>
+          <tr>
+          </tr>
+    
+          <!-- This is where your script will append rows -->
+        </tbody>
+      </table>
 
-    <table>
-      <tbody>
-        <tr class="cursive">
-          <th>Selected Experience</th>
-          <th>Role</th>
+      <table id="experienceTable">
+        <tbody>
+          <tr>
+            <th>selected experience and affilliations</th>
+            <th>role</th>
+            <!-- Add more <th> elements here for additional columns -->
+          </tr>
+          <tr>
+          </tr>
+    
+          <!-- This is where your script will append rows -->
+        </tbody>
+      </table>
 
-        </tr>
-        <tr>
-          <td>
-            <a href="https://thenewartschoolmodality.com/">
-              New Art School Modality (2023)
-          </td></a>
-          <td><i>creative
-              strategy and project mgmt; <br> alternative arts education</a></i></td>
-        </tr>
-        <tr>
-          <td>
-            <a href="https://itp.nyu.edu/esp/#/">
-              NYU Equitable Working Group - Equitable Syllabus Project (2020-2023)
-          </td></a>
-          <br>
-          </td>
-          <td><i>technical project mgmt, research; <br> critical pedagogy
-              community archive <br> </a></td>
-        </tr>
-        <tr>
-          <td>
-            <a href="https://natureofcode.com/book/">
-              The Nature of Code (2021-2022)
-          </td></a>
-          <td><i>research & development; <br> random() in the creative coding curriculum </a></td>
-        </tr>
-      </tbody>
-    </table>
-    <table>
-      <tbody>
-        <tr class="cursive">
-          <th>Selected Projects</th>
-          <th>Desc</th>
-          <th>Role</th>
-        </tr>
-        <tr>
-          <td>Web of Deviations</td>
-          <td class="linked_cell"><a href="webofdeviation.html">#desire paths in latent space</a></td>
-          <td>research, technical development</td>
-        </tr>
-        <tr>
-          <td>Index Generator</td>
-          <td class="linked_cell"><a href="ig.html">#speculative indexes to non-existent texts</a></td>
-          <td>research, technical development</td>
-        </tr>
-        <tr>
-          <td>Proxies</td>
-          <td class="linked_cell"><a href="proxies2.html">#considering forms of intermediary action</a>
-          </td>
-          <td>research, writing</td>
-        </tr>
-        <tr>
-          <td>Code Sketches</td>
-          <td class="linked_cell"><a href="sketches.html">#selected sketches made with code</a></td>
-          <td>research, coding, design</td>
-        </tr>
-        <tr>
-          <td>Archive Practice (Media Archaeology) </td>
-          <td class="linked_cell"><a href="doubleslash.html">#working with a disintegrating archive</a></td>
-          <td>dataset maintenance, development, <br> audiovisual</td>
-        </tr>
-        <tr>
-          <td>sa_cha</td>
-          <td class="linked_cell"><a href="sa-cha.html">#avatar for the collaboration of chaski and
-              sasha</a></td>
-          <td>audiovisual, coding</td>
-        </tr>
-        <tr>
-          <td>Binding Study</td>
-          <td class="linked_cell"><a href="binding.html">#choreographing tech-mediated intimacy</a></td>
-          <td>development, editing, performance</td>
-        </tr>
-        <tr>
-          <td>// "double slash" </td>
-          <td class="linked_cell"><a href="doubleslash.html#special">#video sculpture using digitized family super 8 archive</a></td>
-          <td>sound and video editing</td>
-        </tr>
-        <!-- <tr>
-          <td>_</td>
-          <td class="linked_cell">
-            <a href="#/ipo">#ipo</a>
-          </td>
-          <td>2019 - 2020</td>
-        </tr>
-        <tr>
-          <td>.</td>
-          <td class="linked_cell"><a href="#/threethousandfourhundred">#/threethousandfourhundred</a></td>
-          <td>2019</td>
-        </tr> -->
-        <!-- <tr>
-            <td>diamonds & water</td>
-            <td class="linked_cell"><a href="https://medium.com/@ammeitzler/diamonds-water-f8ba7a36d324" target="_blank">https://medium.com/@ammeitzler/diamonds-water-f8ba7a36d324</a></td>
-            <td>2020</td>
-          </tr> -->
-        <!-- <tr>
-          <td> hi</td>
-          <td class="linked_cell"><a href="#/sheis" target="_blank">#/sheis</a></td>
-          <td>2018
-            
-          </td>
-        </tr> -->
-      </tbody>
-    </table>
-    <table>
-      <tbody>
-        <tr class="cursive">
-          <th>Other Affilliations</th>
-          <th>Role</th>
 
-        </tr>
-        <tr>
-          <td>
-            <a href="https://www.camrapenn.org/media-festival.html">
-              CAMRA Screening Scholarship Media Festival (SSMF) <br> Rupture and Repair (2021)
-          </td></a>
-          <td><i>featured artist and lecturer<br> </a></td>
-        </tr>
-        <tr>
-          <td>Decoding Stigma (2021-2022)</td>
-          <td><i>member of working group & media team</a></td>
-        </tr>
-        <tr>
-          <td>Panorama Latinx Short Film Showcase <br> Gene Siskel Film Center (2020)</td>
-          <td><i>featured artist and panelist</a></td>
-        </tr>
-
-        <tr>
-          <td>Emergency Index: An Annual Document Of Performance Practice (2019)</td>
-          <td><i>featured artist</a></td>
-        </tr>
-        <tr>
-          <td>Fleeting Monuments for the Wall of Respect (2019)</td>
-          <td><i>featured artist</a></td>
-        </tr>
-        <tr>
-          <td>Gerber/Hart Library and Archives</td>
-          <td><i>archive assistant</a></td>
-        </tr>
-      </tbody>
-    </table>
   </main>
 
   <script>
-    function goBack() {
-      window.history.back();
-    }
+
+$(document).ready(function () {
+    var spreadsheetIdAndTab = "16b35tRvU5_fTAOR4FsGhSSmxQkjaYZiQBL56p4hEWL0/Sheet1";
+    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+      data.forEach(function (row) {
+        var newRow = $("<tr>");
+        newRow.append($("<td>").text(row.title));
+
+        var descCell = $("<td>", { "class": "linked_cell" });
+        var link = $("<a>").attr("href", row.link).text(row.desc);
+        descCell.append(link);
+        newRow.append(descCell);
+
+        // Create italicized role cell
+        var roleCell = $("<td>").append($("<i>").text(row.role));
+        newRow.append(roleCell);
+
+        $("#projectTable tbody").append(newRow);
+      });
+    });
+
+    var spreadsheetIdAndTab2 = "1KEVRJ7RJHR8oDEVW6OMIF2eZGgKlGVP4SkwYEU4mC7c/Sheet1";
+    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab2, function (data) {
+      data.forEach(function (row) {
+        var newRow = $("<tr>");
+        newRow.append($("<td>").text(row.title));
+
+        // Create italicized role cell
+        var roleCell = $("<td>").append($("<i>").text(row.role));
+        newRow.append(roleCell);
+
+        $("#experienceTable tbody").append(newRow);
+      });
+    });
+});
+
+
   </script>
 
   <footer>
-    <section>
       <address>
-        <p>contact</p>
-        <p>⌇</p>
+<img
+              src="standby_monitor_moon-4.png"
+            />
+            <p>contact</p>
         <p>email: <a href="mailto:chaski@nyu.edu">chaski@nyu.edu</a></p>
         <p><a href="https://www.are.na/chaski-_">are.na</a> </p>
         <p><a href="https://www.instagram.com/piscosweets/">instagram</a></p>
-        <p>⌇</p>
         <p>cv available upon request</p>
       </address>
-    </section>
 
   </footer>
 </body>

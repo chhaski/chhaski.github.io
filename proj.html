@@ -15,13 +15,13 @@
     <link
       rel="preload"
       as="image"
-      href="lamp.table@2x.png"
+      href="/public/uploads/bags.jpg"
     >
   
     <link
       rel="preload"
       as="image"
-      href="lamp.table@2x.png"
+      href="/public/favicon.png"
     >
   
 
@@ -47,7 +47,7 @@
 
 <figure id="">
   <img
-    src="visualizer.gif"
+    src="spinningglobe.gif" 
 
   />
   <h4>saskia 'chaski' knowles</h4>
@@ -92,6 +92,8 @@
               href="proj.html"
             >
               projects
+
+
             </a>
           
         </li>
@@ -132,148 +134,92 @@
     </ul>
   </nav>
 </header>    
-    <main
-      id="main"
-      class="projects"
-    >
-      
-        <h1> projects </h1>
+<div id="image-grid2" class="image-grid2">
+  <!-- Blocks will be loaded here -->
+</div>
+</main>
+</div>
 
-        <figure>
-          <img src="https://media.giphy.com/media/bnKhL66hriGWFQbBYL/giphy.gif" width="200" height="135"alt="">
-          <figcaption> </figcaption>
-        </figure>
+<script>
+  async function fetchBlocks(page) {
+      try {
+          const response = await fetch(`http://api.are.na/v2/channels/chaski_projects/contents?page=${page}`);
+          const data = await response.json();
+          return data.contents.map(content => ({
+              image: content.image,
+              title: content.title,
+              descriptionHtml: content.description_html, // Fetch description_html
+              url: content.source && content.source.url ? content.source.url : null
+          })).filter(block => block.image || block.title || block.descriptionHtml);
+      } catch (error) {
+          console.error('Error:', error);
+          return [];
+      }
+  }
+  
+  function displayBlocks(blocks) {
+  const container = document.getElementById('image-grid2');
 
-    
-        <table>
-          <tbody>
-            <tr class="cursive">
-              <th>Selected Projects</th>
-              <th>Desc</th>
-              <th>Role</th>
-            </tr>
-            <tr>
-              <td>Web of Deviations</td>
-              <td class="linked_cell"><a href="webofdeviation.html">#desire paths in latent space</a></td>
-              <td>research, technical development</td>
-            </tr>
-            <tr>
-              <td>Index Generator</td>
-              <td class="linked_cell"><a href="ig.html">#speculative indexes to non-existent texts</a></td>
-              <td>research, technical development</td>
-            </tr>
-            <tr>
-              <td>Proxies</td>
-              <td class="linked_cell"><a href="proxies2.html">#considering forms of intermediary action</a>
-              </td>
-              <td>research, writing</td>
-            </tr>
-            <tr>
-              <td>Code Sketches</td>
-              <td class="linked_cell"><a href="sketches.html">#selected sketches made with code</a></td>
-              <td>research, coding, design</td>
-            </tr>
-            <tr>
-              <td>Archive Practice (Media Archaeology) </td>
-              <td class="linked_cell"><a href="doubleslash.html">#working with a disintegrating archive</a></td>
-              <td>dataset maintenance, development, <br> audiovisual</td>
-            </tr>
-            <tr>
-              <td>sa_cha</td>
-              <td class="linked_cell"><a href="sa-cha.html">#avatar for the collaboration of chaski and sasha</a></td>
-              <td>audiovisual, coding</td>
-            </tr>
-            <tr>
-              <td>Binding Study</td>
-              <td class="linked_cell"><a href="binding.html">#choreographing tech-mediated intimacy</a></td>
-              <td>development, editing, performance</td>
-            </tr>
-            <!-- <tr>
-              <td>_</td>
-              <td class="linked_cell">
-                <a href="#/ipo">#ipo</a>
-              </td>
-              <td>2019 - 2020</td>
-            </tr>
-            <tr>
-              <td>.</td>
-              <td class="linked_cell"><a href="#/threethousandfourhundred">#/threethousandfourhundred</a></td>
-              <td>2019</td>
-            </tr> -->
-            <!-- <tr>
-                <td>diamonds & water</td>
-                <td class="linked_cell"><a href="https://medium.com/@ammeitzler/diamonds-water-f8ba7a36d324" target="_blank">https://medium.com/@ammeitzler/diamonds-water-f8ba7a36d324</a></td>
-                <td>2020</td>
-              </tr> -->
-            <!-- <tr>
-              <td> hi</td>
-              <td class="linked_cell"><a href="#/sheis" target="_blank">#/sheis</a></td>
-              <td>2018
-                
-              </td>
-            </tr> -->
-          </tbody>
-        </table>
+  blocks.forEach(block => {
+    const blockAnchor = document.createElement('a');
+    blockAnchor.className = 'block-item2';
+    blockAnchor.style.cursor = 'pointer';
+    blockAnchor.href = block.url ? block.url : '#';
+    blockAnchor.target = '_blank'; // Open URL in a new tab
 
-    
- </main>
-    
+    if (block.image && block.image.original && block.image.original.url) {
+      const img = document.createElement('img');
+      img.src = block.image.original.url;
+      img.className = 'image-item';
+      img.onerror = () => img.src = 'Group 1.png'; // Fallback image URL
+      blockAnchor.appendChild(img);
+    }
+
+    if (block.title) {
+      const title = document.createElement('div');
+      title.className = 'block-title';
+      title.textContent = block.title;
+      blockAnchor.appendChild(title);
+    }
+
+    // if (block.descriptionHtml) {
+    //   const description = document.createElement('div');
+    //   description.className = 'block-description';
+    //   description.innerHTML = block.descriptionHtml;
+    //   blockAnchor.appendChild(description);
+    // }
+
+    container.appendChild(blockAnchor);
+  });
+}
+
+  
+  async function loadBlocks() {
+      let blocks = [];
+      const page1 = await fetchBlocks(1);
+      const page2 = await fetchBlocks(2);
+  
+      blocks = blocks.concat(page1, page2);
+      displayBlocks(blocks);
+  }
+  
+  loadBlocks();
+  </script>
+  <br><br><br>
+</body>
+
 <footer>
+  <address>
+  <img
+              src="catalog-1.png"
+            />
+            <p>contact</p>
+        <p>email: <a href="mailto:chaski@nyu.edu">chaski@nyu.edu</a></p>
+        <p><a href="https://www.are.na/chaski-_">are.na</a> </p>
+        <p><a href="https://www.instagram.com/piscosweets/">instagram</a></p>
+        <p>cv available upon request</p>
+      </address>
+</footer>
 
-    
 
-</footer>  <script>
-
-// Get all details elements
-const details = document.querySelectorAll('details');
-
-// Loop through each details element
-details.forEach((detail) => {
-  // Add mouseenter event listener
-  detail.addEventListener('mouseenter', () => {
-    // Open details on hover
-    detail.open = true;
-  });
-
-  // Add mouseleave event listener
-  detail.addEventListener('mouseleave', () => {
-    // Close details when mouse leaves
-    detail.open = false;
-  });
-});
-
-// const canvas = document.getElementById('projectCanvas');
-//     const projects = document.querySelectorAll('.projects section ul li');
-    
-//     // Create an array of URLs for the GIFs
-//     const gifURLs = [
-//       'projects/indeterminatemultitudes/ezgif.com-gif-maker (16).gif',
-//       'url_to_gif_2',
-//       // Add URLs for each project
-//     ];
-    
-//     // Function to set canvas background with low opacity and grayscale
-//     function setCanvasBackground(index) {
-//       canvas.style.backgroundImage = `url(${gifURLs[index]})`;
-//       canvas.style.opacity = '0.5';
-//       canvas.style.filter = 'grayscale(100%)';
-//     }
-    
-//     // Add event listeners for hover on each project item
-//     projects.forEach((project, index) => {
-//       project.addEventListener('mouseenter', () => {
-//         setCanvasBackground(index);
-//       });
-    
-//       project.addEventListener('mouseleave', () => {
-//         // Reset canvas background when the mouse leaves
-//         canvas.style.backgroundImage = 'none';
-//         canvas.style.opacity = '1';
-//         canvas.style.filter = 'none';
-//       });
-//     });
-
-//TODO: ADD HOVER AND GIF APPEARS
-
-    </script></body>
 </html>

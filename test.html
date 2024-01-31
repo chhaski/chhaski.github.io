@@ -1,179 +1,232 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Are.na Image Grid</title>
-    <style>
-        .column {
-            float: left;
-            width: 50%;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-        #input-grid, #output-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            grid-auto-rows: 150px;
-            grid-gap: 10px;
-        }
-        .image-item {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .image-item:hover {
-            transform: scale(1.1);
-        }
-        #enlarged-image-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            align-items: center;
-            justify-content: center;
-        }
-        #enlarged-image {
-            max-width: 80%;
-            max-height: 80%;
-            transition: transform 0.4s ease;
-        }
-        /* #close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-        } */
-        /* Clear floats after the columns */
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    </style>
-</head>
-<body>
-    <div class="row">
-        <div class="column" id="input-column">
-            <h2>INPUT</h2>
-			<h4>a collection of images of desire paths taken by members of the <a href="https://www.flickr.com/groups/desire_paths/">flickr group 'Desire paths'</a></h4>
-            <div id="input-grid">
-                <!-- Images will be loaded here -->
-            </div>
-        </div>
-        <div class="column" id="output-column">
-            <h2>OUTPUT</h2>
-			<h4>a collection of ML-generated images of desire paths using the input data to the left</h4>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-            <div id="output-grid">
-                <!-- Images will be loaded here -->
-            </div>
-        </div>
-    </div>
-    <div id="enlarged-image-container">
-        <span id="close-button">&#215;</span> <!-- Close button -->
-        <img id="enlarged-image">
-    </div>
+    
+  <meta charset="UTF-8" lang="en" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
 
-    <script>
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                let j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
+  <title>home | chaski/saskia</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        function displayImages(images, containerId) {
-            const container = document.getElementById(containerId);
-            images.forEach(url => {
-                const img = document.createElement('img');
-                img.src = url;
-                img.className = 'image-item';
-                img.onclick = () => enlargeImage(url);
-                container.appendChild(img);
-            });
-        }
+  <link rel="icon" href="/public/favicon.ico" />
 
-        function enlargeImage(url) {
-            const enlargedContainer = document.getElementById('enlarged-image-container');
-            const enlargedImg = document.getElementById('enlarged-image');
-            enlargedImg.src = url;
-            enlargedContainer.style.display = 'flex';
-        }
+  
+    <link
+      rel="preload"
+      as="image"
+      href="/public/uploads/bags.jpg"
+    >
+  
+    <link
+      rel="preload"
+      as="image"
+      href="/public/favicon.png"
+    >
+  
 
-        function closeEnlargedImage() {
-            document.getElementById('enlarged-image-container').style.display = 'none';
-        }
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="style.css" 
+  />
 
-        document.getElementById('close-button').onclick = closeEnlargedImage;
+  
 
-        function fetchImages(channelId, page) {
-            return fetch(`http://api.are.na/v2/channels/${channelId}/contents?page=${page}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data && data.contents) {
-                        return data.contents.map(content => {
-                            if (content.image && content.image.original) {
-                                return content.image.original.url;
-                            }
-                            return null;
-                        }).filter(url => url != null);
-                    } else {
-                        return [];
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        }
+</head>  <body>
+    
 
-        async function loadImages() {
-            console.log("Fetching data from Are.na");
-            try {
-                // Fetch for INPUT
-                let inputUrls = await fetchImages('desirepathsflickr', 1);
-                inputUrls = inputUrls.concat(await fetchImages('desirepathsflickr', 2));
-                inputUrls = shuffleArray(inputUrls);
-                displayImages(inputUrls, 'input-grid');
+<header>
 
-                // Fetch for OUTPUT
-                let outputUrls = await fetchImages('runway-ml-desire-paths', 1);
-                outputUrls = outputUrls.concat(await fetchImages('runway-ml-desire-paths', 2));
-                outputUrls = shuffleArray(outputUrls);
-                displayImages(outputUrls, 'output-grid');
-            } catch (error) {
-                console.error('Error loading images:', error);
-            }
-        }
+  <a
+    id="logo"
+    href="/index.html"
+    title="Home"
+  >
+    
 
-		function enlargeImage(url) {
-        const enlargedContainer = document.getElementById('enlarged-image-container');
-        const enlargedImg = document.getElementById('enlarged-image');
-        enlargedImg.src = url;
-        enlargedContainer.style.display = 'flex';
-    }
+<figure id="">
+  <img
+    src="visualizer.gif"
 
-    function closeEnlargedImage() {
-        document.getElementById('enlarged-image-container').style.display = 'none';
-    }
+  />
+  <h4>saskia 'chaski' knowles</h4>
+</figure> 
+ </a>
+  
 
-    document.getElementById('enlarged-image-container').onclick = function(event) {
-        // Close only if the click is outside the enlarged image
-        if (event.target.id === 'enlarged-image-container') {
-            closeEnlargedImage();
-        }
-    };
 
-    document.getElementById('enlarged-image').onclick = function(event) {
-        // Prevent clicks on the image from closing it
-        event.stopPropagation();
-    };
 
-        loadImages();
-    </script>
+  <header>
+    
+      <!-- <a
+        href="/index.html"
+        title="chaski / saskia">
+      saskia "chaski" knowles
+      </a> -->
+    
+  </header>
+
+  
+
+
+
+</article>  <nav id="nav">
+    <ul>
+      
+        <li>
+          
+            <!-- <a
+              title="network"
+              href="/network"
+            >
+              network
+            </a>
+          
+        </li>
+       -->
+        <li>
+          
+            <a
+              title="projects" 
+              href="proj.html"
+            >
+              projects
+            </a>
+          
+        </li>
+      
+        <!-- <li>
+          
+            <a
+              title="info"
+              href="/motd"
+            >
+              motd
+            </a>
+          
+        </li> -->
+      
+        <li>
+          
+            <a
+              title="info"
+              href="info.html" 
+            >
+              info
+            </a>
+          
+        </li>
+      
+        <!-- <li>
+          
+            <a
+              title="cv"
+              href="/cv"
+            >
+              cv
+            </a>
+          
+        </li> -->
+      
+    </ul>
+  </nav>
+</header>    
+  <main id="main" class="projects">
+
+    <h1> info </h1>
+
+    <!-- <button class = 'button' onclick="goBack()"> ⬅ </button> -->
+
+    <table id="projectTable">
+        <tbody>
+          <tr>
+            <th>selected project</th>
+            <th>desc</th>
+            <th>role</th>
+            <!-- Add more <th> elements here for additional columns -->
+          </tr>
+          <tr>
+          </tr>
+    
+          <!-- This is where your script will append rows -->
+        </tbody>
+      </table>
+
+      <table id="experienceTable">
+        <tbody>
+          <tr>
+            <th>selected experience and affilliations</th>
+            <th>role</th>
+            <!-- Add more <th> elements here for additional columns -->
+          </tr>
+          <tr>
+          </tr>
+    
+          <!-- This is where your script will append rows -->
+        </tbody>
+      </table>
+
+
+  </main>
+
+  <script>
+
+$(document).ready(function () {
+    var spreadsheetIdAndTab = "16b35tRvU5_fTAOR4FsGhSSmxQkjaYZiQBL56p4hEWL0/Sheet1";
+    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+      data.forEach(function (row) {
+        var newRow = $("<tr>");
+        newRow.append($("<td>").text(row.title));
+
+        var descCell = $("<td>", { "class": "linked_cell" });
+        var link = $("<a>").attr("href", row.link).text(row.desc);
+        descCell.append(link);
+        newRow.append(descCell);
+
+        // Create italicized role cell
+        var roleCell = $("<td>").append($("<i>").text(row.role));
+        newRow.append(roleCell);
+
+        $("#projectTable tbody").append(newRow);
+      });
+    });
+
+    var spreadsheetIdAndTab2 = "1KEVRJ7RJHR8oDEVW6OMIF2eZGgKlGVP4SkwYEU4mC7c/Sheet1";
+    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab2, function (data) {
+      data.forEach(function (row) {
+        var newRow = $("<tr>");
+        newRow.append($("<td>").text(row.title));
+
+        // Create italicized role cell
+        var roleCell = $("<td>").append($("<i>").text(row.role));
+        newRow.append(roleCell);
+
+        $("#experienceTable tbody").append(newRow);
+      });
+    });
+});
+
+
+  </script>
+
+  <footer>
+      <address>
+<img
+              src="standby_monitor_moon-4.png"
+            />
+            <p>contact</p>
+        <p>email: <a href="mailto:chaski@nyu.edu">chaski@nyu.edu</a></p>
+        <p><a href="https://www.are.na/chaski-_">are.na</a> </p>
+        <p><a href="https://www.instagram.com/piscosweets/">instagram</a></p>
+        <p>cv available upon request</p>
+      </address>
+
+  </footer>
 </body>
+
 </html>

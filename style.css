@@ -220,7 +220,7 @@ input[type="submit"],
 section,
 article,
 img,
-nav,
+/* nav, */
 /* ul, */
 th,
 td,
@@ -818,26 +818,66 @@ main.cv section p {
 }
 
 
-
 .image-grid {
+  display: grid;
+  grid-template: auto / auto auto;  
+  grid-gap: 10px;
+}
+
+.image-grid2 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 10px;
 }
+
+
 .block-item {
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
 }
+
+.block-item2 {
+  padding: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.homeimg {
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+  height: auto; /* Maintains aspect ratio */
+  display: inline-block; /* Aligns the image properly for centering */
+  position: fixed;
+  background: transparent;
+  border: none;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.8; /* Adjust this value as needed */
+    overflow: visible; /* Hides parts of the image that overflow the container */
+  text-align: center; /* Centers the image */
+}
+
 .image-item {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 .block-title {
   font-weight: bold;
+  text-align: justify
 }
 .block-description {
   margin-top: 5px;
   font-weight: bold;
 }
+
+#projectTable, 
+#experienceTable {
+  width: 100%;
+  max-width: 100%; /* Ensures table doesn't exceed the parent's width */
+  table-layout: fixed; /* Helps in controlling the column widths */
+}
+

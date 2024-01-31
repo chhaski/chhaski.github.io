@@ -21,21 +21,7 @@
 
 <header>
 
-  <a
-    id="logo"
-    href="/index.html"
-    title="Home"
-  >
-    
 
-<figure id="">
-  <img
-    src="visualizer.gif"
-
-  />
-  <h4>saskia 'chaski' knowles</h4>
-</figure> 
- </a>
   
 
 
@@ -54,11 +40,23 @@
 
 
 
+
 </article>  <nav id="nav">
+    <a
+    id="logo"
+    href="/index.html"
+    title="Home"
+  >
+<!-- <figure id="">
+  <img
+    src="visualizer.gif"
+
+  /> -->
+  <h3>saskia 'chaski' knowles</h3>
+</figure> 
+ </a>
     <ul>
-      
         <li>
-          
             <!-- <a
               title="network"
               href="/network"
@@ -69,14 +67,12 @@
         </li>
        -->
         <li>
-          
             <a
               title="projects" 
               href="proj.html"
             >
               projects
-            </a>
-          
+            </a>      
         </li>
       
         <!-- <li>
@@ -116,8 +112,8 @@
   </nav>
 </header>    
 <main id="main" class="projects">
-    <h1> Videos Archive </h1>
-    <h4>selected sketches made with code</h4>
+    <h1>Selected Projects </h1>
+   
     <div id="image-grid" class="image-grid">
         <!-- Blocks will be loaded here -->
     </div>
@@ -127,7 +123,7 @@
     <script>
         async function fetchBlocks(page) {
             try {
-                const response = await fetch(`http://api.are.na/v2/channels/chaski_videos/contents?page=${page}`);
+                const response = await fetch(`http://api.are.na/v2/channels/chaski_projects/contents?page=${page}`);
                 const data = await response.json();
                 return data.contents.map(content => ({
                     image: content.image,
@@ -194,4 +190,5 @@
         </script>
         
 </body>
+
 </html>
