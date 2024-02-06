@@ -881,3 +881,28 @@ main.cv section p {
   table-layout: fixed; /* Helps in controlling the column widths */
 }
 
+.project {
+  margin-bottom: 20px;
+}
+
+.slideshowContainer {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.slideshowContainer::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.slide {
+  max-width: 100%;
+  max-height: 500px; /* Adjust based on your preference */
+  margin-right: 10px;
+  justify-content: center;
+
+}
+
+.projectText {
+  text-align: center; /* Center the text under the slideshow */
+}

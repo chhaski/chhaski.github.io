@@ -3,11 +3,15 @@
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     
   <meta charset="UTF-8" lang="en" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
 
-  <title>home | chaski/saskia</title>
+  <title>code sketches</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <link rel="icon" href="/public/favicon.ico" />
 
@@ -134,95 +138,67 @@
 </header>    
   <main id="main" class="projects">
 
-    <h1> Code Sketches </h1>
-    <h4>selected sketches made with code</h4>
+    <h1> gathering of sketches made with code </h1>
 
+    <!-- <button class = 'button' onclick="goBack()"> ⬅ </button> -->
 
-    <section>
-      <b>.....1</b>
-      <p> random walk
-      </p>
-      <h5>The concept of a random walk is a stochastic process by which (pseudo)randomly-moving objects wander away from
-        where they started, each direction they step being a random choice among a series of options with equal
-        probability. Each time the sketch is played, it generates a different series of steps. It is never the same.
-
-      </h5>
-
-      <div class="image-item">
-        <figure>
-          <img src="walker.gif" alt="3d random walker sketch" filter=grayscale(100%); />
-        </figure>
-        <h5>part of a series of graduate research on Randomness for Dan Shiffman's Nature of Code curriculum, Reimagining
-          the P5 curriculum, equitable working group - equitable syllabus project</P>
-          <br> <a href="projects/generative/gen.html">play with it here</a></h5>
-      </div>
-      <b>.....2</b>
-      <br> </br>
-      <p> flocking simulation 
-      </p>
-      <div class="image-item">
-      <figure>
-        <img src="https://media.giphy.com/media/j4kTEGOGHrnxD5ODZb/giphy.gif" alt="Giphy Image">
-
-        <figcaption>gif from a glitching flocking simulation I coded in p5.js</figcaption>
-
-      </figure>
-      <figure>
-        <img src="https://media.giphy.com/media/xwJXfmj5cbFfCDMBXa/giphy.gif" alt="Giphy Image">
-
-        <figcaption> two-color risograph animation of the same gif</figcaption>
-
-      </figure>
-      </div>
-      <div>
-        <p> or does it sometimes feel like prison? (2021)
-        </p>
-      <h5>combining my transcription of Lauren Berlant's comments in this recording of the Public Feelings seminar and a glitching swarm/particle system i coded, 'or does it sometimes feel like prison?' probes issues of politics and belonging </p> 
-      <a href="https://youtu.be/GOeODqCU6Qg?si=Yzu1zw_1zUN_z1z8">video here</a></h5>
-    </div>
-
-
-      <figure>
-        <img src="https://media.giphy.com/media/4SswiVbt6k1FZcdaTy/giphy.gif" alt="Giphy Image">
-
-        <figcaption>ML-generated wanderlines trained on a collection of Fernand Deligny’s behavioral graphs of neurodivergence
-        </figcaption>
-
-      </figure>
-
-      <figure>
-        <img src="https://media.giphy.com/media/BavntWIBbsxtDBdeIA/giphy.gif" alt="Giphy Image">
-
-        <figcaption>ML-generated network maps trained on a collection of usenet maps from between 1980-1987</figcaption>
-
-      </figure>
-
-      <!-- </div> -->
-
-      
+    <main id="main" class="projects">
+      <div id="projectsContainer"></div> <!-- Container for all projects -->
+    </main>
+    
 
 
 
 
   </main>
+  <script>
+    $(document).ready(function () {
+        var spreadsheetIdAndTab = "1gZNwI83neHa-dIt7OmpY2SUoVB794HB3W8GwfwVNO2I/Sheet1";
+        $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+            data.forEach(function (row) {
+                // Create a container for each project
+                var projectDiv = $("<div class='project'>");
+    
+                // Create a div for the slideshow
+                var slideshowDiv = $("<div class='slideshowContainer'>");
+                var images = row.imageURLs.split(","); // Split the string into an array of URLs
+                images.forEach(function(imageUrl) {
+                    var img = $("<img class='slide'>").attr("src", imageUrl.trim()); // Create an img element for each URL
+                    slideshowDiv.append(img);
+                });
+                projectDiv.append(slideshowDiv);
+    
+                // Add title and description under the slideshow
+                var textDiv = $("<div class='projectText'>");
+                textDiv.append($("<h2>").text(row.title));
+                textDiv.append($("<p>").text(row.desc));
+                projectDiv.append(textDiv);
+    
+                // Append the project div to the projects container
+                $("#projectsContainer").append(projectDiv);
+            });
+    
+            // Initialize the slideshow functionality here if necessary
+        });
+    });
+    </script>
+    
+    
+    
 
   <footer>
-
-    <address>
-      <p>contact</p>
-      <p>⌇</p>
-      <p>email: <a href="mailto:chaski@nyu.edu">chaski@nyu.edu</a></p>
-      <p><a href="https://www.are.na/chaski-_">are.na</a> </p>
-      <p><a href="https://www.instagram.com/piscosweets/">instagram</a></p>
-      <p>⌇</p>
-    </address>
-    </section>
-
+      <address>
+<img
+              src="standby_monitor_moon-4.png"
+            />
+            <p>contact</p>
+        <p>email: <a href="mailto:chaski@nyu.edu">chaski@nyu.edu</a></p>
+        <p><a href="https://www.are.na/chaski-_">are.na</a> </p>
+        <p><a href="https://www.instagram.com/piscosweets/">instagram</a></p>
+        <p>cv available upon request</p>
+      </address>
 
   </footer>
-  <script>
-
-  </script>
 </body>
 
 </html>

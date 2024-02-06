@@ -159,9 +159,8 @@
 
     <h4>Process</h4>
 
-    <div class="ig-page">
-      <section class="image-section">
-        <div class="ig-content">
+    <div class="image-item">
+      <div class="ig-content">
           <div class="text-content">
             <b>1. pre-processing corpus.</b>
             <p></p>
@@ -185,17 +184,17 @@
         </figcaption>
       </div> -->
 
-      <figureSmaller>
+      <div class="image-item">
         <img id="combined_index_image" src="projects/index/indexcombined copy.png" alt="all subentries from the corpus' combined indexes" width="400px"/>
         <figcaption>
           all subentries from the corpus' combined indexes
         </figcaption>
-      </figureSmaller>
+      </div>
 
     </div>
     
-      <section class="image-section">
-        <div class="ig-content">
+    <div class="image-item">
+      <div class="ig-content">
           <div class="text-content">
             <b>2. processing corpus.</b>
             <p></p>
@@ -203,7 +202,7 @@
             <br />﹍use t-SNE (t-distributed stochastic neighbor embedding) to reduce the dimensionality of each vector
             <br />﹍save the x-values of t-SNE visualization of each vector as an array
             <br />﹍map the vectors to a more workable range and append each of the re-mapped values to their corresponding subentry in a vector dictionary (associative array)
-          </div>
+          </div></div>
 
         <small>
           <ul id="vectorChart">
@@ -212,7 +211,7 @@
         </small>
    
       </section>
-      <figureSmaller>
+      <div class="image-item">
         <img id="vector_dictionary_image" src="projects/index/vectordic.png" alt="text sequences and corresponding vectors" />
         <figcaption>
           text sequences (subentries) and their corresponding vectors
@@ -223,11 +222,11 @@
         <figcaption>
           text sequences (subentries) and their corresponding vectors visualized by t-SNE
         </figcaption>
-      <figureSmaller>
+     
     </div>
     
-      <section class="image-section">
-        <div class="ig-content">
+    <div class="image-item">
+      <div class="ig-content">
           <div class="text-content">
             <b>3. generating.</b>
             <br />﹍a tracery grammar generates indexes by combining subentries together under a heading

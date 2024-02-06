@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
 
-  <title>home | chaski/saskia</title>
+  <title>code sketches</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <link rel="icon" href="/public/favicon.ico" />
@@ -138,81 +138,53 @@
 </header>    
   <main id="main" class="projects">
 
-    <h1> info </h1>
+    <h1> gathering of sketches made with code </h1>
 
     <!-- <button class = 'button' onclick="goBack()"> ⬅ </button> -->
 
-    <table id="projectTable">
-        <tbody>
-          <tr>
-            <th>selected project</th>
-            <th>desc</th>
-            <th>role</th>
-            <!-- Add more <th> elements here for additional columns -->
-          </tr>
-          <tr>
-          </tr>
+    <main id="main" class="projects">
+      <div id="projectsContainer"></div> <!-- Container for all projects -->
+    </main>
     
-          <!-- This is where your script will append rows -->
-        </tbody>
-      </table>
 
-      <table id="experienceTable">
-        <tbody>
-          <tr>
-            <th>selected experience and affilliations</th>
-            <th>role</th>
-            <!-- Add more <th> elements here for additional columns -->
-          </tr>
-          <tr>
-          </tr>
-    
-          <!-- This is where your script will append rows -->
-        </tbody>
-      </table>
+
 
 
   </main>
-
   <script>
-
-$(document).ready(function () {
-    var spreadsheetIdAndTab = "16b35tRvU5_fTAOR4FsGhSSmxQkjaYZiQBL56p4hEWL0/Sheet1";
-    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
-      data.forEach(function (row) {
-        var newRow = $("<tr>");
-        newRow.append($("<td>").text(row.title));
-
-        var descCell = $("<td>", { "class": "linked_cell" });
-        var link = $("<a>").attr("href", row.link).text(row.desc);
-        descCell.append(link);
-        newRow.append(descCell);
-
-        // Create italicized role cell
-        var roleCell = $("<td>").append($("<i>").text(row.role));
-        newRow.append(roleCell);
-
-        $("#projectTable tbody").append(newRow);
-      });
+    $(document).ready(function () {
+        var spreadsheetIdAndTab = "1gZNwI83neHa-dIt7OmpY2SUoVB794HB3W8GwfwVNO2I/Sheet1";
+        $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+            data.forEach(function (row) {
+                // Create a container for each project
+                var projectDiv = $("<div class='project'>");
+    
+                // Create a div for the slideshow
+                var slideshowDiv = $("<div class='slideshowContainer'>");
+                var images = row.imageURLs.split(","); // Split the string into an array of URLs
+                images.forEach(function(imageUrl) {
+                    var img = $("<img class='slide'>").attr("src", imageUrl.trim()); // Create an img element for each URL
+                    slideshowDiv.append(img);
+                });
+                projectDiv.append(slideshowDiv);
+    
+                // Add title and description under the slideshow
+                var textDiv = $("<div class='projectText'>");
+                textDiv.append($("<h2>").text(row.title));
+                textDiv.append($("<p>").text(row.desc));
+                projectDiv.append(textDiv);
+    
+                // Append the project div to the projects container
+                $("#projectsContainer").append(projectDiv);
+            });
+    
+            // Initialize the slideshow functionality here if necessary
+        });
     });
-
-    var spreadsheetIdAndTab2 = "1KEVRJ7RJHR8oDEVW6OMIF2eZGgKlGVP4SkwYEU4mC7c/Sheet1";
-    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab2, function (data) {
-      data.forEach(function (row) {
-        var newRow = $("<tr>");
-        newRow.append($("<td>").text(row.title));
-
-        // Create italicized role cell
-        var roleCell = $("<td>").append($("<i>").text(row.role));
-        newRow.append(roleCell);
-
-        $("#experienceTable tbody").append(newRow);
-      });
-    });
-});
-
-
-  </script>
+    </script>
+    
+    
+    
 
   <footer>
       <address>
