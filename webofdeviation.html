@@ -175,7 +175,7 @@
 
 <h3>Process</h3>
 
-    <P> Using <a href="https://github.com/antiboredom/flickr-scrape">flickr scrape</a>, I trained a model in runway ML and produced several experiments.  Using these images below from open <a href="https://www.flickr.com/groups/desire_paths/">flickr group 'Desire paths'</a> as input data, I trained a kind of
+    <P> Using <a href="https://github.com/antiboredom/flickr-scrape">flickr scrape</a>, I trained a model in runway ML and produced several experiments.  Using these images below from open <a href="https://www.flickr.com/groups/desire_paths/">flickr group 'Desire paths'</a> as input data, I trained a type of
       image-generating machine learning model called a GAN, which generates new data that resembles a given dataset -
       learning the patterns in the data, and 'teaching' the machine to cause the pattern to emerge.</P>
       
@@ -330,7 +330,7 @@
     };
 
     function fetchImages(channelId, page) {
-        return fetch(`http://api.are.na/v2/channels/${channelId}/contents?page=${page}`)
+        return fetch(`https://api.are.na/v2/channels/${channelId}/contents?page=${page}`)
             .then(response => response.json())
             .then(data => {
                 if (data && data.contents) {
