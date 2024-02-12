@@ -35,262 +35,93 @@
     </nav>
   </header>
 
-    <main>
-
-    <h1> Web of Deviations </h1>
-    <h4>research on the notion of the desire line as a material, conceptual and emergent phenomenon </h4>
- 
-    <!-- <figure>
-      <img src="https://media.giphy.com/media/bnKhL66hriGWFQbBYL/giphy.gif" width="200" height="135"alt="">
-      <figcaption> </figcaption>
-    </figure> -->
-    
- 
-      <p>A desire line is an informal path created by erosion caused by repeated use. They “can be found all over the city and all over the world - anywhere people want to walk, where no formal paths have been provided.
-
-
-    <div class="bg image1"></div>
-    
-
-       <figureBigger>
-        <img src="dp.png" alt="" width="150%" class="center">
-        <figcaption>Generated and collected desire paths</figcaption>
-       </figureBigger>
-
-    <p>Desire lines often emerge as shortcuts - deviations onto grass away from pavement. However, they can arise due to a multiplicity of reasons.
-
-      They are traces of use or wear that indicate preferred methods of interaction with places or systems.
-      
-      As emergent urbanisms/architectures, in the words of one journal, they 'record collective disobedience'”(2). 
-      </p>
-  
-
-    <!-- <div class = "image-item">
-      <figure>
-        <img src="dp2.png" alt="" width="100" class="center">
-        <figcaption>In the words of one journal, desire paths 'record collective disobedience'(2).</figcaption>
-      </figure>
-    </div> -->
-    <p>      In this sense, the force of desire is productive in its ability to reorient, fuel and generate alternative landscapes. But desire is not a one-way street. We both make places and are made by them through a continuous co-constitutive, relational process. 
-      <br><br>
-      How does desire create surfaces and boundaries? How are we shaped by its e/affects? 
-      
-      How does governed space prescript our movement? 
-      
-      How do the structures in our lives make some things reachable and others out of reach? 
-      
-      How might we craft insurgent desire paths toward more just and pleasurable worlds? </p>
-
-
-      <figureBigger>
-        <img src="pathscollage.png" alt="" width="100%" class="center" box-shadow="0 0 80px 8px white inset";>
-        <figcaption>In the words of one journal, desire paths 'record collective disobedience'(2).</figcaption>
-      </figureBigger>
-
-    <!-- <div class="image-item">
-        <figure>
-          <img id="thumb-inside" src="Group 1.png" data-mode="inside"> 
-          <figcaption>On the internet, documentation of desire paths has become somewhat of a viral phenomenon. There's a 235k-member-strong subreddit about them with new posts appearing daily with impassioned titles like ‘Desire never ends’ and ‘Don’t tell me where to go.' In my research, I came upon a desire paths flickr group that is an ongoing record of community-contributed photos and documentation of desire paths, in many different geographic contexts.  </figcaption>
-        </figure>
-        </div> -->
-
-<h3>Process</h3>
-
-    <P> Using <a href="https://github.com/antiboredom/flickr-scrape">flickr scrape</a>, I trained a model in runway ML and produced several experiments.  Using these images below from open <a href="https://www.flickr.com/groups/desire_paths/">flickr group 'Desire paths'</a> as input data, I trained a type of
-      image-generating machine learning model called a GAN, which generates new data that resembles a given dataset -
-      learning the patterns in the data, and 'teaching' the machine to cause the pattern to emerge.</P>
-      
-      
-      <div class="row">
-        <div class="arena-column" id="input-column">
-            <h2>INPUT</h2>
-            <h5>a collection of images of desire paths taken by members of the <a href="https://www.flickr.com/groups/desire_paths/">flickr group 'Desire paths'</a></h5>
-            <div id="input-grid">
-                <!-- Images will be loaded here -->
-            </div>
-        </div>
-        <div class="arena-column" id="output-column">
-            <h2>OUTPUT</h2>
-            <h5>a collection of ML-generated images of desire paths using the input data to the left</h5>
-            <div id="output-grid">
-                <!-- Images will be loaded here -->
-            </div>
-        </div>
-    </div>
-    <div id="enlarged-image-container">
-        <span id="close-button">&#215;</span> <!-- Close button -->
-        <img id="enlarged-image">
-    </div>
-    
-
-
-    <!-- 
-        <div style="width: 200px; margin: 0 auto">
-          <a class="magnifier-thumb-wrapper demo" href="http://en.wikipedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg">
-              <img id="thumb-inside" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/200px-Starry_Night_Over_the_Rhone.jpg"
-              data-mode="inside" data-zoomable="true">
-          </a>
-      </div> -->
-
-    <!-- <figure>
-      <img src="https://media.giphy.com/media/ClQA85nUfc7QebkkCx/giphy.gif"
-        alt="all subentries from the corpus' combined indexes" width="auto" height="auto" />
-      <figcaption></figcaption>
-    </figure> -->
-
-
-
+  <main>
+    <div id="contentContainer"></div>
 
     <br>
+    <div class="row">
+      <div class="arena-column" id="input-column">
+          <h4>INPUT</h4>
+          <h5>a collection of images of desire paths taken by members of the <a href="https://www.flickr.com/groups/desire_paths/">flickr group 'Desire paths'</a></h5>
+          <div>
+          </div>
+      </div>
+      <div class="arena-column" id="output-column">
+          <h4>OUTPUT</h4>
+          <h5>a collection of ML-generated images of desire paths using the input data to the left</h5>
+          <div>
+              <!-- Images will be loaded here -->
+          </div>
+      </div>
+  </div>
+    <div class="scrolling-wrapper">
+      <img
+        src="https://d2w9rnfcy7mm78.cloudfront.net/26298899/original_67dbeaeb201a1bd2c3f275b682457dab.png?1707756363?bc=0"
+        alt="Image 1">
+      <img
+        src="https://d2w9rnfcy7mm78.cloudfront.net/26298898/original_ae1b9922a2cc7d73b0b58ffbec200ab7.png?1707756363?bc=0"
+        alt="Image 2">
+    </div>
+    <p> The force of desire is productive in its ability to reorient, fuel and generate alternate landscapes. But desire is not a one-way street. We both make places and are made by them through a continuous
+      co-constitutive, relational process.
+      <br><br>
+      How does desire create surfaces and boundaries? How are we shaped by its e/affects?
+
+      How does governed space prescript our movement?
+
+      How do the structures in our lives make some things reachable and others out of reach?
+
+      How might we craft insurgent desire paths toward more just and pleasurable worlds?
+    </p>
     <h5>
-      TECHNICAL DETAILS
+      technical details
     </h5>
 
     <p>tensorflow, python, runway ml, premiere, javascript</p>
     <br>
     <h5>
-      REFERENCES
+      credits & references
     </h5>
 
-    <p>Sara Ahmed, Allison Parrish, Andre Lepecki, Jose Munoz</p>
+    <p><a href="https://www.flickr.com/groups/desire_paths/">flickr group 'Desire paths'</a>, Queer Phenomenology, Sara
+      Ahmed, Cruising utopia: The then and there of queer futurity, Jose Muñoz, Detroit’s lines of desire: Footpaths and
+      vacant land in the Motor City, Alec Foster and Joshua Newell, Andre Lepecki</p>
 
 
   </main>
-
-  <script type="text/javascript" src="Event.js"></script>
-  <script type="text/javascript" src="Magnifier.js"></script>
   <script>
+    $(document).ready(function () {
+      var spreadsheetIdAndTab = "16b35tRvU5_fTAOR4FsGhSSmxQkjaYZiQBL56p4hEWL0/Sheet1";
+      $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+        // Filter for the "Web of Deviations" row
+        var filteredData = data.filter(function (row) {
+          return row.title === "Web of Deviations";
+        });
+
+        if (filteredData.length > 0) {
+          var row = filteredData[0];
+
+          var itemDiv = $("<div class='item'>");
 
 
-    // document.addEventListener("DOMContentLoaded", function () {
-    //   var evt = new Event(),
-    //       m = new Magnifier(evt);
-    //   m.attach({
-    //     thumb: '#thumb-inside',
-    //     large: 'Group 1.png',
-    //     zoom: 1500,
-    //     zoomable: true,
-    //     largeWrapper: 'preview',
+          // Create elements for title, role, and text
+          var title = $("<h2>").text(row.title).addClass("item-title");
+          var role = $("<p>").text(row.role).addClass("item-role");
+          var text = $("<p>").text(row.text).addClass("item-text");
 
+          // Append elements to the item container
+          itemDiv.append(title, role, text);
 
-    //   });
-    // });
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-      var evt = new Event(),
-        m = new Magnifier(evt);
-      m.attach({
-        thumb: '#thumb-inside',
-        large: 'Group 1.png',
-        mode: 'inside',
-        zoomable: false,
-
-      });
-
-      var magnifierPreview = document.querySelector('.magnifier-preview');
-
-      // Attach event listeners to the image to track mouse movement
-      document.querySelector('#thumb-inside').addEventListener('mousemove', function (e) {
-        // Show the magnifier preview
-        magnifierPreview.style.display = 'block';
-
-        // Set the position of the preview to the mouse position
-        // magnifierPreview.style.left = e.pageX + 'px';
-        // magnifierPreview.style.top = e.pageY + 'px';
-
-        // Optionally adjust the offset to position it correctly relative to the mouse
-        magnifierPreview.style.left = (e.pageX - 50) + 'px'; // Adjust X position
-        magnifierPreview.style.top = (e.pageY - 50) + 'px'; // Adjust Y position
-      });
-
-      // Hide the magnifier preview when the mouse leaves the image
-      document.querySelector('#thumb-inside').addEventListener('mouseleave', function () {
-        magnifierPreview.style.display = 'none';
+          // Append the item container to the content container
+          $("#contentContainer").append(itemDiv);
+        } else {
+          // If no row matches "Web of Deviations", you might want to handle this case
+          console.log("No data found for 'Web of Deviations'");
+        }
       });
     });
-
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-
-    function displayImages(images, containerId) {
-        const container = document.getElementById(containerId);
-        images.forEach(url => {
-            const img = document.createElement('img');
-            img.src = url;
-            img.className = 'arena-image-item';  // Updated class name
-            img.onclick = () => enlargeImage(url);
-            container.appendChild(img);
-        });
-    }
-
-    function enlargeImage(url) {
-        const enlargedContainer = document.getElementById('enlarged-image-container');
-        const enlargedImg = document.getElementById('enlarged-image');
-        enlargedImg.src = url;
-        enlargedContainer.style.display = 'flex';
-    }
-
-    function closeEnlargedImage() {
-        document.getElementById('enlarged-image-container').style.display = 'none';
-    }
-
-    document.getElementById('enlarged-image-container').onclick = function(event) {
-        if (event.target.id === 'enlarged-image-container') {
-            closeEnlargedImage();
-        }
-    };
-
-    document.getElementById('enlarged-image').onclick = function(event) {
-        event.stopPropagation();
-    };
-
-    function fetchImages(channelId, page) {
-        return fetch(`https://api.are.na/v2/channels/${channelId}/contents?page=${page}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data && data.contents) {
-                    return data.contents.map(content => {
-                        if (content.image && content.image.original) {
-                            return content.image.original.url;
-                        }
-                        return null;
-                    }).filter(url => url != null);
-                } else {
-                    return [];
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    }
-
-    async function loadImages() {
-        console.log("Fetching data from Are.na");
-        try {
-            let inputUrls = await fetchImages('desirepathsflickr', 1);
-            inputUrls = inputUrls.concat(await fetchImages('desirepathsflickr', 2));
-            inputUrls = shuffleArray(inputUrls);
-            displayImages(inputUrls, 'input-grid');
-
-            let outputUrls = await fetchImages('runway-ml-desire-paths', 1);
-            outputUrls = outputUrls.concat(await fetchImages('runway-ml-desire-paths', 2));
-            outputUrls = shuffleArray(outputUrls);
-            displayImages(outputUrls, 'output-grid');
-        } catch (error) {
-            console.error('Error loading images:', error);
-        }
-    }
-
-    loadImages();
-</script>
-
-
-
   </script>
+
 </body>
 
 </html>

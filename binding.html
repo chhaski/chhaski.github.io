@@ -36,15 +36,7 @@
   </header>
 
   <main id="main" class="projects">
-
-    <h1>binding study [interospection]</h1>
-    <h4>binding study is a video documenting a live performance using biofeedback <i>
-    [in collaboration with Pedro Sodre with special thanks to Nuntinee Tansrisakul]</i></h4>
-    
-    <p>Recorded at Prospect Park’s Vale of Cashmere, the performers engage in various walking choreographies, each
-      tethered to a multi-part audio set-up that allows them to hear the other's breath and sounds. In one hand, each of
-      the performers holds a shotgun directional mic, which when pointed in the direction of the other performer,
-      captures the sound of the other’s body and movement.</p>
+    <div id="contentContainer"></div>
 
     <a title="projects" href="https://youtu.be/MKJLxYbj0cs?si=y19lUWWOGOlh9F59 ">
       watch the video
@@ -58,16 +50,51 @@
       </figureBigger>
     </div>
 
+    <h5>
+      credits
+    </h5>
 
+    <p> in collaboration with <a href="https://pedrosodre.co/">Pedro Sodre,</a> shot by <a href="https://nuntinee.com/">Nuntinee Tansrisakul</a></a></p>
 
 
   </main>
 
   <footer>
 
-
+   
 
   </footer>
 </body>
+<script>
+  $(document).ready(function () {
+    var spreadsheetIdAndTab = "16b35tRvU5_fTAOR4FsGhSSmxQkjaYZiQBL56p4hEWL0/Sheet1";
+    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+      var filteredData = data.filter(function (row) {
+        return row.title === "Binding Study";
+      });
+
+      if (filteredData.length > 0) {
+        var row = filteredData[0];
+
+        var itemDiv = $("<div class='item'>");
+
+
+        // Create elements for title, role, and text
+        var title = $("<h2>").text(row.title).addClass("item-title");
+        var role = $("<p>").text(row.role).addClass("item-role");
+        var text = $("<p>").text(row.text).addClass("item-text");
+
+        // Append elements to the item container
+        itemDiv.append(title, role, text);
+
+        // Append the item container to the content container
+        $("#contentContainer").append(itemDiv);
+      } else {
+        // If no row matches "Web of Deviations", you might want to handle this case
+        console.log("No data found for 'Web of Deviations'");
+      }
+    });
+  });
+</script>
 
 </html>

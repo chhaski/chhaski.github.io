@@ -913,3 +913,39 @@ main.cv section p {
 position: sticky;
 top: 0;
 }
+
+
+.scrolling-wrapper {
+  width: 100%; /* Adjust based on your needs, keeping it more horizontal */
+  height: 300px; /* Adjust the height as needed */
+  overflow-y: scroll; /* Enables vertical scrolling */
+  overflow-x: hidden; /* Hides horizontal scrollbar */
+  display: block;
+  margin: auto;
+  border: 1px solid #ccc; /* Optional: adds a border around the div */
+}
+
+.scrolling-wrapper img {
+  width: 100%; /* Makes image width fit the container */
+  height: auto; /* Keeps image aspect ratio intact */
+  display: block; /* Ensures images stack vertically */
+  margin-bottom: 10px; /* Optional: adds space between images */
+}
+
+
+.scrolling-wrapper2 {
+  width: 100%; /* Adjust based on your needs, keeping it more horizontal */
+  height: 500px; /* Adjust the height as needed */
+  overflow-y: scroll; /* Enables vertical scrolling */
+  overflow-x: hidden; /* Hides horizontal scrollbar */
+  display: block;
+  margin: auto;
+  border: 1px solid #ccc; /* Optional: adds a border around the div */
+}
+
+.scrolling-wrapper2 img {
+  width: 100%; /* Makes image width fit the container */
+  height: auto; /* Keeps image aspect ratio intact */
+  display: block; /* Ensures images stack vertically */
+  margin-bottom: 10px; /* Optional: adds space between images */
+}

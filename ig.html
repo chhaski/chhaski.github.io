@@ -37,20 +37,9 @@
     </nav>
   </header>
 
-  <main id="main" class="projects">
+  <main>
+    <div id="contentContainer"></div>
 
-    <h1> Indexing the Index </h1>
-    <h4>a python generator that produces speculative indexes to non-existent texts through spatial representation of
-      textual data with NLP </h4>
-    <p>Combining text processing, generation and NLP techniques in Python to uncover structural and semantic features of
-      a textual corpus, the project explores the genre of the index as an infrastructure for containing information and a
-      mechanism that maps cross references (much like a hyperlink), creating associative relations between things.
-    </p>
-    <p>Rather than the generated output producing correct or logical groupings of items, which it rarely did, I was more
-      interested in the spatial layout of the text on the page being determined by another layer of meaning-making, in
-      this case, a nearest neighbor algorithm, which was used to determine items (subentries) that are closest (or most
-      similar) to any others in the data, classifying closer relation (which is often nonsensical) by proximity.
-    </p>
     <p>
       My corpus was comprised of the indexes of 3 books (<a
         href="https://drive.google.com/file/d/1Wsxug60VUcx1cjoNM6SceYIr1tZbSmCK/view?usp=drive_link">Michel Foucault -
@@ -58,230 +47,104 @@
         href="https://drive.google.com/file/d/1cZcwEpHJIzkQeiGg-baDLIElvu6d54S3/view?usp=drive_link">Jose Muñoz -
         Cruising Utopia,</a> and <a
         href="https://drive.google.com/file/d/14vClVrZSyG5EdYUJfoKZUHx4c7aqhwpg/view?usp=drive_link">Sara Ahmed - Queer
-        Phenomenology</a>) as well as some phrases from my notebook.
+        Phenomenology</a>) as well as some miscellaneous phrases from my notebook.
     </p>
 
-
-    <h4>Process</h4>
-
-    <div class="image-item">
-      <div class="ig-content">
-          <div class="text-content">
-            <b>1. pre-processing corpus.</b>
-            <p></p>
+    <br>
+    <div class="row">
+      <div class="arena-column" id="input-column">
+          <h4>pre-processing and processing</h4>
+          <h5>            
             <br />﹍format .txt files of each index in the corpus to make their structures uniform
             <br />﹍reassemble into a combined index made up of entries and subentries from all 3 books in the corpus
             <br />﹍parse text into subentries (can be viewed as textual nodes which are joined by referential links)
-            <br /><br />
-            <small>
-              <ul id="randomEntries">
-                <!-- JavaScript will populate the random entries here -->
-              </ul>
-            </small>
-            <div class="section-caption">five random subentries</div>
-          </div>
-
-      </section>
-      <!-- <div class="image-item">
-        <img id="combined_index_image" src="projects/index/indexcombined copy.png" alt="all subentries from the corpus' combined indexes"/>
-        <figcaption>
-          all subentries from the corpus' combined indexes
-        </figcaption>
-      </div> -->
-
-      <div class="image-item">
-        <img id="combined_index_image" src="projects/index/indexcombined copy.png" alt="all subentries from the corpus' combined indexes" width="400px"/>
-        <figcaption>
-          all subentries from the corpus' combined indexes
-        </figcaption>
-      </div>
-
-    </div>
-    
-    <div class="image-item">
-      <div class="ig-content">
-          <div class="text-content">
-            <b>2. processing corpus.</b>
-            <p></p>
             <br />﹍create a vector for each subentry in the corpus
             <br />﹍use t-SNE (t-distributed stochastic neighbor embedding) to reduce the dimensionality of each vector
             <br />﹍save the x-values of t-SNE visualization of each vector as an array
-            <br />﹍map the vectors to a more workable range and append each of the re-mapped values to their corresponding subentry in a vector dictionary (associative array)
-          </div></div>
+            <br />﹍map the vectors to a more workable range and append each of the re-mapped values to their corresponding subentry in a vector dictionary (associative array)</h5>
+          <div>
+            <div class="image-item">
 
-        <small>
-          <ul id="vectorChart">
-            <!-- List items will be dynamically generated here -->
-          </ul>
-        </small>
-   
-      </section>
-      <div class="image-item">
-        <img id="vector_dictionary_image" src="projects/index/vectordic.png" alt="text sequences and corresponding vectors" />
-        <figcaption>
-          text sequences (subentries) and their corresponding vectors
-        </figcaption>
-      </figureSmaller>
-      <figureSmaller>
-        <img id="tsne_visualization_image" src="projects/index/cluster.png" alt="t-SNE visualization of text sequences and vectors" />
-        <figcaption>
-          text sequences (subentries) and their corresponding vectors visualized by t-SNE
-        </figcaption>
-     
-    </div>
-    
-    <div class="image-item">
-      <div class="ig-content">
-          <div class="text-content">
-            <b>3. generating.</b>
+            </figureSmaller>
+            <figureSmaller>
+
+           
+          </div>
+          </div>
+      </div>
+      <div class="arena-column" id="output-column">
+          <h4>generating</h4>
+          <h5>            
             <br />﹍a tracery grammar generates indexes by combining subentries together under a heading
-            <br />﹍the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE
-            <br />
-
-          <!-- Additional images can be added here with similar structure -->
-        </div>
-      </section>
-    </div>
-    <div class="image-item">
-      <img id="generator_output_image" src="projects/index/indexoutput3.png" alt="generator output" />
+            <br />﹍the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE</h5>
+          <div>
+          </div>
+      </div>
+  </div>
+    <div class="scrolling-wrapper2">
+      <img id="vector_dictionary_image" src="https://d2w9rnfcy7mm78.cloudfront.net/26300173/original_2ff2dda707a408bfd982a97ec75b4eea.png?1707759696?bc=0" alt="text sequences and corresponding vectors" />
+      <figcaption>
+        text sequences (subentries) and their corresponding vectors
+      </figcaption>
+      <img id="tsne_visualization_image" src="https://d2w9rnfcy7mm78.cloudfront.net/26300168/original_c436b0e0e433a44a6e07224c9834f0aa.png?1707759681?bc=0" alt="t-SNE visualization of text sequences and vectors" />
+      <figcaption>
+        text sequences (subentries) and their corresponding vectors visualized by t-SNE
+      </figcaption>
+      <img id="archive_output_image" src="https://d2w9rnfcy7mm78.cloudfront.net/26081740/original_4c45418f9f539f92596d2f05454b542e.png?1706814110?bc=0" alt="        generator output
+      " />
+      <figcaption>
+        generator output
+      </figcaption>
+      <img id="archive_output_image" src="https://d2w9rnfcy7mm78.cloudfront.net/26081743/original_1cd2c94d5e642fff9e9d337312def78f.png?1706814110?bc=0" alt="        generator output
+      " />
       <figcaption>
         generator output
       </figcaption>
     </div>
-    </div>
-    
-    <script>
-      // Ensure that this script runs after the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-  // ... [rest of your JavaScript code for random entries] ...
+    <h5>
+      credits & references
+    </h5>
 
-  // Make sure the URL to the JSON file is correct
-    // Specify the URL of the JSON file
-    const jsonFile = 'dictionary.json';
-    
-
-  d3.json(jsonFile).then(function (data) {
-    // ... [your D3.js code for generating the vector chart] ...
-  }).catch(function(error) {
-    console.error("Error loading the JSON file:", error);
-  });
-  
-    function myFunction(imgs) {
-      var expandImg = document.getElementById("expandedImg");
-      var imgText = document.getElementById("imgtext");
-      expandImg.src = imgs.src;
-      imgText.innerHTML = imgs.alt;
-      expandImg.parentElement.style.display = "block";
-    }
-    const entries = [
-      'pathogenic value of, 105;', 'among working classes, 121;', 'and family organization, 100;', 'regulation by state, 25-6, 116, 118;', 'discipline of, 139-40;', 'encroachment of power on, 47-8;', 'intensification of, 107, 123;', 'perversion seen as imbedded in, 43, 44;', 'locus of sexual repression, 3-5, 17;', 'and bio-power, 140-1;', 'and deployment of sexuality, 114;', 'and sexual repression, 5-6;', 'and confession, 19;', 'and hysterization of womens bodies, 146-7;', 'and psychoanalysis, 113;', 'sexualization of, 153;', 'hermaneutic function 66-7;', 'power relationship, 61-2;', 'as limit of power, 138;', 'loosening grip of, 142;', 'relation to power, 81-3, 86, 89-90;', 'transformation into discourse, 20, 21, 23;', 'bourgeois concern with, 121, 124-5;', 'and sexual technology, 118-19;', 'criminal status, 38;', 'and homosexuality, 43;', 'entry into discourse, 101;', 'initial characterization, 43;', 'and penal law, 38;', 'and alliance systems, 109-10, 113;', 'and psychoanalysis, 129-30;', 'as sin, 38;', 'biopolitics of, 141;', 'power relationships, 86-8;', 'and alliance systems, 106-7, 108;', 'normalization of, 144;', 'political significance, 87-9;', 'power over sex, 83;', 'and sexual acts "contrary to nature," 38;', 'entry into history, 141-3;', 'as political object, 144-5;', 'confessional, 59-60;', 'sexual discourse in, 21-3;', 'and alliance system, 106;', 'protection and surveillance of, 37-8;', 'and family alliances, 111-12;', 'and "unnatural" sexuality, 36, 38;', 'and sexual discourse, 18, 19, 20;', 'technological developments, 116, 117;', 'fragmentation of, 39;', 'medical view of, 41;', 'new specifications, 42-4;', 'psychiatrization of, 30, 105, 153-5;', 'biological survival, 137;', 'biopolitics of, 139-40;', 'regulation of, 25-6, 116, 118, 145-7;', 'and war, 137;', '"analytics" of, 82-3;', 'and blood relations, 147-50;', 'confession as ritual of, 61-2;', 'and desire, 83, 89-90;', 'encroachment on individual bodies, 47-8;', 'generalized locus, 93, 94, 96;', 'in juridico-political discourse, 87-9;', 'as-law, 82;', 'modes of ruling over, 83;', 'as multiplicity of force relationships, 92-3;', '"negative relation" to sex, 83;', 'and obedience, 85;', 'origin of, 94;', 'and spirals of pleasure, 44-5, 48-9;', 'political institutionalization, 86-7;', 'polymorphous techniques of, 11;', 'and prohibition, 84;', 'pure form of, 83;', 'question of relation to, 10;', 'rationality of, 94-5;', 'resistance to, 95-6;', 'and secrecy, 86, 101;', 'uniformity of apparatus, 84-5;', 'and war, 136-7;', 'and alliance systems, 110;', 'antirepressive effects, 119;', 'classification of pleasure, 63-4;', 'and power-pleasure spiral, 45;', 'and buried truth of, 69-70;', 'exploitation of, 34-5;', 'and power, 86, 101;', 'compared to discourse, 62 ', 'discourse on, 101;', 'uncertain status, 37;', 'policing of, 24-6;', 'aesthetic practices of, 83–84;', 'critiques of hyper-masculinity, 73, 77, 79, 85–86;', 'radical tradition, 87–88, 91;', 'vernacular tradition, 61, 165;', 'politics of, 17–18, 27, 153, 157;', 'queer, xiv, 154–55, 169, 172–74, 177, 180;', 'of speech act theory, 9–10, 15, 154, 173;', 'coming out narrative, 72;', 'neoliberalism, 30, 32, 126, 145, 172;', 'pragmatism of, 19, 26, 30, 32;', 'and femme-phobia, 77;', 'as happenings, 50–52, 55, 118;', 'of masculinity, 69;', 'minoritarian citizenship, 56, 99;', 'ontology of liveness, 71, 98–99;', 'abjection of, 34, 91;', 'aesthetic dimension, 131–32, 135, 138, 140, 145–46, 169;', 'genealogies of, 121;', 'and grief, xi–xii;', 'lifeworld of, 34;', 'loss, 72–73, 167;', 'performativity of, 1, 66, 76, 84, 87, 154;', 'relationality, xvi, 6–7, 10, 25, 27–28, 119, 160;', 'shame around, 68;', 'survival, 75;', 'utopian memory, 26, 35, 37;', 'and world-making, 37, 40, 56, 118;', 'as aesthetic, 7, 43, 135, 150, 159;', 'affective structure of, 14, 23, 28, 154–55;', 'camp, 162;', 'choreography, 147;', 'value, 147;', 'as “a future in the present,” 49, 55;', 'ecstatic time, 32;', 'as horizon, 25, 29, 32, 73, 90, 97, 99;', 'and waiting, 182;', 'as bad object, 39;', 'belonging, 20, 28;', 'as impulse, 26;', 'as longing, 35, 45, 48;', 'as methodology, 27;', 'and negativity, 12–13, 43;', 'quotidian as rehearsal of, 9, 22, 25;', 'and action, 37, 95;', 'temporality of, 38, 137, 143;', 'as backward, 192 n.18;', 'as tie, 95;', 'as political orientation towards, 156, 199;', 'and sheep, 127, 135;', 'and the"body-at-home, 111, 138;', 'collective, 117;', 'and corporeal schema, 110;', 'and inhabitance, 6, 8, 11;', 'and intercorporeality, 5, 183;', 'and unnamed feelings, 2, 53;', 'and morphology, 99;', 'as out of place, 9, 61, 135, 40, 160, 174;', 'and space, 3, 65;', 'as virtual, 66;', 'as imagination, 116;', 'as imperative, 113;', 'as "sinking feeling," 134, 160;', 'and contingency, 103, 124;', 'as zone of contact, 148, 150;', 'as collective, 15;', 'as instructions, 16;', 'of matter, 40;', 'as metaphor, 69;', 'as organized, 15, 86;', 'and towardness, 115;', 'of objects, 149-150, 163, 176;', 'as compulsory, 1, 84-87, 91, 94-95, 127;', 'as contingent, 94;', 'and disappearance, 56, 190;', 'and inheritance, 196;', 'as domestication, 17;', 'as repetition, 56;', 'as sedimentation, 41, 56;', 'as spectral, 44, 152;', 'as anchoring, 1;', 'as breaking, 90;', 'as fleeting, 172;', 'as turning, 15;', 'as absolute and relative, 12-13;', 'and action, 52;', 'and dwelling, 5-9, 47;', 'and extension, 11, 115;', 'and inhabitance, 7, 44, 51-63;', 'as cartographic, 113;', 'as diasporic, 9, 149;', 'location and position of, 12;', 'proximity to, 52;', 'as phenomenal/orientated, 6, 66, 112-120;', 'as shared, 54;', 'social theories of, 12;', 'as dancing, 164, 168;', 'as horizontal surface, 46, 49, 90;', 'as kinship object, 80-81;', 'in the kitchen, 52, 51, 80-81, 88;', 'as objects in philosophy, 3, 35, 37, 45, 49, 54, 55;', 'as supporting device, 47, 166;', 'disidentification, 75, 145, 169;', 'emotional situation, 97, 176;', 'fantasy of equivalence, 213;', 'ephemeral evidence of, 65–67, 71, 81, 115, 118, 121, 127, 149;', 'and gossip, 4;', 'and hegemony, 39;', 'and historical dispossession, 196–97;', 'and hope, 9, 25, 28, 83;', 'critical methodology of, 3–5;', 'incommensurability of, xiv–xvi, 208–9, 211–13;', 'and knowledge production, 207–9, 212;', 'and landscape, 141;', 'and obstacles, x;', 'and performativity, 19, 28, 32, 106, 117, 127, 149, 183, 189;', '“doing in futurity,” 26;', 'writing, 38;', 'phenomenology, 15–16, 22, 186;', 'postmodernity, 30–31;', 'in the present, xiii;', 'queer theory, 194;', 'relational, xii, 10–15, 17–18, 34, 91–94;', 'methodology, 27, 65, 84, 115;', 'and race, 11, 17, 31, 34–35, 73;', 'sense, 197–99;', 'sexual debasement, 194, 196–97, 200;', 'sexual fetishism, 201–2;', 'simulacra, 171;', 'as structure of desire, 35, 41–42, 47, 70, 115;', 'and superheroes, 129–30, 138;', 'and alignment, 15, 57, 66-67, 83, 92;', 'in space, 121;', 'and anger, 155;', 'assimilation of, 173, 175;', 'attachments, 32;', 'and attention, 29, 32;', 'care of, 90;', 'deviation of, 20, 23, 29, 70, 78-79, 174-176;', 'disorientation of, 4, 5, 10, 11, 67, 107, 135, 162, 170;', 'and nausea, 4, 139, 165;', 'as disorientation device, 171, 177;', 'fear and, 2;', 'force of, 84, 86, 89;', 'genealogy of, 92, 122, 135, 137, 146, 178;', 'hybridity of, 150;', 'impressions of, 9, 29-30, 53, 63, 135, 146;', 'as horizontal and vertical, 66, 92, 95, 137;', 'as institutional, 136-137;', 'as paths, 16, 90, 170;', 'as sensational, 4;', 'sociality of, 119;', 'lines, 70, 76, 78, 136, 174;', 'maps of, 113;', 'and nearness, 2, 3, 86-89;', 'and pain, 75;', 'and proximity, 2, 86, 89, 126, 128, 141, 146, 152, 165, 169;', 'and shame, 104;', 'and wandering, 29, 51, 70, 76, 92;', 'as nonlinear, 46-49;', 'as both cause and effect, 80-81;', 'and lag time, 22;', 'and the evasion of control, 129-133;', 'as more than the sum of its parts, 4;', 'aesthetic sociality of, 60;', 'as wayward, 197;', 'and the indetermination of a multitude, 89;', 'resistance to translation of, 33-34;', 'turbulent phenomena of, 45;', 'as space of appearance, 14;', 'the romance of disappointment, 109;', 'instant of collapse, 154;', 'and investment in indeterminacy, 66;', 'and the harboring of ambivalence, 102;', 'as anti-narrative, 69-72, 121;', 'and having a coke with you, 43;', 'as commodity, 4;', 'as witness, 49-50;', 'as cooperative, 34, 43;', 'and fragments, 201;', 'failure of, 189;', 'as absent presence, 65, 102;', 'as present absence, 65, 109;', 'as fantasy, 139;', 'as crisis of engulfment, 99;', 'as plural, 78-79;', 'and refusal to signify, 42;', 'scent of, 80, 127;', 'as false symmetry, 211;', 'as delay, deferral, detour, digression, 73;'
-    ];
-
-    // Function to randomly select 5 entries
-    function getRandomEntries() {
-      const randomEntries = [];
-      while (randomEntries.length < 5) {
-        const randomIndex = Math.floor(Math.random() * entries.length);
-        if (!randomEntries.includes(entries[randomIndex])) {
-          randomEntries.push(entries[randomIndex]);
-        }
-      }
-      return randomEntries;
-    }
-
-    // Get random entries and display them in the HTML
-    const randomEntries = getRandomEntries();
-    const randomEntriesList = document.getElementById('randomEntries');
-    randomEntries.forEach(entry => {
-      const listItem = document.createElement('li');
-      listItem.textContent = entry;
-      randomEntriesList.appendChild(listItem);
-    });
-
-    //second code: 
-    // Sample data
-
-    function generateEntries(data) {
-    const randomKeys = Object.keys(data).sort(() => Math.random() - 0.5).slice(0, 25);
-    return randomKeys.map(key => [key, data[key]]);
-  }
+    <p>  <a href="https://rwet.decontextualize.com/">Allison Parrish - Reading and Writing Electronic Text,</a> <a
+      href="https://tracery.io/">Tracery</a></p>
 
 
- // Load data from the JSON file
-d3.json(jsonFile).then(function (data) {
-  // Now call generateEntries with the loaded data
-  let entries2 = generateEntries(data);
-
-  // Specify the chart’s dimensions based on the number of entries
-  const width = 500;
-  const height = 600;
-  const marginTop = 10; // Increase the top margin
-  const marginRight = 50;
-  const marginBottom = 10;
-  const marginLeft = 270;
-  const padding = 20;
-
-  // Prepare the positional scales
-  const yScale = d3.scaleBand()
-    .domain(entries2.map(([key]) => key))
-    .range([marginTop, height - marginBottom])
-    .paddingInner(0.1) // Adjust the inner padding between bands
-    .paddingOuter(0.1); // Adjust the outer padding
-
-  const xScale = d3.scaleLinear()
-    .domain(d3.extent(entries2.map(([, value]) => value)))
-    .range([marginLeft, width - marginRight]);
-
-  // Create SVG markup
-  let svgString = `<svg width="${width}" height="${height}">`;
-
-  // Append circles representing the values on the number line
-  entries2.forEach(([key, value]) => {
-    svgString += `<circle cx="${xScale(value)}" cy="${yScale(key) + yScale.bandwidth() / 2}" r="2" class="chart-text"></circle>`;
-    svgString += `<text x="${xScale(value) + padding - 8}" y="${yScale(key) + 10}" dy="0.35em" text-anchor="start" class="chart-text">${value.toFixed(2)}</text>`;
-    svgString += `<text x="${marginLeft - padding - 12}" y="${yScale(key) + yScale.bandwidth() / 2}" dy="0.15em" text-anchor="end" class="chart-text">${key}</text>`;
-    svgString += `<line x1="${xScale(value)}" y1="${yScale(key) + yScale.bandwidth() / 2}" x2="${marginLeft - padding - 10}" y2="${yScale(key) + yScale.bandwidth() / 2}" stroke="black" stroke-width="1" class="chart-line"></line>`;
-  });
-
-  svgString += `</svg>`;
-
-  // Get the element where you want to insert the SVG visualization
-  const chartDiv = document.getElementById('vectorChart');
-
-  // Insert the generated SVG string into the element
-  chartDiv.innerHTML = svgString;
-}).catch(function(error) {
-  console.error("Error loading the JSON file:", error);
-});
-    });
-  </script>
- 
-    <sup>
-      <p>
-        <br /><br />
-        thank you <br>
-        <a href="https://rwet.decontextualize.com/">Allison Parrish - Reading and Writing Electronic Text,</a> <a
-          href="https://tracery.io/">Tracery</a>
-
-      </p>
-    </sup>
 
   </main>
-  </div>
+  <script>
+    $(document).ready(function () {
+      var spreadsheetIdAndTab = "16b35tRvU5_fTAOR4FsGhSSmxQkjaYZiQBL56p4hEWL0/Sheet1";
+      $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+        // Filter for the "Web of Deviations" row
+        var filteredData = data.filter(function (row) {
+          return row.title === "Index Generator";
+        });
 
-  <footer>
-    <section>
-      <address>
-        <p>contact</p>
-        <p>⌇</p>
-        <p>email: <a href="mailto:chaski@nyu.edu">chaski@nyu.edu</a></p>
-        <p><a href="https://www.are.na/chaski-_">are.na</a> </p>
-        <p><a href="https://www.instagram.com/piscosweets/">instagram</a></p>
-        <p>⌇</p>
-      </address>
-    </section>
+        if (filteredData.length > 0) {
+          var row = filteredData[0];
+
+          var itemDiv = $("<div class='item'>");
 
 
-  </footer>
+          // Create elements for title, role, and text
+          var title = $("<h2>").text(row.title).addClass("item-title");
+          var role = $("<p>").text(row.role).addClass("item-role");
+          var text = $("<p>").text(row.text).addClass("item-text");
+
+          // Append elements to the item container
+          itemDiv.append(title, role, text);
+
+          // Append the item container to the content container
+          $("#contentContainer").append(itemDiv);
+        } else {
+          // If no row matches "Web of Deviations", you might want to handle this case
+          console.log("No data found for 'Web of Deviations'");
+        }
+      });
+    });
+  </script>
+
+
 </body>
+
 </html>

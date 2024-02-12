@@ -1,71 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
-    
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <meta charset="UTF-8" lang="en" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binding Study</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
 
-  <title>sa_________cha</title>
-
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="style.css" 
-  />
-
-  
-
-</head>  <body>
-    
-
-<header>
-
-</article>  <nav id="nav">
-    <ul>
-      
-      <li>
-          
-        <a
-          title="projects" 
-          href="proj.html"
-        >
-        saskia 'chaski' knowles
-
-
-        </a>
-      
-    </li>
-          
-
+<body>
+  <header>
+    </article>
+    <nav id="nav">
+      <ul>
         <li>
-          
-            <a
-              title="projects" 
-              href="proj.html"
-            >
-              projects
-
-
-            </a>
-          
+          <a title="home" href="index.html">
+            saskia 'chaski' knowles
+          </a>
         </li>
-
         <li>
-          
-            <a
-              title="info"
-              href="info.html" 
-            >
-              info
-            </a>
-          
+          <a title="projects" href="proj.html">
+            projects
+          </a>
         </li>
-
-    </ul>
-  </nav>
-</header>    
+        <li>
+          <a title="info" href="info.html">
+            info
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+<main>
 <body>
     <h1>✷ 　 　　 　 ·
         　 ˚ * .
@@ -84,16 +53,10 @@
       />
     </h1>
 
+    <div id="contentContainer"></div>
 
     <div class="gift-wrap">
         <div class="left">
-
-            <p>
-                sa_cha is an avatar for collaboration between Chaski No and Sasha Tycko. Chaski and
-                Sasha have lived in separate cities since 2016. Their collaboration often takes the form of the remix:
-                sending audio/video back and forth, reworking each other’s tracks to revere and overcome the
-                sharp edges of 'mine' and 'yours.'
-            </p>
 
             
 
@@ -107,7 +70,7 @@
                     <div class="collapseAfter"> </div>
                     <li> <a href="https://youtu.be/7OSy9A-vNlY" target="_blank"> "Down 2 the Lake," (2018) </a> </li>
                     <li> <a href="https://youtu.be/SxmgPHHcWH4" target="_blank"> "Of the body that carries it feat. Loleatta Holloway," (2020) </a> </li>
-                    <li> <a href="studyindex.html" target="_blank"> "A Study in Choreography for the Grid: A Duet"
+                    <li> <a href="https://www.instagram.com/sa_________cha/" target="_blank"> "A Study in Choreography for the Grid: A Duet"
                             (2022) </a> </li>
                 </ul>
                 <label for="toggle_archive" hidden aria-hidden="true"></label>
@@ -134,4 +97,36 @@
 
 </body>
 
+<script>
+  $(document).ready(function () {
+    var spreadsheetIdAndTab = "16b35tRvU5_fTAOR4FsGhSSmxQkjaYZiQBL56p4hEWL0/Sheet1";
+    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+      // Filter for the "Web of Deviations" row
+      var filteredData = data.filter(function (row) {
+        return row.title === "sa_cha";
+      });
+
+      if (filteredData.length > 0) {
+        var row = filteredData[0];
+
+        var itemDiv = $("<div class='item'>");
+
+
+        // Create elements for title, role, and text
+        var title = $("<h2>").text(row.title).addClass("item-title");
+        var text = $("<p>").text(row.text).addClass("item-text");
+
+        // Append elements to the item container
+        itemDiv.append(title, text);
+
+        // Append the item container to the content container
+        $("#contentContainer").append(itemDiv);
+      } else {
+        // If no row matches "Web of Deviations", you might want to handle this case
+        console.log("No data found for 'Web of Deviations'");
+      }
+    });
+  });
+</script>
+</main>
 </html>
