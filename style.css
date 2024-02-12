@@ -62,7 +62,7 @@ body {
   scroll-behavior: smooth;
   background-color: var(--accent);
   color: var(--lot-darkwr);
-  font-family: Times New Roman, serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -289,7 +289,7 @@ a#logo figure img {
 /* nav */
 
 header nav {
-  max-width: max-content;
+  width: 100%; 
   margin: auto;
   padding: 2px;
   margin-block: 0.75rem;
@@ -297,11 +297,12 @@ header nav {
 
 header nav ul {
   list-style: none;
-  width: max-content;
+  width: 100%;
   margin: 0 auto;
   padding: 0;
   padding: 0.75rem;
   display: flex;
+  justify-content: space-between;
 }
 
 header nav ul li a {
@@ -905,4 +906,10 @@ main.cv section p {
 
 .projectText {
   text-align: center; /* Center the text under the slideshow */
+}
+
+#proxytitle {
+  position: -webkit-sticky; /* Safari & IE */
+position: sticky;
+top: 0;
 }

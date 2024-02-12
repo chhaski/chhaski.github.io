@@ -1,120 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
-    
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/+esm"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <meta charset="UTF-8" lang="en" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>video archive</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
 
-
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="style.css" 
-  />
-
-</head>  <body>
-    
-
-<header>
-
-  <a
-    id="logo"
-    href="/index.html"
-    title="Home"
-  >
-    
-
-<figure id="">
-  <img
-    src="visualizer.gif"
-
-  />
-  <h4>saskia 'chaski' knowles</h4>
-</figure> 
- </a>
-  
-
-
-
+<body>
   <header>
-    
-      <!-- <a
-        href="/index.html"
-        title="chaski / saskia">
-      saskia "chaski" knowles
-      </a> -->
-    
+    </article>
+    <nav id="nav">
+      <ul>
+        <li>
+          <a title="home" href="index.html">
+            saskia 'chaski' knowles
+          </a>
+        </li>
+        <li>
+          <a title="projects" href="proj.html">
+            projects
+          </a>
+        </li>
+        <li>
+          <a title="info" href="info.html">
+            info
+          </a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
-  
-
-
-
-</article>  <nav id="nav">
-    <ul>
-      
-        <li>
-          
-            <!-- <a
-              title="network"
-              href="/network"
-            >
-              network
-            </a>
-          
-        </li>
-       -->
-        <li>
-          
-            <a
-              title="projects" 
-              href="proj.html"
-            >
-              projects
-            </a>
-          
-        </li>
-      
-        <!-- <li>
-          
-            <a
-              title="info"
-              href="/motd"
-            >
-              motd
-            </a>
-          
-        </li> -->
-      
-        <li>
-          
-            <a
-              title="info"
-              href="info.html" 
-            >
-              info
-            </a>
-          
-        </li>
-      
-        <!-- <li>
-          
-            <a
-              title="cv"
-              href="/cv"
-            >
-              cv
-            </a>
-          
-        </li> -->
-      
-    </ul>
-  </nav>
-</header>    
 <main id="main" class="projects">
     <h1> Videos Archive </h1>
     <h4>selected sketches made with code</h4>
@@ -127,7 +47,7 @@
     <script>
         async function fetchBlocks(page) {
             try {
-                const response = await fetch(`http://api.are.na/v2/channels/chaski_videos/contents?page=${page}`);
+                const response = await fetch(`https://api.are.na/v2/channels/chaski_videos/contents?page=${page}`);
                 const data = await response.json();
                 return data.contents.map(content => ({
                     image: content.image,

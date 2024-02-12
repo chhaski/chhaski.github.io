@@ -138,12 +138,10 @@
 </header>    
   <main id="main" class="projects">
 
-    <h1> notes on proxy </h1>
+    <h1> gathering of sketches made with code </h1>
 
     <!-- <button class = 'button' onclick="goBack()"> ⬅ </button> -->
-    <div id="proxytitle">
-    <h2>Proxy</h2>
-  </div>
+
     <main id="main" class="projects">
       <div id="projectsContainer"></div> <!-- Container for all projects -->
     </main>
@@ -153,39 +151,38 @@
 
 
   </main>
- 
   <script>
     $(document).ready(function () {
-        var spreadsheetIdAndTab = "1Ijs-5-BFkl5JGbcNDJL8VuiD95pMn36gIWUkcnon1V8/Sheet1";
-        $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+        var spreadsheetIdAndTab2 = "16b35tRvU5_fTAOR4FsGhSSmxQkjaYZiQBL56p4hEWL0/Sheet1";
+        $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab2, function (data) {
             data.forEach(function (row) {
+                // Create a container for each project
                 var projectDiv = $("<div class='project'>");
     
-                // Combined title and credit div
-                var textDiv = $("<div class='projectText'>");
-                
-                // Create and append the title
-                var titleElement = $("<h2>").text(row.title);
-                textDiv.append(titleElement);
-    
-                // Check if row.credit and row.link are not undefined or empty
-                if (row.credit && row.link) {
-                    // Create a hyperlink for credit and append it directly after the title
-                    var creditLink = $("<a>").attr("href", row.link).text(" " + row.credit).attr("target", "_blank"); // Ensure there's a space before the credit text
-                    textDiv.append(creditLink);
-                } else if (row.credit) {
-                    // If there's no link, just display the credit text in-line
-                    textDiv.append($("<span>").text(" " + row.credit)); // Ensure there's a space before the credit text
+                // Check if 'arena' contains an image URL and create an image element if it does
+                if (row.arena) {
+                    var img = $("<img class='projectImage'>").attr("src", row.arena.trim()); // Ensure the URL is trimmed
+                    projectDiv.append(img);
                 }
     
+                // Create a div for the title, role, and description
+                var textDiv = $("<div class='projectText'>");
+                textDiv.append($("<h2>").text(row.title)); // Add title
+                textDiv.append($("<h3>").text(row.role)); // Add role
+                textDiv.append($("<p>").text(row.desc)); // Add description
                 projectDiv.append(textDiv);
     
                 // Append the project div to the projects container
                 $("#projectsContainer").append(projectDiv);
             });
+    
+            // Initialize any other necessary functionality here
         });
     });
     </script>
+    
+    
+    
     
 
   <footer>
