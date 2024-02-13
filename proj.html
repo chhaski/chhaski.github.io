@@ -35,91 +35,68 @@
     </nav>
   </header>
   
-<div id="image-grid2" class="image-grid2">
-</div>
-</main>
+  <h1> projects </h1>
+  <div id="projectsContainer">
+    <!-- Project views will be dynamically inserted here by the script -->
 </div>
 
 <script>
-  async function fetchBlocks(page) {
-      try {
-          const response = await fetch(`https://api.are.na/v2/channels/chaski_projects/contents?page=${page}`);
-          const data = await response.json();
-          return data.contents.map(content => ({
-              image: content.image,
-              title: content.title,
-              descriptionHtml: content.description_html, // Fetch description_html
-              url: content.source && content.source.url ? content.source.url : null
-          })).filter(block => block.image || block.title || block.descriptionHtml);
-      } catch (error) {
-          console.error('Error:', error);
-          return [];
-      }
-  }
+  $(document).ready(function () {
+      var spreadsheetIdAndTab = "1FEkRs-Rji7YSvZtIEmAjQ5r6-xOVTo5PtCs5CJkTAmM/Sheet1";
+      $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+          data.forEach(function (row) {
+              // Create an anchor tag as the main container for each project
+              var projectLink = $("<a class='project-link'>").attr("href", row.link).css({"text-decoration": "none", "color": "inherit"}); // Ensure link styling matches your project
+              
+              // Create a container for the project content
+              var projectDiv = $("<div class='project'>");
   
-  function displayBlocks(blocks) {
-  const container = document.getElementById('image-grid2');
-
-  blocks.forEach(block => {
-    const blockAnchor = document.createElement('a');
-    blockAnchor.className = 'block-item2';
-    blockAnchor.style.cursor = 'pointer';
-    blockAnchor.href = block.url ? block.url : '#';
-    blockAnchor.target = '_blank'; // Open URL in a new tab
-
-    if (block.image && block.image.original && block.image.original.url) {
-      const img = document.createElement('img');
-      img.src = block.image.original.url;
-      img.className = 'image-item';
-      img.onerror = () => img.src = 'Group 1.png'; // Fallback image URL
-      blockAnchor.appendChild(img);
-    }
-
-    if (block.title) {
-      const title = document.createElement('div');
-      title.className = 'block-title';
-      title.textContent = block.title;
-      blockAnchor.appendChild(title);
-    }
-
-    if (block.descriptionHtml) {
-      const description = document.createElement('div');
-      description.className = 'block-description';
-      description.innerHTML = block.descriptionHtml;
-      blockAnchor.appendChild(description);
-    }
-
-    container.appendChild(blockAnchor);
+              // Create a div for the slideshow
+              var slideshowDiv = $("<div class='slideshowContainer'>");
+              var images = row.imageURLs.split(","); // Assume imageURLs is the correct property for images
+              images.forEach(function(imageUrl) {
+                  var img = $("<img class='slide'>").attr("src", imageUrl.trim()); // Create an img element for each URL
+                  slideshowDiv.append(img);
+              });
+              projectDiv.append(slideshowDiv);
+  
+              // Add title and description under the slideshow
+              var textDiv = $("<div class='projectText'>");
+              textDiv.append($("<h7>").text(row.title));
+              textDiv.append($("<small>").text(row.desc));
+              textDiv.append($("<p>").text(row.role));
+              projectDiv.append(textDiv);
+  
+              // Append the projectDiv to the projectLink, then append to the projects container
+              projectLink.append(projectDiv);
+              $("#projectsContainer").append(projectLink);
+          });
+          
+          // Initialize the slideshow functionality here if necessary
+      });
   });
-}
-
-  
-  async function loadBlocks() {
-      let blocks = [];
-      const page1 = await fetchBlocks(1);
-      const page2 = await fetchBlocks(2);
-  
-      blocks = blocks.concat(page1, page2);
-      displayBlocks(blocks);
-  }
-  
-  loadBlocks();
   </script>
-  <br><br><br>
-</body>
+  
+  
+  
+  
+  
+  
+  
 
 <footer>
-  <address>
-  <img
-              src="catalog-1.png"
-            />
-            <p>contact</p>
-        <p>email: <a href="mailto:chaski@nyu.edu">chaski@nyu.edu</a></p>
-        <p><a href="https://www.are.na/chaski-_">are.na</a> </p>
-        <p><a href="https://www.instagram.com/piscosweets/">instagram</a></p>
-        <p>cv available upon request</p>
-      </address>
+    <address>
+<img
+            src="standby_monitor_moon-4.png"
+          />
+          <p>contact</p>
+      <p>email: <a href="mailto:chaski@nyu.edu">chaski@nyu.edu</a></p>
+      <p><a href="https://www.are.na/chaski-_">are.na</a> </p>
+      <p><a href="https://www.instagram.com/piscosweets/">instagram</a></p>
+      <p>cv available upon request</p>
+    </address>
+
 </footer>
-
-
+</body>
+</main>  
 </html>

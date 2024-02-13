@@ -1,7 +1,5 @@
 :root {
 
-
-  /* Default The Hmm colors */
   --brown: hsl(0, 0%, 100%);
   /* --brown          : hsl(0, 9%, 62%); */
   --lighter: rgb(255, 255, 255, 0.25);
@@ -117,12 +115,14 @@ a:active,
 a:visited {
   text-decoration: underline;
   color: var(--lot-darkwr);
+  
 }
 
 a:hover,
 a:focus {
   text-decoration: none;
   font-style: italic;
+  text-transform: capitalize;
 }
 
 s a {
@@ -640,68 +640,6 @@ main.cv section p {
   /* Maintain image aspect ratio */
 }
 
-.magnifier-thumb-wrapper {
-  position: relative;
-  display: block;
-  top: 0;
-  left: 0
-}
-
-.magnifier-lens {
-  position: absolute;
-  border: solid 1px #ccc;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  background: transparent;
-  background: hsl(0, 0%, 100%);
-}
-
-.magnifier-loader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: solid 1px #ccc;
-  color: #fff;
-  text-align: center;
-  background: transparent;
-  background: rgba(50, 50, 50, 0.5);
-  z-index: 1000;
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232,endColorstr=#7F323232)";
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232, endColorstr=#7F323232)
-}
-
-.magnifier-loader-text {
-  font: 13px Arial;
-  margin-top: 10px
-}
-
-.magnifier-large {
-  position: absolute;
-  z-index: 1000
-}
-
-.magnifier-preview {
-  padding: 10;
-  width: 100%;
-  height: auto;
-  position: absolute;
-  /* Set to absolute for positioning */
-  pointer-events: none;
-  /* Ensure it doesn't interfere with mouse events */
-  display: none;
-  /* Initially hide the preview */
-  background: hsl(0, 0%, 100%);
-  overflow: hidden
-}
-
-.magnifier-preview img {
-  position: absolute;
-  top: 0;
-  left: 0
-}
-
 .opaque {
   opacity: .5;
   filter: alpha(opacity=50);
@@ -831,6 +769,19 @@ main.cv section p {
   grid-gap: 10px;
 }
 
+#projectsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 10px;
+  justify-content: center;
+
+}
+/* #projectsContainer img {
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+
+} */
 
 .block-item {
   border: 1px solid #ddd;
@@ -949,3 +900,4 @@ top: 0;
   display: block; /* Ensures images stack vertically */
   margin-bottom: 10px; /* Optional: adds space between images */
 }
+
