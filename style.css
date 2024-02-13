@@ -857,6 +857,7 @@ main.cv section p {
 
 .projectText {
   text-align: center; /* Center the text under the slideshow */
+  padding: 0.75rem;
 }
 
 #proxytitle {
