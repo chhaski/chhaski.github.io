@@ -36,71 +36,32 @@
   </header>
  
 <main>
- 
-<div id="image-grid2" class="image-grid2">
-  <!-- Blocks will be loaded here -->
+  <div id="backgroundContainer"></div> <!-- Placeholder for background image -->
+  <div id="projectInfo" class="project-info"> <!-- Container for project title and description -->
+    <!-- Project title and description will be dynamically inserted here -->
+  </div>
+
 </div>
 
 <br>
 <script>
-  async function fetchBlocks(page) {
-      try {
-          const response = await fetch(`https://api.are.na/v2/channels/chaski_projects/contents?page=${page}`);
-          const data = await response.json();
-          return data.contents.map(content => ({
-              image: content.image,
-              title: content.title,
-              descriptionHtml: content.description_html, // Fetch description_html
-              url: content.source && content.source.url ? content.source.url : null
-          })).filter(block => block.image || block.title || block.descriptionHtml);
-      } catch (error) {
-          console.error('Error:', error);
-          return [];
-      }
-  }
-  
- 
-  let currentBlockIndex = 0; // Index of the current block being displayed
-    let blocks = []; // Array to store all blocks
+$(document).ready(function () {
+    var spreadsheetIdAndTab = "1FEkRs-Rji7YSvZtIEmAjQ5r6-xOVTo5PtCs5CJkTAmM/Sheet1";
+    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+        // Assuming you want to display the first project initially
+        var firstProject = data[0];
+        var imageUrl = firstProject.imageURLs.split(",")[0].trim(); // Assuming first image URL for background
+        
+        // Set the background image
+        $("#backgroundContainer").css("background-image", 'url(' + imageUrl + ')');
 
-    function displayBlock(block) {
-      const container = document.getElementById('image-grid2');
-      container.innerHTML = ''; // Clear existing content
-
-      const blockAnchor = document.createElement('a');
-      blockAnchor.className = 'block-item2';
-      blockAnchor.href = block.url ? block.url : '#';
-
-      if (block.image && block.image.original && block.image.original.url) {
-        const img = document.createElement('img');
-        img.src = block.image.original.url;
-        img.className = 'homeimg';
-        img.onerror = () => img.src = 'Group 1.png'; // Fallback image URL
-        blockAnchor.appendChild(img);
-      }
-
-      container.appendChild(blockAnchor);
-    }
-
-    async function loadBlocks() {
-      const page1 = await fetchBlocks(1);
-      const page2 = await fetchBlocks(2);
-
-      blocks = blocks.concat(page1, page2);
-
-      // Display the first block initially
-      if (blocks.length > 0) {
-        displayBlock(blocks[0]);
-      }
-
-      // Set up a timer to change the block every 30 seconds
-      setInterval(() => {
-        currentBlockIndex = (currentBlockIndex + 1) % blocks.length;
-        displayBlock(blocks[currentBlockIndex]);
-      }, 30000); // 30000 milliseconds = 30 seconds
-    }
-
-    loadBlocks();
+        // Set project title and description
+        $("#projectInfo").html('<h2>' + firstProject.title + '</h2><p>' + firstProject.desc + '</p>');
+        
+        // Here, you would implement functionality to navigate between projects
+        // For simplicity, this example only displays the first project
+    });
+});
   </script>
 
 </body>

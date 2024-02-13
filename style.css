@@ -255,37 +255,6 @@ header a#skip:focus {
 }
 
 
-/* logo */
-
-a#logo {
-  width: max-content;
-  height: 8rem;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  z-index: 100;
-  border-radius: 100%;
-}
-
-a#logo img {
-  transition: all var(--fast) linear;
-}
-
-a#logo:focus img,
-a#logo:focus-within img {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 1rem var(--darker));
-}
-
-
-a#logo figure img {
-  width: 8rem;
-  background-color: unset;
-  border: none;
-}
-
-
-
 /* nav */
 
 header nav {
@@ -308,8 +277,6 @@ header nav ul {
 header nav ul li a {
   padding: 0.2rem 0.3rem;
 }
-
-
 
 /* figures, images, audio, video */
 
@@ -556,6 +523,7 @@ main.cv section p {
 .image-item {
   margin-top: 10px; /* Space between text and image */
   width: 100%; /* Adjust width as needed */
+  
 }
 
 .image-item img {
@@ -767,14 +735,15 @@ main.cv section p {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 10px;
+  text-align: ;
 }
 
 #projectsContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-gap: 10px;
-  justify-content: center;
-
+  grid-gap: 15px;
+  justify-content: space-evenly;
+  border:  none;
 }
 /* #projectsContainer img {
   align-items: center;
@@ -841,24 +810,52 @@ main.cv section p {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
+
 }
 
 .slideshowContainer::-webkit-scrollbar {
   display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  
 }
 
 .slide {
+  display: flex;
+  align-items: center;
   max-width: 100%;
-  max-height: 500px; /* Adjust based on your preference */
-  margin-right: 10px;
-  justify-content: center;
+  max-height: 100%;
+  height: auto: 
+  padding: 0.5rem;
+background-color: var(--brown);
+border: none;
+width: 70%;
+margin: auto;
+display: block; 
+}
 
+slide .image-item {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .projectText {
-  text-align: center; /* Center the text under the slideshow */
+  text-align: left; /* Center the text under the slideshow */
   padding: 0.75rem;
 }
+
+.projectText h7 {
+  text-align: right; /* Centers the titles */
+}
+
+.projectText small {
+  text-align: right; /* Aligns the descriptions to the left */
+}
+
+.projectText p {
+  text-align: right; /* Aligns the role information to the right */
+}
+
 
 #proxytitle {
   position: -webkit-sticky; /* Safari & IE */
@@ -902,3 +899,26 @@ top: 0;
   margin-bottom: 10px; /* Optional: adds space between images */
 }
 
+#backgroundContainer {
+  position: fixed;
+  top: 100;
+  width: 80%;
+  height: 80%;
+  background-size: center;
+  background-position: center;
+  opacity: 0.4;
+  
+}
+
+.project-info {
+  color: black; /* Adjust color based on your image's color scheme */
+  opacity: 0.7;
+  text-align: center;
+  padding: 10px;
+
+}
+
+.project-info h2, .project-info p {
+  margin: 0;
+  padding: 5px;
+}

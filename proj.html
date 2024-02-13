@@ -41,40 +41,41 @@
 </div>
 
 <script>
-  $(document).ready(function () {
-      var spreadsheetIdAndTab = "1FEkRs-Rji7YSvZtIEmAjQ5r6-xOVTo5PtCs5CJkTAmM/Sheet1";
-      $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
-          data.forEach(function (row) {
-              // Create an anchor tag as the main container for each project
-              var projectLink = $("<a class='project-link'>").attr("href", row.link).css({"text-decoration": "none", "color": "inherit"}); // Ensure link styling matches your project
-              
-              // Create a container for the project content
-              var projectDiv = $("<div class='project'>");
-  
-              // Create a div for the slideshow
-              var slideshowDiv = $("<div class='slideshowContainer'>");
-              var images = row.imageURLs.split(","); // Assume imageURLs is the correct property for images
-              images.forEach(function(imageUrl) {
-                  var img = $("<img class='slide'>").attr("src", imageUrl.trim()); // Create an img element for each URL
-                  slideshowDiv.append(img);
-              });
-              projectDiv.append(slideshowDiv);
-  
-              // Add title and description under the slideshow
-              var textDiv = $("<div class='projectText'>");
-              textDiv.append($("<h7>").text(row.title));
-              textDiv.append($("<small>").text(row.desc));
-              textDiv.append($("<p>").text(row.role));
-              projectDiv.append(textDiv);
-  
-              // Append the projectDiv to the projectLink, then append to the projects container
-              projectLink.append(projectDiv);
-              $("#projectsContainer").append(projectLink);
-          });
-          
-          // Initialize the slideshow functionality here if necessary
-      });
-  });
+$(document).ready(function () {
+    var spreadsheetIdAndTab = "1FEkRs-Rji7YSvZtIEmAjQ5r6-xOVTo5PtCs5CJkTAmM/Sheet1";
+    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+        data.forEach(function (row) {
+            // Create an anchor tag as the main container for each project
+            var projectLink = $("<a class='project-link'>").attr("href", row.link).css({"text-decoration": "none", "color": "inherit"});
+            
+            // Create a container for the project content
+            var projectDiv = $("<div class='project'>");
+
+            // Create a div for the project text and append it before the slideshow
+            var textDiv = $("<div class='projectText'>");
+            textDiv.append($("<h7>").text(row.title)); // Consider changing <h7> to a valid heading tag, e.g., <h2> to <h6>
+            textDiv.append($("<small>").text(row.desc));
+            textDiv.append($("<p>").text(row.role));
+            projectDiv.append(textDiv);
+
+            // Create a div for the slideshow
+            var slideshowDiv = $("<div class='slideshowContainer'>");
+            var images = row.imageURLs.split(",");
+            images.forEach(function(imageUrl) {
+                var img = $("<img class='slide'>").attr("src", imageUrl.trim());
+                slideshowDiv.append(img);
+            });
+            projectDiv.append(slideshowDiv);
+
+            // Append the projectDiv to the projectLink, then append to the projects container
+            projectLink.append(projectDiv);
+            $("#projectsContainer").append(projectLink);
+        });
+        
+        // Initialize the slideshow functionality here if necessary
+    });
+});
+
   </script>
   
   

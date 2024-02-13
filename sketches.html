@@ -41,9 +41,7 @@
 
     <!-- <button class = 'button' onclick="goBack()"> ⬅ </button> -->
 
-    <main id="main" class="projects">
       <div id="projectsContainer"></div> <!-- Container for all projects -->
-    </main>
     
 
 
@@ -56,7 +54,7 @@
         $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
             data.forEach(function (row) {
                 // Create a container for each project
-                var projectDiv = $("<div class='project'>");
+                var projectDiv = $("<div class='projectContainer'>");
     
                 // Create a div for the slideshow
                 var slideshowDiv = $("<div class='slideshowContainer'>");
