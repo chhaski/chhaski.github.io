@@ -48,24 +48,25 @@
 
 
 
-
   <div class="row">
-    <div class="arena-column" id="input-column">
-      <div id="asEntriesContainer">
-        <!-- Entries starting with "as" will be appended here -->
-      </div>
+    <div class="arena-column" id="column1">
+      <div id="firstThirdContainer"></div>
     </div>
-
-    <div class="arena-column" id="output-column">
-
+  
+    <div class="arena-column" id="column2">
+      <div id="secondThirdContainer"></div>
     </div>
-    <div id="nonAsEntriesContainer">
-      <!-- Entries not starting with "as" will be appended here -->
+  
+    <div class="arena-column" id="column3">
+      <div id="thirdThirdContainer"></div>
     </div>
+  </div>
+  
+    
 
 
     <h4> <a title="" href="https://itp.nyu.edu/networks/explanations/proxies/">
-        explanatory essay on Proxies for Networks at ITP site about telecommunications networks
+        essay on proxies as network infrastructure for NYU ITP site about telecommunications networks
       </a></h4>
     <br>
 
@@ -75,73 +76,29 @@
     <br>
 
     <script>
-      $(document).ready(function () {
-        var spreadsheetIdAndTab = "16b35tRvU5_fTAOR4FsGhSSmxQkjaYZiQBL56p4hEWL0/Sheet1";
-        $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
-          // Filter for the "Web of Deviations" row
-          var filteredData = data.filter(function (row) {
-            return row.title === "Proxy";
-          });
+$(document).ready(function () {
+  var spreadsheetIdAndTab = "1Ijs-5-BFkl5JGbcNDJL8VuiD95pMn36gIWUkcnon1V8/Sheet1";
+  $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+    var thirdLength = Math.ceil(data.length / 3);
+    var firstThirdData = data.slice(0, thirdLength);
+    var secondThirdData = data.slice(thirdLength, 2 * thirdLength);
+    var thirdThirdData = data.slice(2 * thirdLength);
 
-          if (filteredData.length > 0) {
-            var row = filteredData[0];
-
-            var itemDiv = $("<div class='item'>");
-
-
-            // Create elements for title, role, and text
-            var title = $("<h2>").text(row.title).addClass("item-title");
-            var role = $("<p>").text(row.role).addClass("item-role");
-            var text = $("<p>").text(row.text).addClass("item-text");
-
-            // Append elements to the item container
-            itemDiv.append(title, role, text);
-
-            // Append the item container to the content container
-            $("#contentContainer").append(itemDiv);
-          } else {
-            // If no row matches "Web of Deviations", you might want to handle this case
-            console.log("No data found for 'Web of Deviations'");
-          }
-        });
+    function appendData(entries, containerId) {
+      entries.forEach(function (row) {
+        var div = $("<div class='data-entry'>");
+        var title = $("<h3>").text(row.title);
+        var credit = row.link ? $("<a>").attr("href", row.link).text(row.credit) : $("<span>").text(row.credit);
+        div.append(title, $("<p>").append(credit));
+        $(containerId).append(div);
       });
-      $(document).ready(function () {
-    var spreadsheetIdAndTab = "1Ijs-5-BFkl5JGbcNDJL8VuiD95pMn36gIWUkcnon1V8/Sheet1";
-    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
-        // Get the first 27 entries for asEntriesContainer
-        var asEntries = data.slice(0, 25);
+    }
 
-        // Get all entries after the first 27 for nonAsEntriesContainer
-        var nonAsEntries = data.slice(25);
-
-        // Function to create and append project divs
-        function appendProjects(entries, containerId) {
-            entries.forEach(function (row) {
-                var projectDiv = $("<div class='project'>");
-                var textDiv = $("<div class='projectText'>");
-
-                // Append title and credit together, with credit in superscript and parentheses
-                var titleText = row.title;
-                if (row.credit) {
-                    var creditText = row.link ? 
-                        " (<a href='" + row.link + "' target='_blank'><small>" + row.credit + "</small></a>)" :
-                        " (<small>" + row.credit + "</small>)"; // Credit in superscript without link
-                    titleText += creditText;
-                }
-                var titleElement = $("<p>").html(titleText); // Use .html() to interpret the HTML tags
-                textDiv.append(titleElement);
-
-                projectDiv.append(textDiv);
-                $(containerId).append(projectDiv);
-            });
-        }
-
-        // Append the first 25 entries to asEntriesContainer
-        appendProjects(asEntries, "#asEntriesContainer");
-
-        // Append all entries after the first 25 to nonAsEntriesContainer
-        appendProjects(nonAsEntries, "#nonAsEntriesContainer");
-    });
+    // Append data to each container
+    appendData(firstThirdData, "#firstThirdContainer");
+    appendData(secondThirdData, "#secondThirdContainer");
+    appendData(thirdThirdData, "#thirdThirdContainer");
+  });
 });
 
     </script>

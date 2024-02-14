@@ -311,7 +311,7 @@ figureBigger figcaption {
 }
 
 figureSmaller img {
-  width: 50%; /* Set the initial width to half */
+  width: 90%; /* Set the initial width to half */
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -823,7 +823,7 @@ main.cv section p {
   align-items: center;
   max-width: 100%;
   max-height: 100%;
-  height: auto: 
+  height: auto; 
   padding: 0.5rem;
 background-color: var(--brown);
 border: none;
@@ -921,4 +921,41 @@ top: 0;
 .project-info h2, .project-info p {
   margin: 0;
   padding: 5px;
+}
+
+/* Style for the row containing the columns */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style for each column */
+.arena-column {
+  flex: 1;
+  padding: 0 15px;
+}
+
+/* Style for each data entry */
+.data-entry {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.data-entry h3 {
+  margin: 0 0 20px 0;
+  color: inherit; /* Dark grey color for text */
+}
+
+.data-entry a,
+.data-entry span {
+  color: inherit;  
+  text-decoration: underline;
+  
+}
+
+.data-entry a:hover {
+  text-decoration: underline;
 }
