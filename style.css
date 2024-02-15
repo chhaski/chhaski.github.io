@@ -311,7 +311,7 @@ figureBigger figcaption {
 }
 
 figureSmaller img {
-  width: 90%; /* Set the initial width to half */
+  width: 100%; /* Set the initial width to half */
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -320,9 +320,6 @@ figureSmaller img {
 
 }
 
-figureSmaller:hover img {
-  width: 100%; /* Enlarge image to full width on hover */
-}
 
 figureSmaller figcaption {
   font-style: italic;

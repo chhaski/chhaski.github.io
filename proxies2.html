@@ -76,6 +76,37 @@
     <br>
 
     <script>
+    $(document).ready(function () {
+      var spreadsheetIdAndTab = "16b35tRvU5_fTAOR4FsGhSSmxQkjaYZiQBL56p4hEWL0/Sheet1";
+      $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
+        // Filter for the "Web of Deviations" row
+        var filteredData = data.filter(function (row) {
+          return row.title === "Proxy";
+        });
+
+        if (filteredData.length > 0) {
+          var row = filteredData[0];
+
+          var itemDiv = $("<div class='item'>");
+
+
+          // Create elements for title, role, and text
+          var title = $("<h2>").text(row.title).addClass("item-title");
+          var role = $("<p>").text(row.role).addClass("item-role");
+          var text = $("<p>").text(row.text).addClass("item-text");
+
+          // Append elements to the item container
+          itemDiv.append(title, role, text);
+
+          // Append the item container to the content container
+          $("#contentContainer").append(itemDiv);
+        } else {
+          // If no row matches "Web of Deviations", you might want to handle this case
+          console.log("No data found for 'Web of Deviations'");
+        }
+      });
+    });
+
 $(document).ready(function () {
   var spreadsheetIdAndTab = "1Ijs-5-BFkl5JGbcNDJL8VuiD95pMn36gIWUkcnon1V8/Sheet1";
   $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
