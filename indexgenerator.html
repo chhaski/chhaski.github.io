@@ -42,24 +42,6 @@
     <h1> Indexing the Index </h1>
     <h4>a python generator that produces speculative indexes to non-existent texts through spatial representation of
       textual data with NLP </h4>
-    <p>Combining text processing, generation and NLP techniques in Python to uncover structural and semantic features of
-      a textual corpus, the project explores the genre of the index as an infrastructure for containing information and a
-      mechanism that maps cross references (much like a hyperlink), creating associative relations between things.
-    </p>
-    <p>Rather than the generated output producing correct or logical groupings of items, which it rarely did, I was more
-      interested in the spatial layout of the text on the page being determined by another layer of meaning-making, in
-      this case, a nearest neighbor algorithm, which was used to determine items (subentries) that are closest (or most
-      similar) to any others in the data, classifying closer relation (which is often nonsensical) by proximity.
-    </p>
-    <p>
-      My corpus was comprised of the indexes of 3 books (<a
-        href="https://drive.google.com/file/d/1Wsxug60VUcx1cjoNM6SceYIr1tZbSmCK/view?usp=drive_link">Michel Foucault -
-        History of Sexuality Volume 1,</a> <a
-        href="https://drive.google.com/file/d/1cZcwEpHJIzkQeiGg-baDLIElvu6d54S3/view?usp=drive_link">Jose Muñoz -
-        Cruising Utopia,</a> and <a
-        href="https://drive.google.com/file/d/14vClVrZSyG5EdYUJfoKZUHx4c7aqhwpg/view?usp=drive_link">Sara Ahmed - Queer
-        Phenomenology</a>) as well as some phrases from my notebook.
-    </p>
 
 
     <h4>Process</h4>
@@ -68,11 +50,7 @@
       <div class="ig-content">
           <div class="text-content">
             <b>1. pre-processing corpus.</b>
-            <p></p>
-            <br />﹍format .txt files of each index in the corpus to make their structures uniform
-            <br />﹍reassemble into a combined index made up of entries and subentries from all 3 books in the corpus
-            <br />﹍parse text into subentries (can be viewed as textual nodes which are joined by referential links)
-            <br /><br />
+
             <small>
               <ul id="randomEntries">
                 <!-- JavaScript will populate the random entries here -->
@@ -82,19 +60,7 @@
           </div>
 
       </section>
-      <!-- <div class="image-item">
-        <img id="combined_index_image" src="projects/index/indexcombined copy.png" alt="all subentries from the corpus' combined indexes"/>
-        <figcaption>
-          all subentries from the corpus' combined indexes
-        </figcaption>
-      </div> -->
 
-      <div class="image-item">
-        <img id="combined_index_image" src="projects/index/indexcombined copy.png" alt="all subentries from the corpus' combined indexes" width="400px"/>
-        <figcaption>
-          all subentries from the corpus' combined indexes
-        </figcaption>
-      </div>
 
     </div>
     
@@ -102,12 +68,7 @@
       <div class="ig-content">
           <div class="text-content">
             <b>2. processing corpus.</b>
-            <p></p>
-            <br />﹍create a vector for each subentry in the corpus
-            <br />﹍use t-SNE (t-distributed stochastic neighbor embedding) to reduce the dimensionality of each vector
-            <br />﹍save the x-values of t-SNE visualization of each vector as an array
-            <br />﹍map the vectors to a more workable range and append each of the re-mapped values to their corresponding subentry in a vector dictionary (associative array)
-          </div></div>
+ 
 
         <small>
           <ul id="vectorChart">
@@ -116,19 +77,7 @@
         </small>
    
       </section>
-      <div class="image-item">
-        <img id="vector_dictionary_image" src="projects/index/vectordic.png" alt="text sequences and corresponding vectors" />
-        <figcaption>
-          text sequences (subentries) and their corresponding vectors
-        </figcaption>
-      </figureSmaller>
-      <figureSmaller>
-        <img id="tsne_visualization_image" src="projects/index/cluster.png" alt="t-SNE visualization of text sequences and vectors" />
-        <figcaption>
-          text sequences (subentries) and their corresponding vectors visualized by t-SNE
-        </figcaption>
-     
-    </div>
+
     
     <div class="image-item">
       <div class="ig-content">
@@ -138,16 +87,10 @@
             <br />﹍the position of each subentry on the page is determined by the x-position of the vectors in 2-d space as determined by t-SNE
             <br />
 
-          <!-- Additional images can be added here with similar structure -->
         </div>
       </section>
     </div>
-    <div class="image-item">
-      <img id="generator_output_image" src="projects/index/indexoutput3.png" alt="generator output" />
-      <figcaption>
-        generator output
-      </figcaption>
-    </div>
+
     </div>
     
     <script>

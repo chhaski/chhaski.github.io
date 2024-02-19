@@ -1,7 +1,5 @@
 :root {
 
-
-  /* Default The Hmm colors */
   --brown: hsl(0, 0%, 100%);
   /* --brown          : hsl(0, 9%, 62%); */
   --lighter: rgb(255, 255, 255, 0.25);
@@ -62,7 +60,7 @@ body {
   scroll-behavior: smooth;
   background-color: var(--accent);
   color: var(--lot-darkwr);
-  font-family: Times New Roman, serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -70,6 +68,7 @@ body {
 }
 
 main,
+header,
 footer {
   margin-inline: auto;
   min-width: min(100%, 24rem);
@@ -79,6 +78,7 @@ main {
   max-width: min(100%, 52rem);
   padding-block: 0.67em;
 }
+
 
 
 header {
@@ -115,12 +115,14 @@ a:active,
 a:visited {
   text-decoration: underline;
   color: var(--lot-darkwr);
+  
 }
 
 a:hover,
 a:focus {
   text-decoration: none;
   font-style: italic;
+  text-transform: capitalize;
 }
 
 s a {
@@ -167,6 +169,8 @@ th
   text-transform: lowercase;
   /* width: max-content; */
   width: 100%;
+  
+  
 }
 
 th,
@@ -216,6 +220,7 @@ input[type="submit"],
 section,
 article,
 img,
+/* nav, */
 /* ul, */
 th,
 td,
@@ -236,7 +241,7 @@ address p {
 
 /* skip button */
 
-/* header a#skip {
+header a#skip {
   position: absolute;
   padding: 0.2rem 0.3rem;
   background-color: var(--brown);
@@ -247,77 +252,31 @@ address p {
 
 header a#skip:focus {
   transform: translateY(0);
-} */
-
-
-/* logo */
-
-a#logo {
-  width: max-content;
-  height: 8rem;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  z-index: 100;
-  border-radius: 100%;
 }
 
-a#logo img {
-  transition: all var(--fast) linear;
-}
-
-a#logo:focus img,
-a#logo:focus-within img {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 1rem var(--darker));
-}
-
-
-a#logo figure img {
-  width: 8rem;
-  background-color: unset;
-  border: none;
-}
 
 /* nav */
 
-header  {
-  max-width: max-content;
+header nav {
+  width: 100%; 
   margin: auto;
   padding: 2px;
   margin-block: 0.75rem;
 }
 
-/* header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100%;
-} */
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1001; /* Higher than the header to ensure it's on top */
-}
-
-
- ul {
+header nav ul {
   list-style: none;
-  width: max-content;
+  width: 100%;
   margin: 0 auto;
   padding: 0;
   padding: 0.75rem;
   display: flex;
+  justify-content: space-between;
 }
 
 header nav ul li a {
   padding: 0.2rem 0.3rem;
 }
-
-
 
 /* figures, images, audio, video */
 
@@ -352,7 +311,7 @@ figureBigger figcaption {
 }
 
 figureSmaller img {
-  width: 50%; /* Set the initial width to half */
+  width: 100%; /* Set the initial width to half */
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -361,9 +320,6 @@ figureSmaller img {
 
 }
 
-figureSmaller:hover img {
-  width: 100%; /* Enlarge image to full width on hover */
-}
 
 figureSmaller figcaption {
   font-style: italic;
@@ -485,7 +441,6 @@ main.cv section p {
   header a#logo { height: 3rem; margin: unset;}
   header a#logo figure { margin: 0 !important; }
   header a#logo figure img { width: 3rem; } */
-  
   .print_only {
     display: unset;
   }
@@ -565,6 +520,7 @@ main.cv section p {
 .image-item {
   margin-top: 10px; /* Space between text and image */
   width: 100%; /* Adjust width as needed */
+  
 }
 
 .image-item img {
@@ -647,68 +603,6 @@ main.cv section p {
   /* Ensure images don't exceed their container */
   height: auto;
   /* Maintain image aspect ratio */
-}
-
-.magnifier-thumb-wrapper {
-  position: relative;
-  display: block;
-  top: 0;
-  left: 0
-}
-
-.magnifier-lens {
-  position: absolute;
-  border: solid 1px #ccc;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  background: transparent;
-  background: hsl(0, 0%, 100%);
-}
-
-.magnifier-loader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: solid 1px #ccc;
-  color: #fff;
-  text-align: center;
-  background: transparent;
-  background: rgba(50, 50, 50, 0.5);
-  z-index: 1000;
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232,endColorstr=#7F323232)";
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232, endColorstr=#7F323232)
-}
-
-.magnifier-loader-text {
-  font: 13px Arial;
-  margin-top: 10px
-}
-
-.magnifier-large {
-  position: absolute;
-  z-index: 1000
-}
-
-.magnifier-preview {
-  padding: 10;
-  width: 100%;
-  height: auto;
-  position: absolute;
-  /* Set to absolute for positioning */
-  pointer-events: none;
-  /* Ensure it doesn't interfere with mouse events */
-  display: none;
-  /* Initially hide the preview */
-  background: hsl(0, 0%, 100%);
-  overflow: hidden
-}
-
-.magnifier-preview img {
-  position: absolute;
-  top: 0;
-  left: 0
 }
 
 .opaque {
@@ -828,26 +722,237 @@ main.cv section p {
 }
 
 
-
 .image-grid {
+  display: grid;
+  grid-template: auto / auto auto;  
+  grid-gap: 10px;
+}
+
+.image-grid2 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 10px;
+  text-align: ;
 }
+
+#projectsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 15px;
+  justify-content: space-evenly;
+  border:  none;
+}
+/* #projectsContainer img {
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+
+} */
+
 .block-item {
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
 }
+
+.block-item2 {
+  padding: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.homeimg {
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+  height: auto; /* Maintains aspect ratio */
+  display: inline-block; /* Aligns the image properly for centering */
+  position: fixed;
+  background: transparent;
+  border: none;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.8; /* Adjust this value as needed */
+    overflow: visible; /* Hides parts of the image that overflow the container */
+  text-align: center; /* Centers the image */
+}
+
 .image-item {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 .block-title {
   font-weight: bold;
+  text-align: justify
 }
 .block-description {
   margin-top: 5px;
   font-weight: bold;
+}
+
+#projectTable, 
+#experienceTable {
+  width: 100%;
+  max-width: 100%; /* Ensures table doesn't exceed the parent's width */
+  table-layout: fixed; /* Helps in controlling the column widths */
+}
+
+.project {
+  margin-bottom: 20px;
+}
+
+.slideshowContainer {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+}
+
+.slideshowContainer::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto; 
+  padding: 0.5rem;
+background-color: var(--brown);
+border: none;
+width: 70%;
+margin: auto;
+display: block; 
+}
+
+slide .image-item {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projectText {
+  text-align: left; /* Center the text under the slideshow */
+  padding: 0.75rem;
+}
+
+.projectText h7 {
+  text-align: right; /* Centers the titles */
+}
+
+.projectText small {
+  text-align: right; /* Aligns the descriptions to the left */
+}
+
+.projectText p {
+  text-align: right; /* Aligns the role information to the right */
+}
+
+
+#proxytitle {
+  position: -webkit-sticky; /* Safari & IE */
+position: sticky;
+top: 0;
+}
+
+
+.scrolling-wrapper {
+  width: 100%; /* Adjust based on your needs, keeping it more horizontal */
+  height: 300px; /* Adjust the height as needed */
+  overflow-y: scroll; /* Enables vertical scrolling */
+  overflow-x: hidden; /* Hides horizontal scrollbar */
+  display: block;
+  margin: auto;
+  border: 1px solid #ccc; /* Optional: adds a border around the div */
+}
+
+.scrolling-wrapper img {
+  width: 100%; /* Makes image width fit the container */
+  height: auto; /* Keeps image aspect ratio intact */
+  display: block; /* Ensures images stack vertically */
+  margin-bottom: 10px; /* Optional: adds space between images */
+}
+
+
+.scrolling-wrapper2 {
+  width: 100%; /* Adjust based on your needs, keeping it more horizontal */
+  height: 700px; /* Adjust the height as needed */
+  overflow-y: scroll; /* Enables vertical scrolling */
+  overflow-x: hidden; /* Hides horizontal scrollbar */
+  display: block;
+  margin: auto;
+  border: 1px solid #ccc; /* Optional: adds a border around the div */
+}
+
+.scrolling-wrapper2 img {
+  width: 100%; /* Makes image width fit the container */
+  height: auto; /* Keeps image aspect ratio intact */
+  display: block; /* Ensures images stack vertically */
+  margin-bottom: 10px; /* Optional: adds space between images */
+}
+
+#backgroundContainer {
+  position: fixed;
+  top: 100;
+  width: 80%;
+  height: 80%;
+  background-size: center;
+  background-position: center;
+  opacity: 0.4;
+  
+}
+
+.project-info {
+  color: black; /* Adjust color based on your image's color scheme */
+  opacity: 0.7;
+  text-align: center;
+  padding: 10px;
+
+}
+
+.project-info h2, .project-info p {
+  margin: 0;
+  padding: 5px;
+}
+
+/* Style for the row containing the columns */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style for each column */
+.arena-column {
+  flex: 1;
+  padding: 0 15px;
+}
+
+/* Style for each data entry */
+.data-entry {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.data-entry h3 {
+  margin: 0 0 20px 0;
+  color: inherit; /* Dark grey color for text */
+}
+
+.data-entry a,
+.data-entry span {
+  color: inherit;  
+  text-decoration: underline;
+  
+}
+
+.data-entry a:hover {
+  text-decoration: underline;
 }

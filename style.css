@@ -881,7 +881,7 @@ top: 0;
 
 .scrolling-wrapper2 {
   width: 100%; /* Adjust based on your needs, keeping it more horizontal */
-  height: 500px; /* Adjust the height as needed */
+  height: 700px; /* Adjust the height as needed */
   overflow-y: scroll; /* Enables vertical scrolling */
   overflow-x: hidden; /* Hides horizontal scrollbar */
   display: block;

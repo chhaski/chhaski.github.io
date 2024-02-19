@@ -44,7 +44,7 @@
     <table id="projectTable">
         <tbody>
           <tr>
-            <th>selected project</th>
+            <th>selected projects</th>
             <th>desc</th>
             <th>role</th>
             <!-- Add more <th> elements here for additional columns -->
@@ -61,12 +61,10 @@
           <tr>
             <th>selected experience and affilliations</th>
             <th>role</th>
-            <!-- Add more <th> elements here for additional columns -->
           </tr>
           <tr>
           </tr>
-    
-          <!-- This is where your script will append rows -->
+
         </tbody>
       </table>
 
@@ -76,7 +74,7 @@
   <script>
 
 $(document).ready(function () {
-    var spreadsheetIdAndTab = "16b35tRvU5_fTAOR4FsGhSSmxQkjaYZiQBL56p4hEWL0/Sheet1";
+    var spreadsheetIdAndTab = "1FEkRs-Rji7YSvZtIEmAjQ5r6-xOVTo5PtCs5CJkTAmM/Selected";
     $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
       data.forEach(function (row) {
         var newRow = $("<tr>");
@@ -87,7 +85,7 @@ $(document).ready(function () {
         descCell.append(link);
         newRow.append(descCell);
 
-        // Create italicized role cell
+        // italicized role cell
         var roleCell = $("<td>").append($("<i>").text(row.role));
         newRow.append(roleCell);
 
@@ -101,7 +99,7 @@ $(document).ready(function () {
         var newRow = $("<tr>");
         newRow.append($("<td>").text(row.title));
 
-        // Create italicized role cell
+        // italicized role cell
         var roleCell = $("<td>").append($("<i>").text(row.role));
         newRow.append(roleCell);
 
