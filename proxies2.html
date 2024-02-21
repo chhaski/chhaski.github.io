@@ -40,7 +40,7 @@
       hold, that is coming from somewhere and going somewhere else? What are the effects of these embodied
       transmissions? How can this position of intermediary, in its irreducible in-between-ness, constitute
       or allow us to imagine other modes of communication? </p>
-
+    </main>
 
   <div id="proxytitle">
     <h4>Proxy...</h4>
@@ -69,7 +69,7 @@
         essay on proxies for NYU ITP site about telecommunications networks
       </a></h4>
     <br>
-  </main>
+
     <!-- <figure>
       <div id="mynetwork"></div>
     </figure>
@@ -118,9 +118,9 @@ $(document).ready(function () {
     function appendData(entries, containerId) {
       entries.forEach(function (row) {
         var div = $("<div class='data-entry'>");
-        var title = $("<h3>").text(row.title);
+        var title = $("<h4>").text(row.title);
         var credit = row.link ? $("<a>").attr("href", row.link).text(row.credit) : $("<span>").text(row.credit);
-        div.append(title, $("<p>").append(credit));
+        div.append(title, $("<small>").append(credit));
         $(containerId).append(div);
       });
     }

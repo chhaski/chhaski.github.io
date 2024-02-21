@@ -1,7 +1,6 @@
 :root {
 
   --brown: hsl(0, 0%, 100%);
-  /* --brown          : hsl(0, 9%, 62%); */
   --lighter: rgb(255, 255, 255, 0.25);
   --little-lighter: rgba(255, 255, 255, 0.05);
   --little-darker: rgb(0, 0, 0, 0.05);
@@ -29,7 +28,6 @@
   /* Transition and animation speeds */
 
   --fast: 0.25s;
-
 }
 
 /* preveting headaches */
@@ -80,7 +78,6 @@ main {
 }
 
 
-
 header {
   max-width: min(100%, 54rem);
 }
@@ -114,8 +111,7 @@ a,
 a:active,
 a:visited {
   text-decoration: underline;
-  color: var(--lot-darkwr);
-  
+  color: var(--lot-darkwr); 
 }
 
 a:hover,
@@ -220,8 +216,6 @@ input[type="submit"],
 section,
 article,
 img,
-/* nav, */
-/* ul, */
 th,
 td,
 .carve-in {
@@ -316,8 +310,6 @@ figureSmaller img {
   margin-left: auto;
   margin-right: auto;
   transition: width 0.5s ease; /* Smooth transition for resizing */
-  /* transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; */
-
 }
 
 
@@ -434,10 +426,6 @@ main.cv section p {
     display: none;
   }
 
-  /* header { max-width: 100%; }
-  header a#logo { height: 3rem; margin: unset;}
-  header a#logo figure { margin: 0 !important; }
-  header a#logo figure img { width: 3rem; } */
   .print_only {
     display: unset;
   }
@@ -476,7 +464,6 @@ main.cv section p {
 #mynetwork {
   width: 800;
   height: 300;
-  /* border: 1px solid lightgray; */
   background-color: var(--brown);
 
 }
@@ -850,6 +837,35 @@ slide .image-item {
   text-align: right; /* Aligns the role information to the right */
 }
 
+@media screen and (max-width: 600px) {
+  .projectText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .projectText h7 {
+    text-align: right; /* Centers the titles */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .projectText small {
+    text-align: right; /* Aligns the descriptions to the left */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .projectText p {
+    text-align: right; /* Aligns the role information to the right */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
 #proxytitle {
   position: -webkit-sticky; /* Safari & IE */
@@ -952,4 +968,21 @@ top: 0;
 
 .data-entry a:hover {
   text-decoration: underline;
+}
+
+
+@media screen and (max-width: 600px) {
+  .arena-column {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  
+}
+
+@media screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
 }
