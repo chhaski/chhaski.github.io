@@ -36,30 +36,17 @@
   </header>
  
 <main>
-  <figureSmaller>
-<img src="https://d2w9rnfcy7mm78.cloudfront.net/26516201/original_0cdf81d1ce8b9bbe82fb5b24a436daa5.gif?1708570122"/>
-</figureSmaller>
+  <figureBigger>
+    <img id="archive_output_image" src="https://d2w9rnfcy7mm78.cloudfront.net/26081729/original_49793e7c6b79af57778bdf9f54b32a37.png?1706814071?bc=0" alt="        generator output
+    " />
+    <figcaption>
+      web of deviatiions
+    </figcaption>
+  </figureBigger>
 </div>
 
 <br>
 <script>
-$(document).ready(function () {
-    var spreadsheetIdAndTab = "1FEkRs-Rji7YSvZtIEmAjQ5r6-xOVTo5PtCs5CJkTAmM/Sheet1";
-    $.getJSON("https://opensheet.elk.sh/" + spreadsheetIdAndTab, function (data) {
-        // Assuming you want to display the first project initially
-        var firstProject = data[0];
-        var imageUrl = firstProject.imageURLs.split(",")[0].trim(); // Assuming first image URL for background
-        
-        // Set the background image
-        $("#backgroundContainer").css("background-image", 'url(' + imageUrl + ')');
-
-        // Set project title and description
-        $("#projectInfo").html('<h2>' + firstProject.title + '</h2><p>' + firstProject.desc + '</p>');
-        
-        // Here, you would implement functionality to navigate between projects
-        // For simplicity, this example only displays the first project
-    });
-});
   </script>
 
 </body>

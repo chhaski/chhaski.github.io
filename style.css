@@ -790,6 +790,15 @@ main.cv section p {
   table-layout: fixed; /* Helps in controlling the column widths */
 }
 
+/* .project {
+  position: relative;
+}
+
+.slideshowContainer {
+  position: absolute;
+  bottom: 0;
+} */
+
 .project {
   margin-bottom: 20px;
 }
